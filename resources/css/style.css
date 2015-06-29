@@ -1,0 +1,174 @@
+body{
+	background-color: #E0E0EB;
+	/*background:url(../images/kritonbg.jpg) center center no-repeat;*/
+	font-family: "Open Sans",sans-serif;
+	color: black !important;
+}
+
+#topNavigation {
+	text-transform: uppercase;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+}
+
+#message{
+	position: relative;
+	top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.eventDetails, .result {
+	border-style: solid;
+	border-width: thin;
+	border-radius: 5px;
+	padding: 5px;
+	background-color: #fff;
+}
+
+textarea {
+    resize: none;
+}
+
+#wordsInfo {
+	text-align: left;
+	padding-left: 30px;
+	color: green;
+}
+
+/*Maybe not necessary!!*/
+button {
+  position: relative;
+  z-index: 100000;
+}
+
+.evTitle {
+	text-align: left;
+	font-weight: 800;
+	font-size: 25px;
+	color: #2E5CE6;
+}
+
+.evDescription{
+	font-size: 15px;
+	text-align: justify;
+}
+
+.showMap u {
+	color: blue;
+	font-size: 20px;
+}
+
+.evPlace{
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.evDate {
+	font-size: 20px;
+	font-weight: bold;
+	float: right;
+    margin-top: 20px;
+	color: #000099;
+}
+
+#placeGlyph span {
+	right: 10px;
+}
+
+.result {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+/*http://stackoverflow.com/questions/18424798/twitter-bootstrap-3-how-to-use-media-queries*/
+@media(min-width:992px){
+  .result {
+	width: 850px;
+	padding-right: 15px;
+  }
+  
+  body{
+  background:url(../images/site/sougia1.jpg) center center no-repeat;
+	background-attachment:fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	}
+}
+
+#maps {
+	width: 300px;
+	height: 150px;
+}
+
+hr {
+	border-color: black;
+}
+
+/*File Upload (Photo)*/
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+
+/*Bootstrap Calendar*/
+#datetimepicker1 input:hover, #datetimepicker1 span:hover {
+	cursor: pointer;
+}
+
+.day:hover{
+	background-color: #A0A0A0;
+	cursor: pointer;
+}
+.previ:hover, .next:hover, .datepicker-switch:hover{
+	cursor: pointer;
+}
+
+.today {
+	background-color: grey;
+}
+
+.disabled  {
+	text-decoration: line-through;
+}
+
+.disabled:hover  {
+	background-color: #fff;
+	cursor: auto;
+}
+
+/*Navigation Bar*/
+.topNavLi:hover {
+	background-color: black;
+	color: white;
+}
+
+.topNavLi a:hover {
+	color: #fff !important;
+}
+
+.btn-block-custom {
+	width: 80%;
+}
+
+.active>a:hover {
+	color: #555 !important;
+}

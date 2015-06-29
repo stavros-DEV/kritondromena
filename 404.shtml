@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>404 - PAGE NOT FOUND</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.style2 {color: #084B1F}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF">
+<table width="706" border="0" align="center" cellpadding="0" cellspacing="0" id="Table_01">
+	<tr>
+		<td><div align="center">
+		  <p><a href="http://www.sigmaweb.gr"><img src="http://www.sigmaweb.gr/error/404.gif" alt="" width="270" height="130" border="0" /></a></p>
+		  <p>&nbsp;</p>
+		</div></td>
+
+  </tr>
+	<tr>
+	  <td align="center" class="bg"><p><br />
+	      <span class="black1"><strong><span class="style2">ERROR 404 - PAGE NOT FOUND</span> <br />
+		      </strong>Looks like the page you're looking for was moved or never existed. <br />
+        Make sure you typed the correct URL or followed a valid link.</span></p>
+	    <p>&nbsp;</p>
+      <table width="573" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="573">
+              <p align="center"><span class="style2"><strong>ERROR 404 - Η ΣΕΛΙΔΑ ΔΕΝ ΒΡΕΘΗΚΕ </strong>
+              </span><br />
+              H σελίδα που ψάχνετε δεν υπάρχει η έχει μεταφερθεί.
+Παρακαλώ βεβαιωθείτε ότι πληκτρολογήσατε την σωστή διεύθυνση.</p></td>
+
+            </tr>
+
+          </table>
+
+          <p>
+        <p align="center" class="red1"><font color="#000000">This Site is 
+        Hosted by <a href="http://www.sigmaweb.gr">SigmaWeb Internet Solutions</a> </font><br />
+        </p>
+	</td>
+
+	</tr>
+
+
+	<tr>
+		<td><br />
+      &nbsp;</td>
+
+	</tr>
+
+</table>
+</body>
+</html>
+

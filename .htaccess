@@ -1,0 +1,10 @@
+RewriteEngine on
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^[/]*$ index.php
+RewriteRule ^events[/]*$ events_dir/index.php
+RewriteRule ^new-event[/]*$ addevent_dir/index.php
+RewriteRule ^about-us[/]*$ aboutus_dir/index.php
+RewriteRule ^events/glenti-ston-kavro*$ events_dir/eventsId.php?id=67
