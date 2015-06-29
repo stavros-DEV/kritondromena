@@ -37,7 +37,7 @@
 			<div class="form-group">
 			  <label class="control-label col-sm-2" for="eventTitle">Τίτλος Δρώμενου</label>
 			  <div class="col-sm-6">
-				<input type="text" class="form-control" id="eventTitle" name="eventTitleN" placeholder="π.χ. Γλέντι Χορευτικού Σύλλογου Χανίων" required>
+				<input type="text" class="form-control" id="eventTitle" name="eventTitleN" placeholder="π.χ. Γλέντι Χορευτικού Σύλλογου Χανίων" required/>
 			  </div>
 			  <label class="control-label col-sm-1" for="eventTitle">Εικόνα/ες</label>
 			  <div class="col-sm-3">

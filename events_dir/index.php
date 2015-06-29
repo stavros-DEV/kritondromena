@@ -11,7 +11,24 @@
 
 <body>
 	<?php require("../inc/header.php"); ?>
-	
+	<div class="topSearchEngine">
+	  <form class="form-inline">
+		<select class="tseInputFields" id="tseLocation">
+			<option>Οπουδήποτε</option>
+		   <option>Χανιά</option>
+		   <option>Ρέθυμνο</option>
+		   <option>Ηράκλειο</option>
+		   <option>Λασίθι</option>
+		   <option>Αλλού</option>
+		</select>
+		<div class="date datepicker no-padding datepickerWeather tseDateDiv" id="datetimepicker1">
+			<input type="text" class="dateText tseInputFields" name="dateSelector" id="eventDate"/>
+			<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+		</div>
+		<input type="text" class="tseInputFields" id="tseDate"/>
+		<input type="submit" class="tseInputFields" id="tseSubmit" value="Αναζήτηση"/>
+	  </form>
+	</div>
 	<div class="container" id="message" align="center">
 	  <div class="row">
 		<div class="col-xs-12">

@@ -13,7 +13,7 @@ body{
 
 #message{
 	position: relative;
-	top: 50px;
+	top: 100px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -39,7 +39,7 @@ textarea {
 /*Maybe not necessary!!*/
 button {
   position: relative;
-  z-index: 100000;
+  z-index: 300;
 }
 
 .evTitle {
@@ -171,4 +171,39 @@ hr {
 
 .active>a:hover {
 	color: #555 !important;
+}
+
+.topSearchEngine {
+	top: 50px;
+	position: fixed;
+	background-color: #333333;
+	width: 100%;
+	text-align: center;
+	height: 35px;
+	z-index: 500;
+}
+
+.tseInputFields {
+	top: 4px;
+	position: relative;
+	border-radius: 20px;
+	padding-left: 10px;
+}
+
+.tseInputFields:focus {
+	outline: none;
+	border:1px solid red
+}
+
+#tseLocation {
+	font-size: 18px;
+}
+
+.tseDateDiv{
+	display: inline;
+}
+
+.glyphicon-calendar{
+	right: 30px;
+	top: 5px;
 }
