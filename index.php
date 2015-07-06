@@ -9,15 +9,17 @@
 
 <body>
 	<?php require("inc/header.php"); ?>
-	
+	<div class="hidden-xs">
+	  <?php require("inc_view/topSearchEnginePost.php"); ?>
+	</div>
 	<div class="container" id="message" align="center">
 		<h1>ΚΡΗΤΩΝ ΔΡΩΜΕΝΑ</h1>
 		Το Portal kritondromena.gr θα είναι κοντά σας στις 01.08.2015
 		<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px;">
 			<!-- Slides Container -->
 			<div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 600px; height: 300px;">
-				<div><img u="image" src2="resources/images/kritonbg.jpg" />tileei</div>
-				<div><img u="image" src2="resources/images/df.jpg" />xairetw</div>
+				<!--<div><img u="image" src2="resources/images/kritonbg.jpg" />tileei</div>
+				<div><img u="image" src2="resources/images/df.jpg" />xairetw</div>-->
 			</div>
 		</div>
 		

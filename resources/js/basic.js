@@ -27,10 +27,10 @@ $( document ).ready(function() {
 	var numofWords = 0;
 
 	function checkInput() {
-		if (numofWords < 20){
+		/*if (numofWords < 20){
 			$('#eventDescription').css("border-color", "red");
 			return false;
-		} else if ($('#eventTitle').val().length == 0) {
+		} else */if ($('#eventTitle').val().length == 0) {
 			$('#eventTitle').css("border-color", "red");
 			return false;
 		} else if ($('#eventPlace').val().length == 0) {
@@ -94,7 +94,6 @@ $( document ).ready(function() {
 				addFailClass();
 			  }
 			});
-			console.log(noresults);
 		}
 	});
 	
@@ -183,6 +182,27 @@ $( document ).ready(function() {
         }
         
     });
-
-
+	
+	
+	/*Top Search Results*/
+	$("#tseForm").on("submit", function (e) {
+		$( "#defaultResults" ).remove();
+		$( "#ajaxLoading" ).append('<img id="loadingImage" src="../resources/images/site/custom-ajax-loader.gif" />').fadeIn('slow');
+		var date  = $('#tseDate').val();
+		var place = $('#tseLocation').val();
+		
+		if(place == "any")
+			var url = "../events_dir/ajaxResults.php?date="+date;
+		else
+			var url = "../events_dir/ajaxResults.php?loc="+place+"&date="+date;
+		
+		$( "#ajaxResults" ).load( url, function(){
+			$(this).fadeIn('slow');
+		});
+		$("#ajaxLoading img:last-child").fadeOut(1000, function() { $(this).remove(); });
+		//$("#ajaxLoading img:last-child").remove();
+		return false;
+	});
+	
+	$('#summernote').summernote({height: 300});
 });

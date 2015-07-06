@@ -71,5 +71,34 @@
 			$con->close();
 			return $result;
 		}
+		
+		public function getEventsByParams($place = null, $date = null) {
+			require("../inc/mysqlConnect.php");
+			if(isset($date)) {
+				$day1 = date('Y-m-d', strtotime($date. ' - 7 days'));
+				$day2 = date('Y-m-d', strtotime($date. ' + 7 days'));
+			}
+			
+			if(isset($place) && isset($date))
+				$sql = "SELECT *, x(PlaceLngLat) as Lng, y(PlaceLngLat) as Lat FROM Events WHERE Place LIKE '%".mysql_escape_string($place)."%' AND (EventDate BETWEEN '".mysql_escape_string($day1)."' AND '".mysql_escape_string($day2)."')";
+			elseif(isset($place) && !isset($date))
+				$sql = "SELECT *, x(PlaceLngLat) as Lng, y(PlaceLngLat) as Lat FROM Events WHERE Place LIKE '%".mysql_escape_string($place)."%'";
+			elseif(!isset($place) && isset($date))
+				$sql = "SELECT *, x(PlaceLngLat) as Lng, y(PlaceLngLat) as Lat FROM Events WHERE (EventDate BETWEEN '".mysql_escape_string($day1)."' AND '".mysql_escape_string($day2)."')";
+			else
+				return false;
+			
+			$con->query("SET NAMES utf8");
+			$result = $con->query($sql);
+			
+			if ($result) {
+				
+			} else {
+				
+			}
+			$con->close();
+			return $result;
+		}
+		
 	}
 ?>

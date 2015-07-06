@@ -8,3 +8,4 @@ RewriteRule ^events[/]*$ events_dir/index.php
 RewriteRule ^new-event[/]*$ addevent_dir/index.php
 RewriteRule ^about-us[/]*$ aboutus_dir/index.php
 RewriteRule ^events/glenti-ston-kavro*$ events_dir/eventsId.php?id=67
+RewriteRule ^events/testing-wysiwyg[/]*$ events_dir/eventsId.php?id=68

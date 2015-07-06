@@ -203,7 +203,24 @@ hr {
 	display: inline;
 }
 
-.glyphicon-calendar{
+#glyphicon-calendar-custom {
 	right: 30px;
 	top: 5px;
+}
+
+#calendar-custom {
+	background-color: #333333;
+  border: #333333;
+  width: inherit;
+  display: initial;
+    right: 5px;
+  position: relative;
+}
+
+#tseSubmit{
+	right: 40px;
+}
+
+.datepicker-dropdown {
+  z-index: 500 !important;
 }

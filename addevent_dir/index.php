@@ -1,6 +1,6 @@
 <?php 
 	header('Content-Type: text/html; charset=utf-8');
-	if(isset($_POST["eventTitleN"]) && isset($_POST["eventPlaceN"]) && isset($_POST["dateSelector"]) && isset($_POST["eventDescriptionN"]) && isset($_POST["eventEmailN"])) {
+	if(isset($_POST["eventTitleN"]) && isset($_POST["eventPlaceN"]) && isset($_POST["dateSelector"]) && isset($_POST["summernote"]) && isset($_POST["eventEmailN"])) {
 		require("addEvent.php");
 	}
 ?>
@@ -10,17 +10,23 @@
 <head>
 	<title>Κρητών Δρώμενα: Πολιτισμός και Παραδόση σε ένα site</title>
 	<?php require("../inc/resources.php"); ?>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/resources/css/summernote.css" rel="stylesheet">
+	<script src="/resources/js/summernote.min.js"></script>
 </head>
 
 <body>
-	<div class="container" id="message">
 	<?php require("../inc/header.php"); ?>
+	<div class="hidden-xs">
+	  <?php require("../inc_view/topSearchEnginePost.php"); ?>
+	</div>
+	<div class="container" id="message">
 	<div class="row"><div class="col-xs-12">
 		<h1>ΚΡΗΤΩΝ ΔΡΩΜΕΝΑ</h1>
 		Το Portal kritondromena.gr θα είναι κοντά σας στις 01.08.2015
 		<br/><br/>
 		<div class="eventDetails">
-		  <form class="form-horizontal" method="POST" id="eventsForm" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >
+		  <form class="form-horizontal" method="POST" id="eventsForm" role="form" accept-charset="UTF-8" enctype="multipart/form-data" novalidate >
 		    <?php if (!isset($fail)) : ?>
 			<?php elseif ($fail) : ?>
 				<div class="alert alert-success fade in">
@@ -74,7 +80,8 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2" for="eventDescription">Περιγραφή<br/>(τουλ. 40 λέξεις)</label>
 				<div class="col-sm-10">
-				  <textarea class="form-control" rows="10" id="eventDescription" name="eventDescriptionN" placeholder="Αναλυτικά οι πληροφορίες για το δρώμενο." lang="el" spellcheck="true" required></textarea>
+				  <!-- <textarea class="form-control" rows="10" id="eventDescription" name="eventDescriptionN" placeholder="Αναλυτικά οι πληροφορίες για το δρώμενο." lang="el" spellcheck="true" required></textarea>-->
+				  <textarea class="form-control" rows="10"  name="summernote" id="summernote" placeholder="Αναλυτικά οι πληροφορίες για το δρώμενο." lang="el" spellcheck="true" required></textarea>
 				</div>
 				<div class="row"><div class="col-sm-offset-2 col-sm-10" id="wordsInfo"></div></div>
 			</div>

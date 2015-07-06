@@ -7,7 +7,7 @@
 	$title = $_POST["eventTitleN"];
 	$place = $_POST["eventPlaceN"];
 	$date  = $_POST["dateSelector"];
-	$descr = $_POST["eventDescriptionN"];
+	$descr = $_POST["summernote"];
 	$email = $_POST["eventEmailN"];
 	$lng   = $_POST["eventLngN"];
 	$lat   = $_POST["eventLatN"];
