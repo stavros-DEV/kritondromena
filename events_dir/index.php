@@ -11,14 +11,7 @@
 
 <body>
 	<?php require("../inc/header.php");
-		if(isset($_POST['loc'])) {
-			$_GET['loc'] = $_POST['loc'];
-		}
 		
-		if(isset($_POST['dateSelector'])) {
-			$_GET['date'] = $_POST['dateSelector'];
-			require('ajaxResults.php');
-		}
 		
 		
 		
@@ -29,9 +22,22 @@
 	<div class="container" id="message" align="center">
 	  <div class="row">
 		<div class="col-xs-12">
-		  <h1>ΠΑΡΟΥΣΙΑΣΗ ΑΠΟΤΕΛΕΣΜΑΤΩΝ</h1>
-		  <p>Το Portal kritondromena.gr θα είναι κοντά σας στις 01.08.2015</p>
-		  <?php if ( !isset($_POST['dateSelector']) && !isset($_POST['loc']) ) : ?>
+		  <div class="main-landing-message">
+		    <h1>Κρητικές βραδιές και εκδηλώσεις</h1>
+			<p>Αναζητήστε εύκολα τις μουσικές βραδιές, εκδηλώσεις δρώμενα που σας ενδιαφέρουν.</p>
+		    <p>Το Portal kritondromena.gr θα είναι κοντά σας στις 01.08.2015</p>
+		  </div>
+		  <?php 
+			if(isset($_POST['loc'])) {
+				$_GET['loc'] = $_POST['loc'];
+			}
+		
+			if(isset($_POST['dateSelector'])) {
+				$_GET['date'] = $_POST['dateSelector'];
+				require('ajaxResults.php');
+			}
+		  
+		  if ( !isset($_POST['dateSelector']) && !isset($_POST['loc']) ) : ?>
 		  <?php require("getEvents.php"); ?>
 		  <div id="defaultResults">
 		  <?php $i = 0; while($row = $res->fetch_assoc()) : ?>

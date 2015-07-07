@@ -1,7 +1,7 @@
 <?php
 	echo '<div class="topSearchEngine">
-	  <form class="form-inline" action="events_dir/index.php" accept-charset="UTF-8" enctype="multipart/form-data" method="post" id="tseFormPost">
-		<select class="tseInputFields" id="tseLocation">
+	  <form class="form-inline" action="events/" accept-charset="UTF-8" enctype="multipart/form-data" method="post" id="tseFormPost">
+		<select class="tseInputFields" id="tseLocation" name="loc">
 			<option value="any">Οπουδήποτε</option>
 		    <option value="Χανιά">Χανιά</option>
 		    <option value="Ρέθυμνο">Ρέθυμνο</option>

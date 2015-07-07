@@ -22,9 +22,11 @@
 	</div>
 	<div class="container" id="message">
 	<div class="row"><div class="col-xs-12">
+	  <div class="main-landing-message">
 		<h1>ΚΡΗΤΩΝ ΔΡΩΜΕΝΑ</h1>
 		Το Portal kritondromena.gr θα είναι κοντά σας στις 01.08.2015
-		<br/><br/>
+	  </div>
+		<br/>
 		<div class="eventDetails">
 		  <form class="form-horizontal" method="POST" id="eventsForm" role="form" accept-charset="UTF-8" enctype="multipart/form-data" novalidate >
 		    <?php if (!isset($fail)) : ?>
