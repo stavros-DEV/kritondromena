@@ -216,8 +216,13 @@ $( document ).ready(function() {
 	$( window ).load(function() {
 		var hash = window.location.hash;
 		var eventID = hash.substr(6, hash.length);
+		if ($(window).width() < 767)
+		  var minus = 50;
+		else
+		  var minus = 85;
+		
 		$('html, body').animate({
-          scrollTop: $("."+eventID).offset().top - 85
+          scrollTop: $("."+eventID).offset().top - minus
 		}, 2000);
 	});
 });
