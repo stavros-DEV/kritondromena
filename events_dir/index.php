@@ -37,7 +37,7 @@
 		  <div id="defaultResults">
 		  <?php $i = 0; while($row = $res->fetch_assoc()) : ?>
 		  
-		  <div class="row result">		  
+		  <div class="row result <?= $row['ID'] ?>">
 		    <div class="row evTitle">
 			  <div class="col-xs-12">
 				<a href="<?= $row['Url'] ?>" title="<?= $row['Title'] ?>"><?php echo $row['Title'] ?></a>

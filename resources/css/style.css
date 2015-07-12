@@ -120,6 +120,19 @@ button {
 	-o-background-size: cover;
 	background-size: cover;
 	}
+	
+	.home-right-column {
+		margin-left:10px;
+	}
+
+	.home-left-column {
+		margin-right:10px;
+	}
+}
+
+.home-custom-column{
+	padding-right:0px;
+	padding-left:0px;
 }
 
 #maps {
@@ -255,18 +268,7 @@ hr {
 }
 
 /*HOMEPAGE*/
-.home-custom-column{
-	padding-right:0px;
-	padding-left:0px;
-}
 
-.home-right-column {
-	margin-left:10px;
-}
-
-.home-left-column {
-	margin-right:10px;
-}
 
 .home-events-title{
 	text-align: left;

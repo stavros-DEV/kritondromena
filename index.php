@@ -36,11 +36,11 @@
 	  <div class="row">
 		<div class="col-md-6 home-custom-column">
 			<div class="home-columns home-left-column">
-				<div class="evTitle"><h3>Κρητών Δρώμενα</h3></div>
+				<div class="evTitle"><h3>Κρητών Δρώμενα</h3></div><hr/>
 				<?php $i = 0; while($row = $res->fetch_assoc()) : ?>
-				  <div class="row ">
+				  <div class="row">
 					<div class="home-events-title">
-						<?php echo $row['Title'] ?>
+						<a href="/events/#event<?= $row['ID'] ?>"><?php echo $row['Title'] ?></a>
 					</div>
 					<div class="home-events-date">
 						<?php echo $row['EventDate'] ?>
@@ -52,7 +52,7 @@
 		
 		<div class="col-md-6 home-custom-column">
 			<div class="home-columns home-right-column">
-				<div class="evTitle"><h3>Κείμενα</h3></div>
+				<div class="evTitle"><h3>Κείμενα</h3></div><hr/>
 			</div>
 		</div>
 	  </div>	

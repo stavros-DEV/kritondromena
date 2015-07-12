@@ -3,14 +3,8 @@
 <head>
 	<title>Δρώμενα</title>
 	<meta name="description" content="">
-	<meta content="Stavros Tsourdos" name="author"></meta>
-	<meta content="Stavros Tsourdos" name="publisher"></meta>
-	<meta content="Stavros Tsourdos, Chania" name="copyright"></meta>
 	<meta content="" name="keywords">
 	<meta name="page-topic" content="">
-	<meta name="audience" content="all">
-    <meta name="language" content="el">
-	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<?php require("../inc/resources.php"); ?>
 </head>
 

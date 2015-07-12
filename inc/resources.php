@@ -1,5 +1,10 @@
 <?php
 	echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta content="Stavros Tsourdos" name="author"></meta>
+	<meta content="Stavros Tsourdos" name="publisher"></meta>
+	<meta content="Stavros Tsourdos, Chania" name="copyright"></meta>
+	<meta name="audience" content="all">
+    <meta name="language" content="el">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">

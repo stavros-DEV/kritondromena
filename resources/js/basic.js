@@ -213,4 +213,11 @@ $( document ).ready(function() {
 	});
 	
 	//$('#summernote').summernote({height: 300});
+	$( window ).load(function() {
+		var hash = window.location.hash;
+		var eventID = hash.substr(6, hash.length);
+		$('html, body').animate({
+          scrollTop: $("."+eventID).offset().top - 85
+		}, 2000);
+	});
 });
