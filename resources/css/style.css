@@ -16,21 +16,20 @@ body{
 	top: 100px;
 	margin-left: auto;
 	margin-right: auto;
-	width: 960px;
+	
 }
 
 .main-landing-message{
-  background-color: white;
-  width: 960px;
+  background-color: #ededec;
   border-style: solid;
   border-radius: 5px;
   border-color: black;
   position: relative;
   text-align: center;
-  border-width: 8px;
+  border-width: 4px;
 }
 
-.eventDetails, .result {
+.eventDetails, .result, .home-columns  {
 	border-style: solid;
 	border-width: thin;
 	border-radius: 5px;
@@ -88,7 +87,7 @@ button {
 	right: 10px;
 }
 
-.result {
+.result, .home-columns  {
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
@@ -99,6 +98,14 @@ button {
 	width: 960px;
 	padding-right: 15px;
 	margin-left: 0px;
+  }
+  
+  #message{
+    width: 960px;
+  }
+  
+  .main-landing-message{
+	width: 960px;
   }
   
   .eventDetails{
@@ -245,4 +252,34 @@ hr {
 /*new event fields*/
 #eventDate{
 	padding-left: 5px;
+}
+
+/*HOMEPAGE*/
+.home-custom-column{
+	padding-right:0px;
+	padding-left:0px;
+}
+
+.home-right-column {
+	margin-left:10px;
+}
+
+.home-left-column {
+	margin-right:10px;
+}
+
+.home-events-title{
+	text-align: left;
+	padding-left: 20px;
+	width: 80%;
+	float: left;
+	padding-bottom:5px;
+}
+
+.home-events-date{
+	text-align: right;
+	padding-right: 20px;
+	width: 20%;
+	float: right;
+	padding-bottom:5px;
 }

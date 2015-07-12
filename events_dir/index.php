@@ -10,12 +10,7 @@
 </head>
 
 <body>
-	<?php require("../inc/header.php");
-		
-		
-		
-		
-	?>
+	<?php require("../inc/header.php");	?>
 	<div class="hidden-xs">
 	  <?php require("../inc_view/topSearchEngine.php"); ?>
 	</div>

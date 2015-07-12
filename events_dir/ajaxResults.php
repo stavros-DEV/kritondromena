@@ -3,13 +3,17 @@
 	$events = new Event();
 	if(!isset($_GET['loc']) && isset($_GET['date']))
 		$res = $events->getEventsByParams('', $_GET['date']);
-	elseif(isset($_GET['loc']) && isset($_GET['date']))
-		$res = $events->getEventsByParams($_GET['loc'], $_GET['date']);
+	elseif(isset($_GET['loc']) && isset($_GET['date'])) {
+		if($_GET['loc']=="any")
+			$_GET['loc'] = "";
+		$res = $events->getEventsByParams($_GET['loc'], $_GET['date']);		
+	}
 	
 	if(isset($res) && !$res) {
 		echo "no results";
 		exit();
 	}elseif(!isset($res)){
+		echo "No results!";
 		exit();
 	}
 ?>
@@ -19,7 +23,7 @@
 <div id="defaultResults">
 	
 	<?php $i = 0; while($row = $res->fetch_assoc()) : ?>
-	  <div class="row result">		  
+	  <div class="row result">
 		<div class="row evTitle">
 		  <div class="col-xs-12">
 			<a href="<?= $row['Url'] ?>" title="<?= $row['Title'] ?>"><?php echo $row['Title'] ?></a>
@@ -56,6 +60,7 @@
 			
 	  </div>
 	<?php $i++; endwhile; ?>
+	<?php echo "RESULTS: ".$i ?>
 </div>
 <?php if ( !isset($_POST['dateSelector']) || !isset($_POST['loc']) ) : ?>
 </div>

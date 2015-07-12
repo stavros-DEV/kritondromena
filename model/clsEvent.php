@@ -22,7 +22,7 @@
         }
 		
 		public function save() {
-			require("../inc/mysqlConnect.php");
+			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
 			
             $sql = "INSERT INTO Events (Title, EventDate, Description, Place, Url, Email, PlaceLngLat) VALUES ('".
 			$this->title."', '".$this->evdate."', '".$this->description."', '".$this->place."', '".$this->url."', '".$this->email."', GeomFromText('POINT(".$this->lng." ".$this->lat.")'))" ;
@@ -41,7 +41,7 @@
         }
 		
 		public function getEvents() {
-			require("../inc/mysqlConnect.php");
+			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
 			
             $sql = "SELECT *, x(PlaceLngLat) as Lng, y(PlaceLngLat) as Lat FROM Events";
 			$con->query("SET NAMES utf8");
@@ -57,7 +57,7 @@
 		}
 		
 		public function getEventsById($id) {
-			require("../inc/mysqlConnect.php");
+			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
 			
             $sql = "SELECT *, x(PlaceLngLat) as Lng, y(PlaceLngLat) as Lat FROM Events WHERE ID='".mysql_escape_string($id)."'";
 			$con->query("SET NAMES utf8");
@@ -73,7 +73,7 @@
 		}
 		
 		public function getEventsByParams($place = null, $date = null) {
-			require("../inc/mysqlConnect.php");
+			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
 			if(isset($date)) {
 				$day1 = date('Y-m-d', strtotime($date. ' - 7 days'));
 				$day2 = date('Y-m-d', strtotime($date. ' + 7 days'));

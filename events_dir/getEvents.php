@@ -1,5 +1,5 @@
 <?php
-	require("../model/clsEvent.php");
+	require($_SERVER["DOCUMENT_ROOT"]."/model/clsEvent.php");
 	
 	$events = new Event();
 	$res = $events->getEvents();

@@ -17,6 +17,14 @@ $( document ).ready(function() {
 		autoclose: true
 	});
 	
+	$('#datetimepicker2').datepicker({
+		startDate: new Date(),
+		format: "yyyy-mm-dd",
+		orientation: "top left",
+		todayHighlight: true,
+		autoclose: true
+	});
+	
 	$('.datepicker').datepicker('update', new Date());
 	
 	/*New event is added; Check the values. */
@@ -200,9 +208,9 @@ $( document ).ready(function() {
 			$(this).fadeIn('slow');
 		});
 		$("#ajaxLoading img:last-child").fadeOut(1000, function() { $(this).remove(); });
-		//$("#ajaxLoading img:last-child").remove();
+		
 		return false;
 	});
 	
-	$('#summernote').summernote({height: 300});
+	//$('#summernote').summernote({height: 300});
 });
