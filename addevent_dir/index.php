@@ -8,7 +8,10 @@
 <html>
 
 <head>
-	<title>Κρητών Δρώμενα: Πολιτισμός και Παραδόση σε ένα site</title>
+	<title>Νέο Δρώμενο απο το Κρητών Δρώμενα</title>
+	<meta name="description" content="Διαφημήστε εντελώς δωρεάν τις εκδηλώσεις σας, εύκολα και γρήγορα. Καταχωρήστε το μουσικό σας γλέντι, το πανηγύρι, την πολιτιστική σας εκδήλωση και οποιοδήποτε δρώμενο αφορά την παράδοσή μας.">
+	<meta name="keywords" content="Διαφήμηση Εκδηλώσεων, καταχώρηση γλέντι, Διαφήμηση μουσικής βραδιάς">
+	<meta name="page-topic" content="Φόρμα καταχώρησης δρώμενου">
 	<?php require("../inc/resources.php"); ?>
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 	<link href="/resources/css/summernote.css" rel="stylesheet">
@@ -23,8 +26,14 @@
 	<div class="container" id="message">
 	<div class="row"><div class="col-xs-12">
 	  <div class="main-landing-message">
-		<h1>ΚΡΗΤΩΝ ΔΡΩΜΕΝΑ</h1>
-		Το Portal kritondromena.gr θα είναι κοντά σας στις 01.08.2015
+		<h1>Καταχωριση νεας Εκδηλωσης</h1>
+		<div class="main-message-description">
+			<ul>
+				<li>Καταχωρήστε μια νέα εκδήλωση και διαφημήστε την δωρεάν, συμπληρώνοντας την παρακάτω φόρμα.</li>
+				<li>Ακολουθήστε τα μηνύματα που θα σας επιστρέψει το σύστημα. Θα ενημερωθείται για το αποτέλεσμα της καταχώρησης.</li>
+				<li>Η ακριβής τοποθεσία της εκδήλωσης, θα συμπληρωθεί αυτόματα, με την εισαγωγή του χωριού/πόλης.</li>
+			</ul>
+		</div>
 	  </div>
 		<br/>
 		<div class="eventDetails">

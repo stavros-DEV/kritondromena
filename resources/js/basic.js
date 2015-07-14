@@ -212,7 +212,8 @@ $( document ).ready(function() {
 		return false;
 	});
 	
-	//$('#summernote').summernote({height: 300});
+	$('#summernote').summernote({height: 300});
+	
 	$( window ).load(function() {
 		var hash = window.location.hash;
 		var eventID = hash.substr(6, hash.length);

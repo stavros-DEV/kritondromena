@@ -32,4 +32,6 @@
 	$addImage = new Image(basename($_FILES[$formName]["name"]), "", "/resources/images/".basename($_FILES[$formName]["name"]), $addEvent->id);
 	$addImage->save();
 	
+	if(empty($_FILES[$formName]["name"]))
+		$errorMsg = "";
 ?>

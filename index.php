@@ -1,6 +1,9 @@
 <?php 
 	require("events_dir/getEvents.php");
-
+	require("model/clsArticle.php");
+	$article = new Article();
+	$resart = $article->getArticleById("7", true);
+	$rowart = $resart->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -8,8 +11,10 @@
 
 <head>
 	<title>Κρητών Δρώμενα: Πολιτισμός και Παραδόση σε ένα site</title>
+	<meta name="description" content="Πολιτιστικές εκδηλώσεις, μουσικές βραδιές και κρητική παράδοση σε ένα site. Αναζητήστε τα δρώμενα που σας ενδιαφέρουν και τα πανηγύρια που συμβαίνουν στην Κρήτη. Οι πολιτιστικοί σύλλογοι, παρουσιάζουν εδώ όλα τα γλέντια που διοργανώνουν και αφορούν την Κρητική μουσική παράδοση. Οι ομορφιές και η κουλτούρα της Κρήτης μας, παρουσιάζονται με εύκολο και σύγχρονο τρόπο μέσα από το kritondromena.gr.">
+	<meta name="keywords" content="Κρητικές εκδηλώσεις, δρώμενα και γλέντια">
+	<meta name="page-topic" content="Κρητικές εκδηλώσεις, κείμενα Κρητικής κουλτούρας.">
 	<?php require("inc/resources.php"); ?>
-	<!--<script src="resources/js/jssor.slider.mini.js"></script>-->
 </head>
 
 <body>
@@ -17,19 +22,16 @@
 	<div class="hidden-xs">
 	  <?php require("inc_view/topSearchEnginePost.php"); ?>
 	</div>
-	<div class="container" id="message" align="center">
+	<div class="container" id="message">
 	  <div class="row">
 	    <div class="col-md-12 main-landing-message">
 		
-		<h1>ΚΡΗΤΩΝ ΔΡΩΜΕΝΑ</h1>
-		Το Portal kritondromena.gr θα είναι κοντά σας στις 01.08.2015
-		<!--<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px;">
-			 Slides Container 
-			<div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 600px; height: 300px;">
-				<div><img u="image" src2="resources/images/kritonbg.jpg" />tileei</div>
-				<div><img u="image" src2="resources/images/df.jpg" />xairetw</div>
-			</div>
-		</div>-->
+		<h1>Κρητικες Εκδηλωσεις &amp; Δρωμενα</h1>
+		<ul>
+			<li>Καταχωρήστε εντελώς δωρεάν την εκδήλωση που οργανώνεται.</li>
+			<li>Αναζητήστε εύκολα τις μουσικές και πολιτιστικές εκδηλώσεις που σας ενδιαφέρουν.</li>
+			<li>Στηρίξτε την προσπάθειά μας να διαδόσουμε την Κρητική μας παράδοση.</li>
+		</ul>
 		</div>
 	  </div>
 	  
@@ -53,6 +55,17 @@
 		<div class="col-md-6 home-custom-column">
 			<div class="home-columns home-right-column">
 				<div class="evTitle"><h3>Κείμενα</h3></div><hr/>
+				<div class="row articleDescr">
+				  <div class="col-xs-12">
+					<div class="article-title">
+						<a href="<?= $rowart['Vanity'] ?>" title="<?= $rowart['Title'] ?>"><?php echo $rowart['Title']; ?></a>
+					</div>
+					<div class="article-description">
+						<?php echo $rowart['substrText']."..."; ?>
+					</div>
+				  </div>
+				  <a href="<?= $rowart['Vanity'] ?>" title="<?= $rowart['Title'] ?>" class="btn btn-block btn-default" >Περισσότερα</a>
+				</div>
 			</div>
 		</div>
 	  </div>	

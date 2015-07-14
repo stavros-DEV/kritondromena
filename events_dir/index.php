@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Καταχώρηση Δρώμενου</title>
+	<title>Πολιτιστικές Εκδηλώσεις από το Κρωτών Δρώμενα</title>
 	<?php require("../inc/resources.php"); ?>
 	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 	<script src="../resources/js/gmaps.js"></script>
@@ -18,9 +18,8 @@
 	  <div class="row">
 		<div class="col-xs-12">
 		  <div class="main-landing-message">
-		    <h1>Κρητικές βραδιές και εκδηλώσεις</h1>
+		    <h1>Αναζητηστε Κρητικες βραδιες και εκδηλωσεις</h1>
 			<p>Αναζητήστε εύκολα τις μουσικές βραδιές, εκδηλώσεις δρώμενα που σας ενδιαφέρουν.</p>
-		    <p>Το Portal kritondromena.gr θα είναι κοντά σας στις 01.08.2015</p>
 		  </div>
 		  <?php 
 			if(isset($_POST['loc'])) {
@@ -66,7 +65,7 @@
 			  </div>
 			  <div class="col-xs-12 col-sm-7 evDescription" >
 				<?php echo $row['Description'] ?>
-				<a href="<?= $row['Url'] ?>" class="btn btn-block btn-default" >Περισσότερα</a>
+				<!--<a href="<?= $row['Url'] ?>" class="btn btn-block btn-default" >Περισσότερα</a>-->
 			  </div>
 			</div>
 			

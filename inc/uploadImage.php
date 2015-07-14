@@ -9,7 +9,7 @@
 	if(isset($image)) {
 		$check = getimagesize($_FILES[$formName]["name"]);
 		if($check !== false) {
-			echo "File is an image - " . $check["mime"] . ".";
+			//echo "File is an image - " . $check["mime"] . ".";
 			$uploadOk = 1;
 		} else {
 			$errorMsg .= "Το αρχείο δεν είναι εικόνα. ";
@@ -38,12 +38,12 @@
 		$errorMsg .= "Επιτρεπόμενοι τύποι αρχείων: JPG, JPEG, PNG & GIF. ";
 		$uploadOk = 0;
 	}
-	echo $target_file;
+	
 	if ($uploadOk == 0) {
 		$errorMsg .= "Το σύστημα θα απορρίψει την εικόνα. ";
 	} else {
 		if (move_uploaded_file($_FILES[$formName]["tmp_name"], $target_file)) {
-			echo "The file ". basename( $_FILES[$formName]["name"]). " has been uploaded.";
+			//echo "The file ". basename( $_FILES[$formName]["name"]). " has been uploaded.";
 		} else {
 			$errorMsg .= "Το σύστημα δεν κατάφερε να ανεβάσει την φωτογραφία.";
 		}
