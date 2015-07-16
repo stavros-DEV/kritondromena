@@ -14,7 +14,7 @@
 	<meta name="description" content="Πολιτιστικές εκδηλώσεις, μουσικές βραδιές και κρητική παράδοση σε ένα site. Αναζητήστε τα δρώμενα που σας ενδιαφέρουν και τα πανηγύρια που συμβαίνουν στην Κρήτη. Οι πολιτιστικοί σύλλογοι, παρουσιάζουν εδώ όλα τα γλέντια που διοργανώνουν και αφορούν την Κρητική μουσική παράδοση. Οι ομορφιές και η κουλτούρα της Κρήτης μας, παρουσιάζονται με εύκολο και σύγχρονο τρόπο μέσα από το kritondromena.gr.">
 	<meta name="keywords" content="Κρητικές εκδηλώσεις, δρώμενα και γλέντια">
 	<meta name="page-topic" content="Κρητικές εκδηλώσεις, κείμενα Κρητικής κουλτούρας.">
-	<?php require("inc/resources.php"); ?>
+	<?php require("inc/resourcesRest.php"); ?>
 </head>
 
 <body>
@@ -73,14 +73,4 @@
 </body>
 
 </html>
-<script>
-    /*jQuery(document).ready(function ($) {
-        var options = {
-            $BulletNavigatorOptions: {
-                $Class: $JssorBulletNavigator$,
-                $ChanceToShow: 2
-            }
-        };
-        var jssor_slider1 = new $JssorSlider$('slider1_container', options);
-    });*/
-</script>
+<?php require("inc/resourcesJs.php"); ?>
