@@ -216,7 +216,17 @@ $( document ).ready(function() {
 		return false;
 	});
 	
-	
+	$("#contactus-form").on("submit", function (e) {
+		var name  = $('#msg-name').val();
+		var email = $('#msg-email').val();
+		var msg   = $('#msg-text').val();
+		
+		$( ".actionResult" ).load( "../aboutus_dir/sendMessage.php?name=" + name + "&email=" + email + "&msg=" + msg, function(){
+			$(this).fadeIn('slow');
+		});
+		
+		return false;
+	});
 	
 	$( window ).load(function() {
 		var hash = window.location.hash;

@@ -281,6 +281,7 @@ hr {
 }
 
 #tseSubmit{
+	font-weight:700;
 	right: 40px;
 	color: #000;
   background-color: #A9BFD3;
@@ -337,3 +338,28 @@ hr {
 .result-description{
 	font-weight: 700;
 }
+
+/*ABOUT US RULES START*/
+
+.contact-form{
+	margin-bottom: 10px;
+	background-color: lightsteelblue;
+	color: #000 !important;
+}
+
+.contact-form::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #000;
+}
+.contact-form:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #000;
+   opacity:  1;
+}
+.contact-form::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #000;
+   opacity:  1;
+}
+.contact-form:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #000;
+}
+
+/*ABOUT US RULES END*/
