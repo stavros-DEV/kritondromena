@@ -329,3 +329,11 @@ hr {
 .main-message-description{
 
 }
+
+.custom-alert{
+	margin-bottom: 0px !important;
+}
+
+.result-description{
+	font-weight: 700;
+}

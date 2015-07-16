@@ -3,6 +3,7 @@ $( document ).ready(function() {
 	var pathname = window.location.pathname;
 	if (pathname == "/new-event/") {
 		$("#li_addevent").addClass("active");
+		$('#summernote').summernote({height: 300});
 	} else if (pathname == "/events/") {
 		$("#li_events").addClass("active");
 	} else if (pathname == "/about-us/") {
@@ -199,9 +200,10 @@ $( document ).ready(function() {
 		var date  = $('#tseDate').val();
 		var place = $('#tseLocation').val();
 		
-		if(place == "any")
+		if(place == "any") {
 			var url = "../events_dir/ajaxResults.php?date="+date;
-		else
+			place = "Οπουδήποτε";
+		} else
 			var url = "../events_dir/ajaxResults.php?loc="+place+"&date="+date;
 		
 		$( "#ajaxResults" ).load( url, function(){
@@ -209,10 +211,12 @@ $( document ).ready(function() {
 		});
 		$("#ajaxLoading img:last-child").fadeOut(1000, function() { $(this).remove(); });
 		
+		$(".result-description").hide().text('Ημερομηνία: ' + date + ', Τοποθεσία: ' + place).fadeIn('2000');
+		
 		return false;
 	});
 	
-	$('#summernote').summernote({height: 300});
+	
 	
 	$( window ).load(function() {
 		var hash = window.location.hash;
@@ -226,4 +230,5 @@ $( document ).ready(function() {
           scrollTop: $("."+eventID).offset().top - minus
 		}, 2000);
 	});
+		
 });

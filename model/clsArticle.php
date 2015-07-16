@@ -30,9 +30,9 @@
 		public function getArticleById($id, $substr = false) {
 			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
 			if($substr)
-				$sql = "SELECT *, SUBSTR(`Text`,1,500) as substrText FROM Articles WHERE ID='".mysql_escape_string($id)."'";
+				$sql = "SELECT *, SUBSTR(`Text`,1,500) as substrText FROM articles WHERE ID='".mysql_escape_string($id)."'";
             else
-				$sql = "SELECT * FROM Articles WHERE ID='".mysql_escape_string($id)."'";
+				$sql = "SELECT * FROM articles WHERE ID='".mysql_escape_string($id)."'";
 			$con->query("SET NAMES utf8");
 			$result = $con->query($sql);
 			

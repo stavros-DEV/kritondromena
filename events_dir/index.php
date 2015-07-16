@@ -3,6 +3,9 @@
 
 <head>
 	<title>Πολιτιστικές Εκδηλώσεις από το Κρωτών Δρώμενα</title>
+	<meta name="description" content="Πολιτιστικές εκδηλώσεις, μουσικές βραδιές, γλέντια και πανηγύρια που συμβαίνουν στην Κρήτη. Αναζητήστε όλες τις εκδηλώσεις που σας ενδιαφέρουν στο kritondromena.gr. Tα γλέντια που διοργανώνουν οι πολιτιστικοί Συλλόγοι μπορείται να τα αναζητήσετε στο kritondromena.gr. Αν σας ενδιαφέρουν οι κρητικοί χοροί και η κουλτούρα, μπορείται βρείτε τις εκδηλώσεις που σας ενδιαφέρουν εδώ.">
+	<meta name="keywords" content="Αναζήτηση Κρητικών εκδηλώσεων και κρητικών χορών.">
+	<meta name="page-topic" content="Κρητικές εκδηλώσεις δρώμενα και χοροί.">
 	<?php require("../inc/resources.php"); ?>
 	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 	<script src="../resources/js/gmaps.js"></script>
@@ -20,6 +23,18 @@
 		  <div class="main-landing-message">
 		    <h1>Αναζητηστε Κρητικες βραδιες και εκδηλωσεις</h1>
 			<p>Αναζητήστε εύκολα τις μουσικές βραδιές, εκδηλώσεις δρώμενα που σας ενδιαφέρουν.</p>
+			<div class="result-description">
+			
+			<?php if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) : 
+				if ( $_POST['loc'] == "any")
+					$location = "Οπουδήποτε";
+				else
+					$location = $_POST['loc'];
+			?>
+				Ημερομηνία: <?php echo $_POST['dateSelector']; ?>, Τοποθεσία: <?php echo $location; ?>
+			<?php endif; ?> 
+			
+			</div>
 		  </div>
 		  <?php 
 			if(isset($_POST['loc'])) {
@@ -39,7 +54,7 @@
 		  <div class="row result <?= $row['ID'] ?>">
 		    <div class="row evTitle">
 			  <div class="col-xs-12">
-				<a href="<?= $row['Url'] ?>" title="<?= $row['Title'] ?>"><?php echo $row['Title'] ?></a>
+				<?php echo $row['Title'] ?>
 				<div class="evDate">
 					Στις <?php echo $row['EventDate'] ?>
 				</div>
@@ -62,10 +77,10 @@
 					</div>
 					<div id="map-canvas<?php echo $i; ?>"></div>
 				</div>
-			  </div>
+			  </div>	
 			  <div class="col-xs-12 col-sm-7 evDescription" >
 				<?php echo $row['Description'] ?>
-				<!--<a href="<?= $row['Url'] ?>" class="btn btn-block btn-default" >Περισσότερα</a>-->
+				<!--<a href="" class="btn btn-block btn-default" >Περισσότερα</a>-->
 			  </div>
 			</div>
 			

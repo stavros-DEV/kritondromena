@@ -60,7 +60,14 @@
 			
 	  </div>
 	<?php $i++; endwhile; ?>
-	<?php echo "RESULTS: ".$i ?>
+	<?php /*No results. */ if ( $i == 0 ) :	?>
+		<div class="row result">
+		  <div class="alert alert-danger fade in custom-alert">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			  Δεν βρέθηκαν αποτελέσματα για αυτή την αναζήτηση.
+		  </div>
+		</div>
+	<?php endif; ?>
 </div>
 <?php if ( !isset($_POST['dateSelector']) || !isset($_POST['loc']) ) : ?>
 </div>
