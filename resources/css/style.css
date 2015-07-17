@@ -154,6 +154,11 @@ button {
 	  border-left-style: solid;
 	  border-color: #000063;
 	}
+	
+	.contact-form-right{
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
 }
 
 .home-custom-column{
@@ -362,4 +367,11 @@ hr {
    color:    #000;
 }
 
+.contact-text{
+	text-align: left;
+}
+
+.contact-text li{
+	margin-bottom: 3px;
+}
 /*ABOUT US RULES END*/

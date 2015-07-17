@@ -221,8 +221,13 @@ $( document ).ready(function() {
 		var email = $('#msg-email').val();
 		var msg   = $('#msg-text').val();
 		
-		$( ".actionResult" ).load( "../aboutus_dir/sendMessage.php?name=" + name + "&email=" + email + "&msg=" + msg, function(){
-			$(this).fadeIn('slow');
+		$.ajax({
+			'url': '../aboutus_dir/sendMessage.php',
+			'type': 'POST',
+			'data': $('#contactus-form').serialize(),
+			'success': function(result){
+				 $( ".actionResult" ).html( result );
+			}
 		});
 		
 		return false;

@@ -47,11 +47,9 @@
 		return $str;
 	}
 	
-	function sendMail($to, $id) {
-		$subject = 'the subject';
-		$message = 'hello';
-		$headers = 'From: info@kritondromena.gr' . "\r\n" .
-		'Reply-To: info@kritondromena.gr' . "\r\n" .
+	function sendMail($to, $subject, $message) {
+		$headers = 'From: eyetea@kritondromena.gr' . "\r\n" .
+		'Reply-To: eyetea@kritondromena.gr' . "\r\n" .
 		'X-Mailer: PHP/' . phpversion();
 
 		$sent = mail($to, $subject, $message, $headers);
