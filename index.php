@@ -1,9 +1,10 @@
 <?php 
+	header('Content-Type: text/html; charset=utf-8');
 	require("events_dir/getEvents.php");
 	require("model/clsArticle.php");
 	$article = new Article();
-	$resart = $article->getArticleById("7", true);
-	$rowart = $resart->fetch_assoc();
+	$resart = $article->getArticleById(null, true);
+	//$rowart = $resart->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -28,9 +29,9 @@
 		
 		<h1>Κρητικες Εκδηλωσεις &amp; Δρωμενα</h1>
 		<ul>
-			<li>Καταχωρήστε εντελώς δωρεάν την εκδήλωση που οργανώνεται.</li>
+			<li>Καταχωρήστε εντελώς δωρεάν την εκδήλωση που οργανώνετε.</li>
 			<li>Αναζητήστε εύκολα τις μουσικές και πολιτιστικές εκδηλώσεις που σας ενδιαφέρουν.</li>
-			<li>Στηρίξτε την προσπάθειά μας να διαδόσουμε την Κρητική μας παράδοση.</li>
+			<li>Στηρίξτε την προσπάθειά μας να διαδώσουμε την Κρητική μας παράδοση.</li>
 		</ul>
 		</div>
 	  </div>
@@ -57,14 +58,17 @@
 				<div class="evTitle"><h3>Κείμενα</h3></div><hr/>
 				<div class="row articleDescr">
 				  <div class="col-xs-12">
+				   <?php while($rowart = $resart->fetch_assoc()) : ?>
 					<div class="article-title">
 						<a href="<?= $rowart['Vanity'] ?>" title="<?= $rowart['Title'] ?>"><?php echo $rowart['Title']; ?></a>
 					</div>
 					<div class="article-description">
 						<?php echo $rowart['substrText']."..."; ?>
 					</div>
+					<a href="<?= $rowart['Vanity'] ?>" title="<?= $rowart['Title'] ?>" class="btn btn-block btn-default" >Περισσότερα</a>
+					<br/>
+				   <?php endwhile; ?>
 				  </div>
-				  <a href="<?= $rowart['Vanity'] ?>" title="<?= $rowart['Title'] ?>" class="btn btn-block btn-default" >Περισσότερα</a>
 				</div>
 			</div>
 		</div>

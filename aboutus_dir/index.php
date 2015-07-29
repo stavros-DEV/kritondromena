@@ -1,7 +1,7 @@
 <html>
 
 <head>
-	<title>Δρώμενα</title>
+	<title>Σχετικά με Κρητών Δρώμενα</title>
 	<meta name="description" content="Το kritondromena.gr δημιουργήθηκε ως μια προσπάθεια να στηρίξουμε την πολιτιστική παράδοσή μας. Αν σας ενδιαφέρει η Κρητική κουλτούρα και παράδοση, το Κρητών Δρώμενα κινείται στην ιδια κατεύθυνση. Μπορείται να στηρίξετε την προσπάθεια αυτή επικοινωνώντας μαζί μας.">
 	<meta content="Επικοινωνία με Κρητών Δρώμενα, συμμετοχή στο kritondromena.gr" name="keywords">
 	<meta name="page-topic" content="Στηρίξτε την μουσική μας παράδοση">
@@ -38,7 +38,7 @@
 				<input type="text" class="form-control contact-form" id="msg-email" name="email" placeholder="E-mail" required>
 			  </div>
 			  <div class="col-xs-12">
-			    <textarea class="form-control contact-form" rows="10" id="msg-text" name="msg" placeholder="Το Μύνημά σας." lang="el" spellcheck="true" required></textarea>
+			    <textarea class="form-control contact-form" rows="10" id="msg-text" name="msg" placeholder="Το Μήνυμά σας." lang="el" spellcheck="true" required></textarea>
 			  </div>
 			  <div class="col-xs-12">
 				<button type="submit" class="btn btn-block btn-primary" id="enterEvent">Επικοινωνήστε μαζί μας</button>

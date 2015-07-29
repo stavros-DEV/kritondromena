@@ -27,10 +27,12 @@
 			return $result;
         }
 		
-		public function getArticleById($id, $substr = false) {
+		public function getArticleById($id = null, $substr = false) {
 			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
-			if($substr)
-				$sql = "SELECT *, SUBSTR(`Text`,1,500) as substrText FROM articles WHERE ID='".mysql_escape_string($id)."'";
+			if($substr && $id != null)
+				$sql = "SELECT *, SUBSTR(`Text`,1,395) as substrText FROM articles WHERE ID='".mysql_escape_string($id)."'";
+			elseif($substr && $id == null)
+				$sql = "SELECT *, SUBSTR(`Text`,1,395) as substrText FROM articles";
             else
 				$sql = "SELECT * FROM articles WHERE ID='".mysql_escape_string($id)."'";
 			$con->query("SET NAMES utf8");
@@ -44,5 +46,7 @@
 			$con->close();
 			return $result;
 		}
+		
+		
 	}
 ?>

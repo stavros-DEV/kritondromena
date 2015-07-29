@@ -23,7 +23,8 @@ $( document ).ready(function() {
 		format: "yyyy-mm-dd",
 		orientation: "top left",
 		todayHighlight: true,
-		autoclose: true
+		autoclose: true,
+		disableTouchKeyboard: true
 	});
 	
 	$('.datepicker').datepicker('update', new Date());
@@ -229,7 +230,7 @@ $( document ).ready(function() {
 				 $( ".actionResult" ).html( result );
 			}
 		});
-		
+		$("#contactus-form").trigger("reset");
 		return false;
 	});
 	

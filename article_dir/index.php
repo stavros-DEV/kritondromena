@@ -11,8 +11,8 @@
 <html>
 
 <head>
-	<title>Κρητών Δρώμενα: Πολιτισμός και Παραδόση σε ένα site</title>
-	<meta name="description" content="">
+	<title><?php echo $row['Title'] ?> από το Κρητών Δρώμενα</title>
+	<meta name="description" content="<?php echo $row['MetaDescription'] ?>">
 	<meta name="keywords" content="Κρητικές εκδηλώσεις, δρώμενα και γλέντια">
 	<meta name="page-topic" content="Κρητικές εκδηλώσεις, κείμενα Κρητικής κουλτούρας.">
 	<?php require("../inc/resources.php"); ?>
