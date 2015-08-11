@@ -39,7 +39,7 @@
 	  <div class="row">
 		<div class="col-md-6 home-custom-column">
 			<div class="home-columns home-left-column">
-				<div class="evTitle"><h3>Κρητών Δρώμενα</h3></div><hr/>
+				<div class="evTitle"><h3>Κρητών Δρώμενα (<?php echo mysqli_num_rows($res); ?>)</h3></div><hr/>
 				<?php $i = 0; while($row = $res->fetch_assoc()) : ?>
 				  <div class="row">
 					<div class="home-events-title">
@@ -55,7 +55,7 @@
 		
 		<div class="col-md-6 home-custom-column">
 			<div class="home-columns home-right-column">
-				<div class="evTitle"><h3>Κείμενα</h3></div><hr/>
+				<div class="evTitle"><h3>Κείμενα (<?php echo mysqli_num_rows($resart); ?>)</h3></div><hr/>
 				<div class="row articleDescr">
 				  <div class="col-xs-12">
 				   <?php while($rowart = $resart->fetch_assoc()) : ?>
