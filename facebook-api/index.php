@@ -2,13 +2,9 @@
 	header('Content-Type: text/html; charset=utf-8');
 
 	require("../model/clsEvent.php");
+	require($_SERVER["DOCUMENT_ROOT"]."/model/clsFacebookApi.php");
 	require("../inc/common.php");
-	
-	function r($var){
-		echo '<textarea cols="60" rows="10">';
-		print_r($var);
-		echo '</textarea><hr>';
-	}
+	include 'Facebook/autoload.php';
 	
 	function getFbEvent($arr){
 		$id_list = array();
@@ -37,8 +33,8 @@
 			echo $date.' '.$title.' '.$arr['description'].' '.$arr['place']['name'].' '.$arr['id'].' '.$arr['place']['location']['latitude'].' '.$arr['place']['location']['longitude'];
 			
 			$addEvent = new Event($arr['name'], $arr['description'], $arr['place']['name'],
-							$date, $arr['id'], $arr['place']['location']['longitude'],
-							$arr['place']['location']['latitude'], '');
+							$date, '', $arr['place']['location']['longitude'],
+							$arr['place']['location']['latitude'], '', $arr['id']);
 			
 			$fail = $addEvent->save();
 			
@@ -47,60 +43,40 @@
 		}
 	}
 	
-	include 'Facebook/autoload.php';
-	
-	$access_token = 'CAABjvDVPLZCwBALZAZAMdg5ex4VBLxb9n0t2kLcjhQkoZCfr7ctzZBnfRIX5mNs0vCSdcogy5fJEfeW9rMqlHUbfS51pTcohDoOjgCdkZB2ZAGbQ9sPYTp7KDjQUiZC9GaBcqMT0veCxiE4fobkLoZBMMF4coyT2I04oHZBLRTcOzTmavd2gt0Q9odYuEYSmqudUZBb0oRiY3l41wZDZD';
+	$access_token = 'CAABjvDVPLZCwBAB9x9ETMjW1oIorAtOoFZAZAHntbpLsTL53McgqwSRM1ub78cI3a2SIEOX7adLHHU11ZAmninZBidx4BcuGyhAw0o7XH9muZCy1P3zuhcikD3TRhNqEKu5iFvZAav79VwAveUY9JUhVVfSkTJ5GWEapVj5sPRA04bZC4hsTwRGoZCK4dceZCHFxaJpSkSBUrRxQZDZD';
 	$app_secret = 'e5f29c24ed4d20e40513c10958b3e9f0';
-	//$appsecret_proof = hash_hmac('sha256', $access_token, $app_secret);
 
-	//FacebookSession::enableAppSecretProof(false);
 	$fb = new Facebook\Facebook([
 	  'app_id' => '109659999383548',
 	  'app_secret' => 'e5f29c24ed4d20e40513c10958b3e9f0',
 	  'default_graph_version' => 'v2.4'
-	  //'appsecret_proof' => $appsecret_proof
 	]);
 		
-	// Sets the default fallback access token so we don't have to pass it to each request
 	$fb->setDefaultAccessToken($access_token);
 	
-	//$params['appsecret_proof'] = $appsecret_proof;
-	
-	$pages = array( 'fragia' => '1674749916079914', 'roxanh' => '798279260209487',
-				   	'tafros' => '567914323321550' , 'xaroul' => '286769964670309',
-					'psarog' => '270962486382'    , 'martsa' => '167529253284196'
-	);
-	
 	try {
-	  
-		foreach($pages as $key => $p){
-			$response = $fb->get($p.'/posts');
+		$facebookApi = new FacebookCustomApi();
+		$pages = $facebookApi->getFacebookCustomApi();
+		r($pages);
+
+		foreach($pages as $p){
+			
+			$response = $fb->get($p['FacebookID']."/events");
 			$resp = json_decode($response->getBody(), true);
-			$ids = getFbEvent($resp);
+			r($resp);
 			
-			try {
-				
-				$response = $fb->get($ids[0]);
-				$resp = json_decode($response->getBody(), true);
-				saveEvent($resp, $key);
-			}catch(Facebook\Exceptions\FacebookResponseException $e) {}
-			
+			foreach($resp['data'] as $event){
+				//saveEvent($event, $p['Name']);
+			}
 		}
 		
-		exit();
+		exit(); 
 	  
-	  
-	  $userNode = $response->getGraphUser();
 	} catch(Facebook\Exceptions\FacebookResponseException $e) {
-	  // When Graph returns an error
 	  echo 'Graph returned an error: ' . $e->getMessage();
 	  exit;
 	} catch(Facebook\Exceptions\FacebookSDKException $e) {
-	  // When validation fails or other local issues
 	  echo 'Facebook SDK returned an error: ' . $e->getMessage();
 	  exit;
 	}
-
-	echo 'Logged in as ' . $userNode->getName();
-
 ?>

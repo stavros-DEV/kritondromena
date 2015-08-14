@@ -3,7 +3,7 @@
 	$ip = gethostbyname($host);
 	
 	/*Check if working in local or live server. */
-	if (strpos($ip, '192.168.') !== false) {
+	if (strpos($ip, '192.168.') !== false || strpos($ip, "169.254.155.73") !== false) {
 		$username = "root";
 		$password = "";
 		$hostname = "localhost"; 

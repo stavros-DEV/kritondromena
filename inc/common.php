@@ -54,4 +54,10 @@
 
 		$sent = mail($to, $subject, $message, $headers);
 	}
+	
+	function r($var){
+		echo '<textarea cols="60" rows="10">';
+		print_r($var);
+		echo '</textarea><hr>';
+	}
 ?>

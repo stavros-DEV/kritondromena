@@ -9,8 +9,11 @@
         public $lng;
 		public $lat;
 		public $url;
+		public $facebookId;
 			
-        public function __construct($title = null, $description = null, $place = null, $evdate = null, $email = null, $lng = null, $lat = null, $url = null) {
+        public function __construct($title = null, $description = null, $place = null, $evdate = null, $email = null,
+        		$lng = null, $lat = null, $url = null, $facebookId = null) 
+        {
 			$this->title = addslashes($title);
             $this->description = addslashes($description);
             $this->place = $place;
@@ -19,13 +22,15 @@
 			$this->lng = $lng;
 			$this->lat = $lat;
 			$this->url = $url;
+			$this->facebookId = $facebookId;
         }
 		
 		public function save() {
 			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
 			
-            $sql = "INSERT INTO Events (Title, EventDate, Description, Place, Url, Email, PlaceLngLat) VALUES ('".
-			$this->title."', '".$this->evdate."', '".$this->description."', '".$this->place."', '".$this->url."', '".$this->email."', GeomFromText('POINT(".$this->lng." ".$this->lat.")'))" ;
+            $sql = "INSERT INTO Events (Title, EventDate, Description, Place, Url, Email, FacebookId, PlaceLngLat) VALUES ('".
+			$this->title."', '".$this->evdate."', '".$this->description."', '".$this->place."', '".$this->url."', '".$this->email."',
+					'".$this->facebookId."', GeomFromText('POINT(".$this->lng." ".$this->lat.")'))" ;
 
 			$con->query("SET NAMES utf8");
 			$result = $con->query($sql);
@@ -43,7 +48,7 @@
 		public function getEvents() {
 			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
 			
-            $sql = "SELECT *, x(PlaceLngLat) as Lng, y(PlaceLngLat) as Lat FROM Events";
+            $sql = "SELECT *, x(PlaceLngLat) as Lng, y(PlaceLngLat) as Lat FROM Events WHERE EventDate >= NOW() ORDER BY EventDate ASC";
 			$con->query("SET NAMES utf8");
 			$result = $con->query($sql);
 			
