@@ -1,0 +1,32 @@
+RewriteEngine on
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^[/]*$ index.php
+RewriteRule ^events[/]*$ events_dir/index.php
+RewriteRule ^new-event[/]*$ addevent_dir/index.php
+RewriteRule ^about-us[/]*$ aboutus_dir/index.php
+RewriteRule ^articles/ti-einai-to-kritondromena-gr[/]*$ article_dir/index.php?artId=7
+RewriteRule ^events/glenti-ston-kavro*$ events_dir/eventsId.php?id=67
+RewriteRule ^events/testing-wysiwyg[/]*$ events_dir/eventsId.php?id=68
+RewriteRule ^events/perivolia[/]*$ events_dir/eventsId.php?id=69
+RewriteRule ^events/testing[/]*$ events_dir/eventsId.php?id=70
+RewriteRule ^events/megalo-glenti[/]*$ events_dir/eventsId.php?id=71
+RewriteRule ^events/megalo-glenti[/]*$ events_dir/eventsId.php?id=72
+RewriteRule ^events/megalo-glenti[/]*$ events_dir/eventsId.php?id=73
+RewriteRule ^events/megalo-glenti[/]*$ events_dir/eventsId.php?id=74
+RewriteRule ^events/megalo-glenti[/]*$ events_dir/eventsId.php?id=75
+RewriteRule ^events/glenti-ston-kavro[/]*$ events_dir/eventsId.php?id=77
+RewriteRule ^events/glenti-ston-kavro[/]*$ events_dir/eventsId.php?id=78
+RewriteRule ^articles/odoiporiko-sthn-nida[/]*$ article_dir/index.php?artId=8
+
+Options +FollowSymLinks -MultiViews
+# Turn mod_rewrite on
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{DOCUMENT_ROOT}/kritondromena/$1 -f [OR]
+RewriteCond %{DOCUMENT_ROOT}/kritondromena/$1 -d [OR]
+RewriteCond %{DOCUMENT_ROOT}/kritondromena/$1 -l
+RewriteRule (?!^kritondromena/)^(.*)$ /kritondromena/$1 [R=302,L,NC]

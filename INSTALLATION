@@ -1,0 +1,7 @@
+Configure your web server to deploy the:
+ ** DOCUMENT_ROOT/kritondromena/
+instead of:
+ ** DOCUMENT_ROOT (usually /xampp/htdocs)
+ 
+ This can be done by editing the htdocs.conf file.
+ Usually in xampp/etc/htdocs.conf
