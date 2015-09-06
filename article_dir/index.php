@@ -16,6 +16,8 @@
 	<meta name="keywords" content="Κρητικές εκδηλώσεις, δρώμενα και γλέντια">
 	<meta name="page-topic" content="Κρητικές εκδηλώσεις, κείμενα Κρητικής κουλτούρας.">
 	<?php require("../inc/resources.php"); ?>
+	<script type="text/javascript" src="/resources/js/jssor.js"></script>
+	<script type="text/javascript" src="/resources/js/jssor.slider.js"></script>
 </head>
 
 <body>
@@ -32,11 +34,15 @@
 				<?php echo $row['Title'] ?>
 			</div>
 		</div><hr/>
-		<div class="col-xs-12 evDescription">
-			<?php echo $row['Text'] ?>
+		<div class="col-xs-12">
+			<?php echo $row['JssorSlider']; ?>
 		</div>
-	  </div>	
+		<div class="col-xs-12 evDescription">
+			<?php echo $row['Text']; ?>
+		</div>
+	  </div>
 	</div>
+	
 </body>
 
 </html>

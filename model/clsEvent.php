@@ -105,5 +105,18 @@
 			return $result;
 		}
 		
+		public static function fbEventExists($evId){
+			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
+			
+			$sql = "SELECT * FROM Events WHERE FacebookId = '".mysql_escape_string($evId)."'";
+			$con->query("SET NAMES utf8");
+			$result = $con->query($sql);
+			
+			$con->close();
+			if ($result && mysqli_num_rows($result) > 0)
+				return true;
+			else 
+				return false;
+		}
 	}
 ?>

@@ -43,7 +43,8 @@
 		}
 	}
 	
-	$access_token = 'CAABjvDVPLZCwBAB9x9ETMjW1oIorAtOoFZAZAHntbpLsTL53McgqwSRM1ub78cI3a2SIEOX7adLHHU11ZAmninZBidx4BcuGyhAw0o7XH9muZCy1P3zuhcikD3TRhNqEKu5iFvZAav79VwAveUY9JUhVVfSkTJ5GWEapVj5sPRA04bZC4hsTwRGoZCK4dceZCHFxaJpSkSBUrRxQZDZD';
+	$access_token = 'CAABjvDVPLZCwBAODzwfpfDxppU209mwgmwpkTKur9nA9sbRuAgmtP12dO7GaSX0pZA1BXqMR1ZAsS6zc6ZA2iNCm7CHUrsQNLbxZAhoNiixGsmdZBHYQHjQhFUDZAEZAdvbZCgMlGZAlUhvbenVngk4lpO0gGOyxndxWTXUaSfVTxGjC7NVLSucCCHPbQyuCtqjnVVFKbLDZA0eG5wyt4YOy7WG';
+	
 	$app_secret = 'e5f29c24ed4d20e40513c10958b3e9f0';
 
 	$fb = new Facebook\Facebook([
@@ -66,7 +67,10 @@
 			r($resp);
 			
 			foreach($resp['data'] as $event){
-				//saveEvent($event, $p['Name']);
+				$exists = Event::fbEventExists($event['id']);
+				echo '<b>'.$event['id'].' exists: '.$exists.'<b><br>';
+				if(!$exists)
+					saveEvent($event, $p['Name']);
 			}
 		}
 		
