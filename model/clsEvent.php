@@ -48,7 +48,7 @@
 		public function getEvents() {
 			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
 			
-            $sql = "SELECT *, x(PlaceLngLat) as Lng, y(PlaceLngLat) as Lat FROM Events WHERE EventDate >= NOW() ORDER BY EventDate ASC";
+            $sql = "SELECT *, x(PlaceLngLat) as Lng, y(PlaceLngLat) as Lat FROM Events WHERE EventDate >= SUBDATE( NOW( ) , 1 ) ORDER BY EventDate ASC";
 			$con->query("SET NAMES utf8");
 			$result = $con->query($sql);
 			

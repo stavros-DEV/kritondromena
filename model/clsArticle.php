@@ -32,7 +32,7 @@
 			if($substr && $id != null)
 				$sql = "SELECT *, SUBSTR(`Text`,1,395) as substrText FROM articles WHERE ID='".mysql_escape_string($id)."'";
 			elseif($substr && $id == null)
-				$sql = "SELECT *, SUBSTR(`Text`,1,395) as substrText FROM articles";
+				$sql = "SELECT *, SUBSTR(`Text`,1,350) as substrText FROM articles ORDER BY ID DESC";
             else
 				$sql = "SELECT * FROM articles WHERE ID='".mysql_escape_string($id)."'";
 			$con->query("SET NAMES utf8");

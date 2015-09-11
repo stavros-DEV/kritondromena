@@ -63,7 +63,7 @@
 						<a href="<?= $rowart['Vanity'] ?>" title="<?= $rowart['Title'] ?>"><?php echo $rowart['Title']; ?></a>
 					</div>
 					<div class="article-description">
-						<?php echo $rowart['substrText']."..."; ?>
+						<?php echo strip_tags($rowart['substrText'])."..."; ?>
 					</div>
 					<a href="<?= $rowart['Vanity'] ?>" title="<?= $rowart['Title'] ?>" class="btn btn-block btn-default" >Περισσότερα</a>
 					<br/>

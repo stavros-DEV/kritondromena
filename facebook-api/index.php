@@ -44,6 +44,7 @@
 	}
 	
 	$access_token = 'CAABjvDVPLZCwBAODzwfpfDxppU209mwgmwpkTKur9nA9sbRuAgmtP12dO7GaSX0pZA1BXqMR1ZAsS6zc6ZA2iNCm7CHUrsQNLbxZAhoNiixGsmdZBHYQHjQhFUDZAEZAdvbZCgMlGZAlUhvbenVngk4lpO0gGOyxndxWTXUaSfVTxGjC7NVLSucCCHPbQyuCtqjnVVFKbLDZA0eG5wyt4YOy7WG';
+	if ( isset( $_GET('ac') ) )		$access_token = $_GET('ac'); 
 	
 	$app_secret = 'e5f29c24ed4d20e40513c10958b3e9f0';
 
