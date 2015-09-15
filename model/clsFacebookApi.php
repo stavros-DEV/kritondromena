@@ -1,28 +1,38 @@
 <?php
-class FacebookCustomApi{
-	public $id;
-	public $facebookId;
-	public $facebookName;
-	public $name;
+require ('clsKdObjekt.php');
+class FacebookCustomApi extends KdObject {
+	
+	public $keymap = array(
+		'ID'			=> 'ID',
+		'FACEBOOKID'	=> 'FacebookID',
+		'NAME'			=> 'Name',
+		'FACEBOOKNAME'	=> 'FacebookName',
+		'LASTUPDATEON'	=> 'LastUpdateOn'
+	);
+	
+	public function __construct()
+	{
+		$this->tablename = "FacebookApi";
+		$this->table_pk = "ID";
+	}
 	
 	public function getFacebookCustomApi() {
-		require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
-			
-		$sql = "SELECT * FROM FacebookApi";
-		$con->query("SET NAMES utf8");
-		$result = $con->query($sql);
-			
-		if ($result) {
+		return KdObject::fetchAll();
+	}
 	
-		} else {
+	public function getFacebookUserById ( $id ) {
+		return KdObject::fetchObjectByID( $id );
+	}
 	
-		}
-		$con->close();
+	public function create ( $fb_id, $name, $fb_name = null ) {
+		$fb = new FacebookCustomApi();
 		
-		while($row = $result->fetch_assoc()){
-			$res[] = $row;
-		}
+		$fb->data['FACEBOOKID'] 	= $fb_id;
+		$fb->data['NAME'] 			= $name;
+		$fb->data['FACEBOOKNAME'] 	= $fb_name;
+		$fb->data['LASTUPDATEON'] 	= KdObject::now();
 		
-		return $res;
+		$fb->save();
+		return $fb->id;
 	}
 }
