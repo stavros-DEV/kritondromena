@@ -44,7 +44,7 @@
 	}
 	
 	$access_token = 'CAABjvDVPLZCwBAODzwfpfDxppU209mwgmwpkTKur9nA9sbRuAgmtP12dO7GaSX0pZA1BXqMR1ZAsS6zc6ZA2iNCm7CHUrsQNLbxZAhoNiixGsmdZBHYQHjQhFUDZAEZAdvbZCgMlGZAlUhvbenVngk4lpO0gGOyxndxWTXUaSfVTxGjC7NVLSucCCHPbQyuCtqjnVVFKbLDZA0eG5wyt4YOy7WG';
-	if ( isset( $_GET('ac') ) )		$access_token = $_GET('ac'); 
+	if ( isset( $_GET['ac'] ) )		$access_token = $_GET['ac']; 
 	
 	$app_secret = 'e5f29c24ed4d20e40513c10958b3e9f0';
 
@@ -59,19 +59,23 @@
 	try {
 		$facebookApi = new FacebookCustomApi();
 		$pages = $facebookApi->getFacebookCustomApi();
-		r($pages);
+		//r($pages);
 
 		foreach($pages as $p){
 			
 			$response = $fb->get($p['FacebookID']."/events");
 			$resp = json_decode($response->getBody(), true);
-			r($resp);
-			
+			//r($resp);
+			echo $p['Name'].'<hr/>';
 			foreach($resp['data'] as $event){
 				$exists = Event::fbEventExists($event['id']);
-				echo '<b>'.$event['id'].' exists: '.$exists.'<b><br>';
-				if(!$exists)
+				
+				if (!$exists) {
+					echo '<b style="color:green">'.$event['id'].' doesnt exist:</b> '.$event['start_time'].'<br/>';
 					saveEvent($event, $p['Name']);
+				} else {
+					echo '<b style="color:red">'.$event['id'].' already exists:</b> '.$event['start_time'].'<br/>';
+				}
 			}
 		}
 		
