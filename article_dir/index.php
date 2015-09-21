@@ -3,8 +3,7 @@
 	require("../model/clsArticle.php");
 	$id = $_GET["artId"];
 	$article = new Article();
-	$res = $article->getArticleById($id);
-	$row = $res->fetch_assoc();
+	$row = $article->getArticleById($id);
 ?>
 
 <!DOCTYPE html>

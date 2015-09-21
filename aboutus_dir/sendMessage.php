@@ -6,11 +6,11 @@
 		$body = 'NAME: '.$_POST['name'].'<br>EMAIL: '.$_POST['email'].'<br>MESSAGE: '.$_POST['msg'];
 		sendMail("tsourdos@hotmail.com", 'FROM'.$_POST['name'], $body);
 		
-		$message = new Message($_POST['name'], $_POST['email'], $_POST['msg']);
-		$res = $message->save();
+		$message = new Message();
+		$res = $message->create( $_POST['name'], $_POST['email'], $_POST['msg'] );
 		
 		
-		if ($res) {
+		if (is_numeric($res)) {
 			echo '<div class="alert alert-success fade in">
 				  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 				  Λάβαμε το μύνημά σας! Θα επικοινωνήσουμε σύντομα μαζί σας.

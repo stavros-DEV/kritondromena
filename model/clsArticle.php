@@ -1,52 +1,43 @@
 <?php 
-	class Article {
-		public $id;
-		public $title;
-        public $text;
+	require ('clsKdObjekt.php');
+	class Article extends KdObject{
+		
+		public $keymap = array(
+			'ID'				=> 'ID',
+			'TITLE'				=> 'Title',
+			'TEXT'				=> 'Text',
+			'JSSORSLIDER'		=> 'JssorSlider',
+			'VANITY'			=> 'Vanity',
+			'METADESCRIPTION'	 => 'MetaDescription',
+			'LASTUPDATEON'		=> 'LastUpdateOn'
+		);
         	
         public function __construct($title = null, $text = null) {
-			$this->title = addslashes($title);
-            $this->text = addslashes($text);
+			$this->tablename = "articles";
+			$this->table_pk = "ID";
 		}
 		
-		public function save() {
-			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
+		public function getArticles() {
+			return array_reverse( KdObject::fetchAll() );
+		}
+		
+		public function getArticleById ( $id ) {
+			return KdObject::fetchObjectByID( $id );
+		}
+		
+		public function create ( $title, $text, $jssor = null, $meta_descr ) {
+			$art = new Article();
 			
-            $sql = "INSERT INTO Articles (Title, Text) VALUES ('".$this->title."', '".$this->text."')" ;
-
-			$con->query("SET NAMES utf8");
-			$result = $con->query($sql);
-			$this->id = $con->insert_id;
+			$art->data['TITLE'] 			= $title;
+			$art->data['TEXT'] 				= $text;
+			$art->data['JSSOR'] 			= $jssor;
+			$art->data['VANITY'] 			= translateToGreeklish( $title );
+			$art->data['METADESCRIPTION'] 	= $meta_descr;
+			$art->data['LASTUPDATEON'] 		= KdObject::now();
 			
-			if ($result) {
-				print_r($result);
-			} else {
-				echo "Error: " . $sql . "<br>" . $con->error;
-			}
-			$con->close();
-			return $result;
+			$art->save();
+			return $art->id;
         }
-		
-		public function getArticleById($id = null, $substr = false) {
-			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
-			if($substr && $id != null)
-				$sql = "SELECT *, SUBSTR(`Text`,1,395) as substrText FROM articles WHERE ID='".mysql_escape_string($id)."'";
-			elseif($substr && $id == null)
-				$sql = "SELECT *, SUBSTR(`Text`,1,350) as substrText FROM articles ORDER BY ID DESC";
-            else
-				$sql = "SELECT * FROM articles WHERE ID='".mysql_escape_string($id)."'";
-			$con->query("SET NAMES utf8");
-			$result = $con->query($sql);
-			
-			if ($result) {
-				
-			} else {
-				
-			}
-			$con->close();
-			return $result;
-		}
-		
 		
 	}
 ?>

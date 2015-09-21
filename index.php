@@ -3,8 +3,8 @@
 	require("events_dir/getEvents.php");
 	require("model/clsArticle.php");
 	$article = new Article();
-	$resart = $article->getArticleById(null, true);
-	//$rowart = $resart->fetch_assoc();
+	$resart = $article->getArticles();
+	
 ?>
 
 <!DOCTYPE html>
@@ -55,19 +55,19 @@
 		
 		<div class="col-md-6 home-custom-column">
 			<div class="home-columns home-right-column">
-				<div class="evTitle"><h3>Κείμενα (<?php echo mysqli_num_rows($resart); ?>)</h3></div><hr/>
+				<div class="evTitle"><h3>Κείμενα (<?php echo count($resart); ?>)</h3></div><hr/>
 				<div class="row articleDescr">
 				  <div class="col-xs-12">
-				   <?php while($rowart = $resart->fetch_assoc()) : ?>
+				   <?php foreach($resart as $rowart){ ?>
 					<div class="article-title">
 						<a href="<?= $rowart['Vanity'] ?>" title="<?= $rowart['Title'] ?>"><?php echo $rowart['Title']; ?></a>
 					</div>
 					<div class="article-description">
-						<?php echo strip_tags($rowart['substrText'])."..."; ?>
+						<?php echo mb_substr(strip_tags($rowart['Text']), 0, 300)."..."; ?>
 					</div>
 					<a href="<?= $rowart['Vanity'] ?>" title="<?= $rowart['Title'] ?>" class="btn btn-block btn-default" >Περισσότερα</a>
 					<br/>
-				   <?php endwhile; ?>
+				   <?php } ?>
 				  </div>
 				</div>
 			</div>

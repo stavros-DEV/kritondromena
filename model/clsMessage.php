@@ -1,32 +1,38 @@
 <?php 
-	class Message {
-		public $id;
-		public $name;
-        public $mail;
-		public $msg;
-        	
-        public function __construct($name = null, $mail = null, $msg = null) {
-			$this->name = addslashes($name);
-            $this->mail = addslashes($mail);
-			$this->msg  = addslashes($msg);
+	require ('clsKdObjekt.php');
+	class Message extends KdObject{
+        
+		public $keymap = array(
+				'ID'			=> 'ID',
+				'NAME'			=> 'Name',
+				'EMAIL'			=> 'Email',
+				'MESSAGE'		=> 'Message',
+				'LASTUPDATEON'	=> 'LastUpdateOn'
+		);
+		
+        public function __construct() {
+			$this->tablename = "messages";
+			$this->table_pk = "ID";
 		}
 		
-		public function save() {
-			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
+		public function getMessages() {
+			return KdObject::fetchAll();
+		}
+		
+		public function getMessageById ( $id ) {
+			return KdObject::fetchObjectByID( $id );
+		}
+		
+		public function create( $name, $email, $message ) {
+			$msg = new Message();
+		
+			$msg->data['NAME'] 			= $name;
+			$msg->data['EMAIL'] 		= $email;
+			$msg->data['MESSAGE']	 	= $message;
+			$msg->data['LASTUPDATEON'] 	= KdObject::now();
 			
-            $sql = "INSERT INTO messages (Name, Email, Message) VALUES ('".$this->name."', '".$this->mail."', '".$this->msg."')" ;
-			
-			$con->query("SET NAMES utf8");
-			$result = $con->query($sql);
-			$this->id = $con->insert_id;
-			
-			if ($result) {
-				
-			} else {
-				
-			}
-			$con->close();
-			return $result;
+			$msg->save();
+			return $msg->id;
         }
 		
 	}
