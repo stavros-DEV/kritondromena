@@ -13,6 +13,7 @@
 				'URL'				=> 'Url',
 				'FACEBOOKID'		=> 'FacebookID',
 				'FACEBOOKEVENTID'	=> 'FacebookEventID',
+				'ACTIVE'			=> 'Active',
 				'LASTUPDATEON'		=> 'LastUpdateOn'
 		);
 			
@@ -61,10 +62,15 @@
         	$ev->data['URL']				= translateToGreeklish($dt['TITLE']);
         	$ev->data['FACEBOOKID']			= $dt['FACEBOOKID'];
         	$ev->data['FACEBOOKEVENTID']	= $dt['FACEBOOKEVENTID'];
+        	$ev->data['ACTIVE']				= '1';
         	$ev->data['LASTUPDATEON']		= KdObject::now();
         	
-        	$ev->save();
-        	return $ev->id;
+        	$ev_result = $ev->save();
+        	
+        	if(!$ev_result)
+        		return false;
+        	else 
+        		return $ev->id;
         }
         
 		public function save1() {

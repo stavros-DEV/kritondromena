@@ -202,10 +202,10 @@ $( document ).ready(function() {
 		var place = $('#tseLocation').val();
 		
 		if(place == "any") {
-			var url = "../events_dir/ajaxResults.php?date="+date;
+			var url = "../events_dir/ajaxResults.php?async=true&date="+date;
 			place = "Οπουδήποτε";
 		} else
-			var url = "../events_dir/ajaxResults.php?loc="+place+"&date="+date;
+			var url = "../events_dir/ajaxResults.php?async=true&loc="+place+"&date="+date;
 		
 		$( "#ajaxResults" ).load( url, function(){
 			$(this).fadeIn('slow');

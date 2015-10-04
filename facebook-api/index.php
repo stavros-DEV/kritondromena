@@ -1,12 +1,11 @@
 <?php
 	header('Content-Type: text/html; charset=utf-8');
 
-	require("../model/clsEvent.php");
 	require($_SERVER["DOCUMENT_ROOT"]."/model/clsFacebookApi.php");
 	require("../inc/common.php");
 	include 'Facebook/autoload.php';
 	
-	function saveEvent($arr, $name, $id)
+	function saveEvent($arr, $name)
 	{
 		$now = new DateTime();
 		
@@ -22,7 +21,8 @@
 							'PLACELNGLAT'		=> $arr['place']['location']['longitude'].' '.$arr['place']['location']['latitude'],
 							'FACEBOOKID'		=> $id,
 							'EMAIL'				=> "",
-							'FACEBOOKEVENTID'	=> $arr['id']
+							'FACEBOOKEVENTID'	=> $arr['id'],
+							'FACEBOOKID'		=> $name
 			);
 			
 			$addEvent->create( $event );
@@ -58,7 +58,7 @@
 				
 				if (!$exists) {
 					echo '<b style="color:green">'.$event['id'].' doesnt exist:</b> '.$event['start_time'].'<br/>';
-					saveEvent($event, $p['Name'], $p['FacebookID']);
+					saveEvent($event, $p['Name']);
 				} else {
 					echo '<b style="color:red">'.$event['id'].' already exists:</b> '.$event['start_time'].'<br/>';
 				}

@@ -52,11 +52,13 @@ class KdObject {
 					$sql[] = sprintf(' %s = NULL ', $v );
 				}
 				else {
-					if (strpos($v,'LngLat') !== false)
+					if (strpos($v,'LngLat') !== false){
 						$value = "GeomFromText('POINT(".$this->data[$k].")')";
-					else
+						$sql[] = sprintf(' %s=%s ', $v , $value );
+					}else{
 						$value = addslashes( $this->data[$k] );
-					$sql[] = sprintf(' %s=\'%s\' ', $v , $value );
+						$sql[] = sprintf(' %s=\'%s\' ', $v , $value );
+					}
 				}
 			}
 		}

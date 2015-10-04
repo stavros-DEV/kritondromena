@@ -1,26 +1,20 @@
 <?php 
-	require("../model/clsEvent.php");
-	require("../model/clsImages.php");
-	require("../inc/common.php");
 	
-	/*Get post Parameters. */
-	$title = $_POST["eventTitleN"];
-	$place = $_POST["eventPlaceN"];
-	$date  = $_POST["dateSelector"];
-	$descr = $_POST["summernote"];
-	$email = $_POST["eventEmailN"];
-	$lng   = $_POST["eventLngN"];
-	$lat   = $_POST["eventLatN"];
+	/*Get post Parameters. Add the event. */
+	$event = array ('TITLE' 		=> $_POST["eventTitleN"],
+					'PLACE'			=> $_POST["eventPlaceN"],
+					'EVENTDATE' 	=> $_POST["dateSelector"],
+					'DESCRIPTION' 	=> $_POST["summernote"],
+					'EMAIL' 		=> $_POST["eventEmailN"],
+					'PLACELNGLAT'   => $_POST["eventLngN"].' '.$_POST["eventLatN"],
+					'FACEBOOKID'	=> '',
+					'FACEBOOKEVENTID' => ''
+	);
+	$addEvent = new Event();
+	$ret_id = $addEvent->create($event);
 	
-	/*Add the event. */
-	$vanity = translateToGreeklish($title);
-	$addEvent = new Event($title, $descr, $place, $date, $email, $lng, $lat, $vanity);
-	$fail = $addEvent->save();
-	if ($fail)
-		sendMail($email, $addEvent->id);
-		
-	$url = PHP_EOL.'RewriteRule ^events/'.$vanity."[/]*$ events_dir/eventsId.php?id=".$addEvent->id;
-	file_put_contents("../.htaccess", $url, FILE_APPEND);
+	/*$url = PHP_EOL.'RewriteRule ^events/'.$vanity."[/]*$ events_dir/eventsId.php?id=".$addEvent->id;
+	file_put_contents("../.htaccess", $url, FILE_APPEND);*/
 	
 	/*Upload the images. */
 	$errorMsg = "";
