@@ -1,6 +1,6 @@
 <?php 
 	header('Content-Type: text/html; charset=utf-8');
-	require("../model/clsArticle.php");
+	require("../inc/common.php");
 	$id = $_GET["artId"];
 	$article = new Article();
 	$row = $article->getArticleById($id);

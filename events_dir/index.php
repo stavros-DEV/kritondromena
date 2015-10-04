@@ -1,4 +1,6 @@
-<?php header('Content-Type: text/html; charset=utf-8'); ?>
+<?php header('Content-Type: text/html; charset=utf-8');
+	require($_SERVER["DOCUMENT_ROOT"]."inc/common.php");
+?>
 
 <!DOCTYPE html>
 <html>
@@ -49,9 +51,12 @@
 			}
 		  
 		  if ( !isset($_POST['dateSelector']) && !isset($_POST['loc']) ) : ?>
-		  <?php require("getEvents.php"); ?>
+		  <?php 
+		  $events = new Event();
+		  $res = $events->getEventsByDate( date( "Y-m-d", time() - 60 * 60 * 24 ) );
+		  ?>
 		  <div id="defaultResults">
-		  <?php $i = 0; while($row = $res->fetch_assoc()) : ?>
+		  <?php $i = 0; foreach( $res as $row ) { ?>
 		  
 		  <div class="row result <?= $row['ID'] ?>">
 		    <div class="row evTitle">
@@ -87,7 +92,7 @@
 			</div>
 			
 		  </div>
-		  <?php $i++; endwhile; ?>
+		  <?php $i++; } ?>
 		  </div>
 		  <?php endif; ?>
 		  <div id="ajaxLoading"></div>
