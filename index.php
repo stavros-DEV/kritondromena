@@ -66,7 +66,7 @@
 						<a href="<?= $rowart['Vanity'] ?>" title="<?= $rowart['Title'] ?>"><?php echo $rowart['Title']; ?></a>
 					</div>
 					<div class="article-description">
-						<?php echo mb_substr(strip_tags($rowart['Text']), 0, 300)."..."; ?>
+						<?php echo mb_substr($rowart['MetaDescription'], 0, 300)."...";?>
 					</div>
 					<a href="<?= $rowart['Vanity'] ?>" title="<?= $rowart['Title'] ?>" class="btn btn-block btn-default" >Περισσότερα</a>
 					<br/>
