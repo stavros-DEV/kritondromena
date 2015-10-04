@@ -1,9 +1,9 @@
 <?php
 	header('Content-Type: text/html; charset=utf-8');
-	require($_SERVER["DOCUMENT_ROOT"].'model/clsKdObjekt.php');
-	require($_SERVER["DOCUMENT_ROOT"].'model/clsEvent.php');
-	require($_SERVER["DOCUMENT_ROOT"].'model/clsArticle.php');
-	require($_SERVER["DOCUMENT_ROOT"].'model/clsImages.php');
+	require($_SERVER["DOCUMENT_ROOT"].'/model/clsKdObjekt.php');
+	require($_SERVER["DOCUMENT_ROOT"].'/model/clsEvent.php');
+	require($_SERVER["DOCUMENT_ROOT"].'/model/clsArticle.php');
+	require($_SERVER["DOCUMENT_ROOT"].'/model/clsImages.php');
 	
 	function translateToGreeklish ($str) {
 		$str = trim($str);

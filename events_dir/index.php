@@ -1,5 +1,5 @@
 <?php header('Content-Type: text/html; charset=utf-8');
-	require($_SERVER["DOCUMENT_ROOT"]."inc/common.php");
+	require($_SERVER["DOCUMENT_ROOT"]."/inc/common.php");
 ?>
 
 <!DOCTYPE html>
