@@ -1,6 +1,4 @@
 <?php
-	//require($_SERVER["DOCUMENT_ROOT"]."/model/clsEvent.php");
-	//require($_SERVER["DOCUMENT_ROOT"].'/inc/common.php');
 	$events = new Event();
 	$res = $events->getEvents();
 	
