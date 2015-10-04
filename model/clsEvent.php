@@ -72,26 +72,6 @@
         	else 
         		return $ev->id;
         }
-        
-		public function save1() {
-			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
-			
-            $sql = "INSERT INTO Events (Title, EventDate, Description, Place, Url, Email, FacebookId, PlaceLngLat) VALUES ('".
-			$this->title."', '".$this->evdate."', '".$this->description."', '".$this->place."', '".$this->url."', '".$this->email."',
-					'".$this->facebookId."', GeomFromText('POINT(".$this->lng." ".$this->lat.")'))" ;
-
-			$con->query("SET NAMES utf8");
-			$result = $con->query($sql);
-			$this->id = $con->insert_id;
-			
-			if ($result) {
-				print_r($result);
-			} else {
-				echo "Error: " . $sql . "<br>" . $con->error;
-			}
-			$con->close();
-			return $result;
-        }
 		
 		public function getEventsByParams($place = null, $date = null) {
 			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
@@ -112,11 +92,9 @@
 			$con->query("SET NAMES utf8");
 			$result = $con->query($sql);
 			
-			if ($result) {
-				
-			} else {
-				
-			}
+			if ($result) {}
+			else {}
+			
 			$con->close();
 			return $result;
 		}
