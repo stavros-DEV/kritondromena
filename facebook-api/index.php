@@ -24,7 +24,7 @@
 							'FACEBOOKEVENTID'	=> $arr['id'],
 							'FACEBOOKID'		=> $name
 			);
-			
+			$addEvent = new Event();
 			$addEvent->create( $event );
 		}
 	}
