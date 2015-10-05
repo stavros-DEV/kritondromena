@@ -1,81 +1,77 @@
 <?php 
-	class Event {
-		public $id;
-		public $title;
-        public $description;
-        public $place;
-        public $evdate;
-		public $email;
-        public $lng;
-		public $lat;
-		public $url;
-		public $facebookId;
+	
+	class Event extends KdObject {
+		
+		public $keymap = array(
+				'ID'				=> 'ID',
+				'TITLE'				=> 'Title',
+				'PLACE'				=> 'Place',
+				'EVENTDATE'			=> 'EventDate',
+				'DESCRIPTION'		=> 'Description',
+				'EMAIL'				=> 'Email',
+				'PLACELNGLAT'		=> 'PlaceLngLat',
+				'URL'				=> 'Url',
+				'FACEBOOKID'		=> 'FacebookID',
+				'FACEBOOKEVENTID'	=> 'FacebookEventID',
+				'ACTIVE'			=> 'Active',
+				'LASTUPDATEON'		=> 'LastUpdateOn'
+		);
 			
         public function __construct($title = null, $description = null, $place = null, $evdate = null, $email = null,
         		$lng = null, $lat = null, $url = null, $facebookId = null) 
         {
-			$this->title = addslashes($title);
-            $this->description = addslashes($description);
-            $this->place = $place;
-			$this->evdate = $evdate;
-			$this->email = $email;
-			$this->lng = $lng;
-			$this->lat = $lat;
-			$this->url = $url;
-			$this->facebookId = $facebookId;
+			$this->tablename = 'Events';
+			$this->table_pk  = 'ID';
         }
-		
-		public function save() {
-			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
-			
-            $sql = "INSERT INTO Events (Title, EventDate, Description, Place, Url, Email, FacebookId, PlaceLngLat) VALUES ('".
-			$this->title."', '".$this->evdate."', '".$this->description."', '".$this->place."', '".$this->url."', '".$this->email."',
-					'".$this->facebookId."', GeomFromText('POINT(".$this->lng." ".$this->lat.")'))" ;
+        
+        public function getEvents() {
+        	//Considers the spatial data of Events table
+        	return KdObject::fetchAll();
+        }
 
-			$con->query("SET NAMES utf8");
-			$result = $con->query($sql);
-			$this->id = $con->insert_id;
-			
-			if ($result) {
-				print_r($result);
-			} else {
-				echo "Error: " . $sql . "<br>" . $con->error;
-			}
-			$con->close();
-			return $result;
+        public function getEventsById( $id ) {
+        	//Considers the spatial data of Events table
+        	return KdObject::fetchObjectById( $id );
+        }
+        
+        public function getEventsByDate( $date ) {
+        	require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
+        		
+        	$sql = "SELECT *, x(PlaceLngLat) AS Lng, y(PlaceLngLat) AS Lat FROM Events WHERE EventDate > '".$date."' ORDER BY EventDate ASC";
+        	$con->query("SET NAMES utf8");
+        	$result = $con->query($sql);
+        	while($row = $result->fetch_assoc()){
+        		$res[] = $row;
+        	}
+        	$con->close();
+        	if ($result)
+        		return $res;
+        	else
+        		return false;
         }
 		
-		public function getEvents() {
-			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
-			
-            $sql = "SELECT *, x(PlaceLngLat) as Lng, y(PlaceLngLat) as Lat FROM Events WHERE EventDate >= SUBDATE( NOW( ) , 1 ) ORDER BY EventDate ASC";
-			$con->query("SET NAMES utf8");
-			$result = $con->query($sql);
-			
-			if ($result) {
-				
-			} else {
-				
-			}
-			$con->close();
-			return $result;
-		}
-		
-		public function getEventsById($id) {
-			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
-			
-            $sql = "SELECT *, x(PlaceLngLat) as Lng, y(PlaceLngLat) as Lat FROM Events WHERE ID='".mysql_escape_string($id)."'";
-			$con->query("SET NAMES utf8");
-			$result = $con->query($sql);
-			
-			if ($result) {
-				
-			} else {
-				
-			}
-			$con->close();
-			return $result;
-		}
+        public function create ( array $dt ) {
+        	$ev = new Event();
+        	
+        	$ev->data['TITLE']				= $dt['TITLE'];
+        	$ev->data['DESCRIPTION']		= $dt['DESCRIPTION'];
+        	$ev->data['EVENTDATE']			= $dt['EVENTDATE'];
+        	$ev->data['EMAIL']				= $dt['EMAIL'];
+        	$ev->data['PLACE']				= $dt['PLACE'];
+        	$ev->data['PLACELNGLAT']		= $dt['PLACELNGLAT'];
+        	$ev->data['URL']				= translateToGreeklish($dt['TITLE']);
+        	$ev->data['FACEBOOKID']			= $dt['FACEBOOKID'];
+        	$ev->data['FACEBOOKEVENTID']	= $dt['FACEBOOKEVENTID'];
+        	$ev->data['ACTIVE']				= '1';
+        	$ev->data['LASTUPDATEON']		= KdObject::now();
+        	
+        	$ev_result = $ev->save();
+        	
+        	if(!$ev_result)
+        		return false;
+        	else 
+        		return $ev->id;
+        }
 		
 		public function getEventsByParams($place = null, $date = null) {
 			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
@@ -96,11 +92,9 @@
 			$con->query("SET NAMES utf8");
 			$result = $con->query($sql);
 			
-			if ($result) {
-				
-			} else {
-				
-			}
+			if ($result) {}
+			else {}
+			
 			$con->close();
 			return $result;
 		}
@@ -117,6 +111,11 @@
 				return true;
 			else 
 				return false;
+		}
+		
+		function createVanityUrl( $vanity, $id ) {
+			$url = PHP_EOL.'RewriteRule ^events/'.$vanity."[/]*$ events_dir/eventsId.php?id=".$id;
+			file_put_contents("../.htaccess", $url, FILE_APPEND);
 		}
 	}
 ?>

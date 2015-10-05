@@ -1,5 +1,6 @@
 <?php
-	require("../model/clsEvent.php");
+	if(isset($_GET['async']) && $_GET['async']=='true')
+		require($_SERVER["DOCUMENT_ROOT"]."/inc/common.php");
 	$events = new Event();
 	if(!isset($_GET['loc']) && isset($_GET['date']))
 		$res = $events->getEventsByParams('', $_GET['date']);

@@ -1,4 +1,5 @@
 <?php 
+	require("../inc/common.php");
 	header('Content-Type: text/html; charset=utf-8');
 	if(isset($_POST["eventTitleN"]) && isset($_POST["eventPlaceN"]) && isset($_POST["dateSelector"]) && isset($_POST["summernote"]) && isset($_POST["eventEmailN"])) {
 		require("addEvent.php");
@@ -38,8 +39,8 @@
 		<br/>
 		<div class="eventDetails">
 		  <form class="form-horizontal" method="POST" id="eventsForm" role="form" accept-charset="UTF-8" enctype="multipart/form-data" novalidate >
-		    <?php if (!isset($fail)) : ?>
-			<?php elseif ($fail) : ?>
+		    <?php if (!isset($ret_id)) : ?>
+			<?php elseif (is_numeric($ret_id)) : ?>
 				<div class="alert alert-success fade in">
 				  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 				  Το δρώμενο σας καταχωρήθηκε στο σύστημα με επιτυχία!

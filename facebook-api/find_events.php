@@ -1,7 +1,6 @@
 <?php
 	header('Content-Type: text/html; charset=utf-8');
 
-	require("../model/clsEvent.php");
 	require($_SERVER["DOCUMENT_ROOT"]."/model/clsFacebookApi.php");
 	require("../inc/common.php");
 	include 'Facebook/autoload.php';

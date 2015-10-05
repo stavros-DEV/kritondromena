@@ -1,7 +1,10 @@
 <?php 
 	header('Content-Type: text/html; charset=utf-8');
-	require("events_dir/getEvents.php");
-	require("model/clsArticle.php");
+	require("inc/common.php");
+	
+	$events = new Event();
+	$res = $events->getEventsByDate( date( "Y-m-d", time() - 60 * 60 * 24 ) );
+	
 	$article = new Article();
 	$resart = $article->getArticles();
 	
@@ -39,8 +42,8 @@
 	  <div class="row">
 		<div class="col-md-6 home-custom-column">
 			<div class="home-columns home-left-column">
-				<div class="evTitle"><h3>Κρητών Δρώμενα (<?php echo mysqli_num_rows($res); ?>)</h3></div><hr/>
-				<?php $i = 0; while($row = $res->fetch_assoc()) : ?>
+				<div class="evTitle"><h3>Κρητών Δρώμενα (<?php echo count($res); ?>)</h3></div><hr/>
+				<?php foreach($res as $row ) { ?>
 				  <div class="row">
 					<div class="home-events-title">
 						<a href="/events/#event<?= $row['ID'] ?>"><?php echo $row['Title'] ?></a>
@@ -49,7 +52,7 @@
 						<?php echo $row['EventDate'] ?>
 					</div>
 				  </div>
-				<?php $i++; endwhile; ?>
+				<?php } ?>
 			</div>
 		</div>
 		
@@ -63,7 +66,7 @@
 						<a href="<?= $rowart['Vanity'] ?>" title="<?= $rowart['Title'] ?>"><?php echo $rowart['Title']; ?></a>
 					</div>
 					<div class="article-description">
-						<?php echo mb_substr(strip_tags($rowart['Text']), 0, 300)."..."; ?>
+						<?php echo mb_substr($rowart['MetaDescription'], 0, 300)."...";?>
 					</div>
 					<a href="<?= $rowart['Vanity'] ?>" title="<?= $rowart['Title'] ?>" class="btn btn-block btn-default" >Περισσότερα</a>
 					<br/>

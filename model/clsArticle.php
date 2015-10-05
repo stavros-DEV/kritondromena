@@ -1,5 +1,5 @@
 <?php 
-	require ('clsKdObjekt.php');
+	//require ('clsKdObjekt.php');
 	class Article extends KdObject{
 		
 		public $keymap = array(

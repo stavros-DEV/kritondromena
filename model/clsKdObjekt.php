@@ -13,8 +13,11 @@ class KdObject {
 	function fetchAll ()
 	{
 		require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
+		$spatial = "";
+		if ($this->tablename == 'Events')
+			$spatial = ", x(PlaceLngLat) AS Lng, y(PlaceLngLat) AS Lat ";
 		
-		$sql = sprintf( "SELECT * FROM %s", $this->tablename );
+		$sql = sprintf( "SELECT *".$spatial." FROM %s", $this->tablename );
 		$con->query("SET NAMES utf8");
 		$result = $con->query($sql);
 		
@@ -28,7 +31,11 @@ class KdObject {
 	
 	function fetchObjectByID ( $id ) {
 		require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
-		$sql = sprintf( "SELECT * FROM %s WHERE %s = '%s'", $this->tablename, $this->table_pk, $id);
+		$spatial = "";
+		if ($this->tablename == 'Events')
+			$spatial = ", x(PlaceLngLat) AS Lng, y(PlaceLngLat) AS Lat ";
+		
+		$sql = sprintf( "SELECT *".$spatial." FROM %s WHERE %s = '%s'", $this->tablename, $this->table_pk, $id);
 		$con->query("SET NAMES utf8");
 		$result = $con->query($sql);
 		
@@ -44,8 +51,15 @@ class KdObject {
 				if ( is_null( $this->data[$k] ) ) {
 					$sql[] = sprintf(' %s = NULL ', $v );
 				}
-				else
-					$sql[] = sprintf(' %s=\'%s\' ', $v , addslashes( $this->data[$k] ) );
+				else {
+					if (strpos($v,'LngLat') !== false){
+						$value = "GeomFromText('POINT(".$this->data[$k].")')";
+						$sql[] = sprintf(' %s=%s ', $v , $value );
+					}else{
+						$value = addslashes( $this->data[$k] );
+						$sql[] = sprintf(' %s=\'%s\' ', $v , $value );
+					}
+				}
 			}
 		}
 		
