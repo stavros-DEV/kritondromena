@@ -58,7 +58,7 @@
 				
 				if (!$exists) {
 					echo '<b style="color:green">'.$event['id'].' doesnt exist:</b> '.$event['start_time'].'<br/>';
-					saveEvent($event, $p['Name']);
+					saveEvent($event, $p['FacebookID']);
 				} else {
 					echo '<b style="color:red">'.$event['id'].' already exists:</b> '.$event['start_time'].'<br/>';
 				}

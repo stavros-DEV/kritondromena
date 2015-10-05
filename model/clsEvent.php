@@ -53,6 +53,7 @@
         public function create ( array $dt ) {
         	$ev = new Event();
         	
+        	$place = addRegionName ( $dt['PLACE'], $dt['PLACELNGLAT'] );
         	$ev->data['TITLE']				= $dt['TITLE'];
         	$ev->data['DESCRIPTION']		= $dt['DESCRIPTION'];
         	$ev->data['EVENTDATE']			= $dt['EVENTDATE'];
@@ -102,7 +103,7 @@
 		public static function fbEventExists($evId){
 			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
 			
-			$sql = "SELECT * FROM Events WHERE FacebookId = '".mysql_escape_string($evId)."'";
+			$sql = "SELECT * FROM Events WHERE FacebookId = '".mysql_escape_string($evId)."' OR FacebookEventId = '".mysql_escape_string($evId)."'";
 			$con->query("SET NAMES utf8");
 			$result = $con->query($sql);
 			

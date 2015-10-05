@@ -65,4 +65,49 @@
 		print_r($var);
 		echo '</textarea><hr>';
 	}
+	
+	function containsRegion ($str) {
+		$str = strtolower(trim($str));
+		if (strpos($str, 'ηράκλειο') === false && strpos($str, 'ηρακλειο') === false && strpos($str, 'χανιά') === false &&
+			strpos($str, 'χανια') === false && strpos($str, 'ρέθυμνο') === false && strpos($str, 'ρεθυμνο') === false &&
+			strpos($str, 'λασίθι') === false && strpos($str, 'λασιθι') === false )
+			return false;
+		else
+			return true;
+	}
+	
+	function addRegionName ( $place, $location ) {
+		$contained = containsRegion($place);
+		
+		if ( !$contained && isset($location) ) {
+			$temp = explode(" ", trim($location));
+			$location = $temp[1].','.$temp[0];
+			$du = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?latlng=".$location."&key=AIzaSyDzO7UQ_c127qzlFbBAHgO2Vg42c99Hdqk&language=el");
+			$gapi = json_decode(utf8_encode($du),true);
+			r($gapi);
+			if( $gapi['status'] = "OK" ) {
+				$place = "";
+				foreach ($gapi['results'][0]['address_components'] as $entry ){
+					if(strpos($place, $entry['short_name']) === false)
+						$place = $place . ', ' . $entry['short_name'];
+				}
+				$place = substr($place, 2);
+			}
+		}
+		elseif ( !$contained && !isset($location) ) {
+			$du = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?address=" + trim($place) + "&key=AIzaSyDzO7UQ_c127qzlFbBAHgO2Vg42c99Hdqk&language=el");
+			$gapi = json_decode(utf8_encode($du),true);
+			r($gapi);
+			if( $gapi['status'] = "OK" ) {
+				$place = "";
+				foreach ($gapi['results'][0]['address_components'] as $entry ){
+					if(strpos($place, $entry['short_name']) === false)
+						$place = $place . ', ' . $entry['short_name'];
+				}
+				$place = substr($place, 2);
+			}
+		}
+		
+		return $place;
+	}
 ?>
