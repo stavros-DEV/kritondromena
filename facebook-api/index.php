@@ -18,9 +18,14 @@
 			} else {
 				$loc = getPlaceName ($arr['place']['location']['longitude'].' '.$arr['place']['location']['latitude']);
 			}
-
-			$lnglat = $loc['lng'].' '.$loc['lat'];
-			$place = $loc['place'];
+	
+			if ($loc) {
+				$lnglat = $loc['lng'].' '.$loc['lat'];
+				$place = $loc['place'];
+			} else {
+				$place = $arr['place']['name'];
+				$loc = $arr['place']['location']['longitude'].' '.$arr['place']['location']['latitude'];
+			}
 			
 			$event = array(	'TITLE' 			=> $arr['name'],
 							'DESCRIPTION'		=> $arr['description'],

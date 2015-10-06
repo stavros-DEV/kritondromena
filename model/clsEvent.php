@@ -53,7 +53,6 @@
         public function create ( array $dt ) {
         	$ev = new Event();
         	
-        	$place = addRegionName ( $dt['PLACE'], $dt['PLACELNGLAT'] );
         	$ev->data['TITLE']				= $dt['TITLE'];
         	$ev->data['DESCRIPTION']		= $dt['DESCRIPTION'];
         	$ev->data['EVENTDATE']			= $dt['EVENTDATE'];
