@@ -13,12 +13,20 @@
 		{
 			r($arr);
 			$date  = date('Y-m-d', strtotime($arr['start_time']));
+			if ( !isset($arr['place']['location']['longitude']) || !isset($arr['place']['location']['latitude']) ){
+				$loc = getLngLat($arr['place']['name']);
+			} else {
+				$loc = getPlaceName ($arr['place']['location']['longitude'].' '.$arr['place']['location']['latitude']);
+			}
+
+			$lnglat = $loc['lng'].' '.$loc['lat'];
+			$place = $loc['place'];
 			
 			$event = array(	'TITLE' 			=> $arr['name'],
 							'DESCRIPTION'		=> $arr['description'],
-							'PLACE'				=> $arr['place']['name'],
+							'PLACE'				=> $place,
 							'EVENTDATE'			=> $date,
-							'PLACELNGLAT'		=> $arr['place']['location']['longitude'].' '.$arr['place']['location']['latitude'],
+							'PLACELNGLAT'		=> $lnglat,
 							'FACEBOOKID'		=> $id,
 							'EMAIL'				=> "",
 							'FACEBOOKEVENTID'	=> $arr['id'],

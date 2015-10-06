@@ -67,7 +67,8 @@
 	}
 	
 	function containsRegion ($str) {
-		$str = strtolower(trim($str));
+		$str = mb_strtolower(trim($str));
+		echo $str;
 		if (strpos($str, 'ηράκλειο') === false && strpos($str, 'ηρακλειο') === false && strpos($str, 'χανιά') === false &&
 			strpos($str, 'χανια') === false && strpos($str, 'ρέθυμνο') === false && strpos($str, 'ρεθυμνο') === false &&
 			strpos($str, 'λασίθι') === false && strpos($str, 'λασιθι') === false )
@@ -76,38 +77,75 @@
 			return true;
 	}
 	
-	function addRegionName ( $place, $location ) {
-		$contained = containsRegion($place);
+	function curl_remote($url) {
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+		$response = curl_exec($ch);
+		curl_close($ch);
+		r($response);
+		return $response;
+	}
+	
+	function curl($url) {
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_URL,$url);
+		$result=curl_exec($ch);
+		curl_close($ch);
 		
-		if ( !$contained && isset($location) ) {
-			$temp = explode(" ", trim($location));
-			$location = $temp[1].','.$temp[0];
-			$du = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?latlng=".$location."&key=AIzaSyDzO7UQ_c127qzlFbBAHgO2Vg42c99Hdqk&language=el");
-			$gapi = json_decode(utf8_encode($du),true);
-			r($gapi);
-			if( $gapi['status'] = "OK" ) {
-				$place = "";
-				foreach ($gapi['results'][0]['address_components'] as $entry ){
-					if(strpos($place, $entry['short_name']) === false)
-						$place = $place . ', ' . $entry['short_name'];
-				}
-				$place = substr($place, 2);
-			}
-		}
-		elseif ( !$contained && !isset($location) ) {
-			$du = file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?address=" + trim($place) + "&key=AIzaSyDzO7UQ_c127qzlFbBAHgO2Vg42c99Hdqk&language=el");
-			$gapi = json_decode(utf8_encode($du),true);
-			r($gapi);
-			if( $gapi['status'] = "OK" ) {
-				$place = "";
-				foreach ($gapi['results'][0]['address_components'] as $entry ){
-					if(strpos($place, $entry['short_name']) === false)
-						$place = $place . ', ' . $entry['short_name'];
-				}
-				$place = substr($place, 2);
-			}
-		}
+		return json_decode($result, true);
+	}
+	
+	function getLngLat ($location) {
+
+		$gapi = curl("https://maps.googleapis.com/maps/api/geocode/json?address=" . trim($location) . "&key=AIzaSyDzO7UQ_c127qzlFbBAHgO2Vg42c99Hdqk&language=el");
 		
-		return $place;
+		if( $gapi['status'] == "OK" && isset ($location) ) {
+			$loc['place'] = "";
+			foreach ($gapi['results'][0]['address_components'] as $entry ){
+				if($entry['types'][0] == 'country' || $entry['types'][0] == 'administrative_area_level_2')
+					break;
+				if(strpos($loc['place'], $entry['short_name']) === false)
+					$loc['place'] = $loc['place'] . ', ' . $entry['short_name'];
+			}
+			$loc['place'] = substr($loc['place'], 2);
+			
+			$loc['lng'] = $gapi['results'][0]['geometry']['location']['lng'];
+			$loc['lat'] = $gapi['results'][0]['geometry']['location']['lat'];
+			
+			return $loc;
+		} else 
+			return false;
+	}
+	
+	function getPlaceName ( $location ) {
+		
+		$temp = explode(" ", trim($location));
+		$location = $temp[1].','.$temp[0];
+		$gapi = curl("https://maps.googleapis.com/maps/api/geocode/json?latlng=".$location."&key=AIzaSyDzO7UQ_c127qzlFbBAHgO2Vg42c99Hdqk&language=el");
+		
+		if( $gapi['status'] = "OK" && isset($location) ) {
+			$place = "";
+			foreach ($gapi['results'][1]['address_components'] as $entry ){
+				if($entry['types'][0] == 'country' || $entry['types'][0] == 'administrative_area_level_2')
+					break;
+				if(strpos($place, $entry['short_name']) === false)
+					$place = $place . ', ' . $entry['short_name'];
+			}
+			$place = substr($place, 2);
+			
+			$loc['place'] = $place;
+			$loc['lng'] = $gapi['results'][0]['geometry']['location']['lng'];
+			$loc['lat'] = $gapi['results'][0]['geometry']['location']['lat'];
+			
+			return $loc;
+		}else
+			return false;
+	
 	}
 ?>
