@@ -1,5 +1,5 @@
 <?php
-require ('clsKdObjekt.php');
+
 class FacebookCustomApi extends KdObject {
 	
 	public $keymap = array(

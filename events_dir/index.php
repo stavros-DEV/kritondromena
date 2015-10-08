@@ -80,7 +80,9 @@
 						<input type="hidden" value="<?php echo $i; ?>" />
 						<input class="lng" type="hidden" value="<?php echo $row['Lng'] ?>" />
 						<input class="lat" type="hidden" value="<?php echo $row['Lat'] ?>" />
+						<?php if(!empty($row['Lng']) && !empty($row['Lat'])){ ?>
 						<button type="submit" class="btn btn-block-custom btn-primary" >Εμφάνιση στο χάρτη</button>
+						<?php } ?>
 					</div>
 					<div id="map-canvas<?php echo $i; ?>"></div>
 				</div>

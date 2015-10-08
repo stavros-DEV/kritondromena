@@ -4,6 +4,7 @@
 	require($_SERVER["DOCUMENT_ROOT"].'/model/clsEvent.php');
 	require($_SERVER["DOCUMENT_ROOT"].'/model/clsArticle.php');
 	require($_SERVER["DOCUMENT_ROOT"].'/model/clsImages.php');
+	require($_SERVER["DOCUMENT_ROOT"].'/model/clsFacebookApi.php');
 	
 	function translateToGreeklish ($str) {
 		$str = trim($str);

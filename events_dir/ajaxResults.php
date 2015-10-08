@@ -27,7 +27,7 @@
 	  <div class="row result">
 		<div class="row evTitle">
 		  <div class="col-xs-12">
-			<a href="<?= $row['Url'] ?>" title="<?= $row['Title'] ?>"><?php echo $row['Title'] ?></a>
+			<?php echo $row['Title'] ?>
 			<div class="evDate">
 				Στις <?php echo $row['EventDate'] ?>
 			</div>
@@ -47,7 +47,9 @@
 					<input type="hidden" value="<?php echo $i; ?>" />
 					<input class="lng" type="hidden" value="<?php echo $row['Lng'] ?>" />
 					<input class="lat" type="hidden" value="<?php echo $row['Lat'] ?>" />
+					<?php if(!empty($row['Lng']) && !empty($row['Lat'])){ ?>
 					<button type="submit" class="btn btn-block-custom btn-primary" >Εμφάνιση στο χάρτη</button>
+					<?php } ?>
 				</div>
 				<div id="map-canvas<?php echo $i; ?>"></div>
 			</div>
@@ -55,7 +57,6 @@
 		
 		  <div class="col-xs-12 col-sm-7 evDescription" >
 			<?php echo $row['Description'] ?>
-			<a href="<?= $row['Url'] ?>" class="btn btn-block btn-default" >Περισσότερα</a>
 		  </div>
 		</div>
 			

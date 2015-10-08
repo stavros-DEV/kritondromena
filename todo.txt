@@ -1,9 +1,12 @@
 1. CTRL+V not working at new event description
-2. Google API should always return one of the 4 regions
-3. Homepage: number of events/articles - OK
+2. Google API should always return one of the 4 regions		- OK
+3. Homepage: number of events/articles 						- OK
 4. 404 page customize
-5. If placeLonLat is null, dont display the map
-6. Facebook api, get region based on lon-lat first and then place
+5. If placeLonLat is null, dont display the map				- OK
+6. Facebook api, get region based on lon-lat first
+	and then place										 	- OK todo6 branch
+7. Show in map not working after serch
+8. after search links to events appear						- OK
 
 750732836 (ντειλης)
 1674749916079914 (φραγκιαδακης)
