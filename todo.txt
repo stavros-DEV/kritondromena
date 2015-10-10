@@ -5,8 +5,11 @@
 5. If placeLonLat is null, dont display the map				- OK
 6. Facebook api, get region based on lon-lat first
 	and then place										 	- OK todo6 branch
-7. Show in map not working after serch
+7. Show in map not working after ajax search 				- OK
+(http://stackoverflow.com/questions/6237589/how-do-i-get-event-listeners-to-recognize-new-document-elements)
 8. after search links to events appear						- OK
+9. order by date the events after search					- OK
+10. fix responsiveness issues in mobile
 
 750732836 (ντειλης)
 1674749916079914 (φραγκιαδακης)
@@ -24,4 +27,3 @@ syllogosmourne@gmail.com
 Αν σας ενδιαφέρει να συμμετάσχετε στηρίξτε το. Αν αδιαφορείτε ή διαφωνείτε με αυτό, παρακαλείσθε να επικοινωνήστε με τους διαχειριστές. Φιλικούς Χαιρετισμούς!
 
 Το πλήρες πρόγραμμα του Θεάτρου Ανατολικής Τάφρου (Αύγουστος/Σεπτέμβριος) στο http://kritondromena.gr/events/#event51
-

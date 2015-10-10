@@ -137,8 +137,9 @@ $( document ).ready(function() {
 		return numofWords;
 	}
 	
-	
-	$('.showMap').click(function() {
+	// We need to use event delegation, because elements added to the DOM after this code was ran
+	$(document).on("click", ".showMap", function() {
+		console.log(".showMap clicked");
 		var mapid = this.id;
 
 		var lat = $('#' + mapid + ' .lat').val();

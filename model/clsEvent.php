@@ -80,13 +80,17 @@
 				$day2 = date('Y-m-d', strtotime($date. ' + 7 days'));
 			}
 			
-			if(isset($place) && isset($date))
-				$sql = "SELECT *, x(PlaceLngLat) as Lng, y(PlaceLngLat) as Lat FROM Events WHERE Place LIKE '%".mysql_escape_string($place)."%' AND (EventDate BETWEEN '".mysql_escape_string($day1)."' AND '".mysql_escape_string($day2)."')";
-			elseif(isset($place) && !isset($date))
-				$sql = "SELECT *, x(PlaceLngLat) as Lng, y(PlaceLngLat) as Lat FROM Events WHERE Place LIKE '%".mysql_escape_string($place)."%'";
-			elseif(!isset($place) && isset($date))
-				$sql = "SELECT *, x(PlaceLngLat) as Lng, y(PlaceLngLat) as Lat FROM Events WHERE (EventDate BETWEEN '".mysql_escape_string($day1)."' AND '".mysql_escape_string($day2)."')";
-			else
+			if(isset($place) && isset($date)) {
+				$sql = "SELECT *, x(PlaceLngLat) as Lng, y(PlaceLngLat) as Lat FROM Events WHERE Place LIKE 
+						'%".mysql_escape_string($place)."%' AND (EventDate BETWEEN '".mysql_escape_string($day1).
+						"' AND '".mysql_escape_string($day2)."') ORDER BY EventDate ASC";
+			} elseif(isset($place) && !isset($date)) {
+				$sql = "SELECT *, x(PlaceLngLat) as Lng, y(PlaceLngLat) as Lat FROM Events WHERE Place LIKE 
+						'%".mysql_escape_string($place)."%' ORDER BY EventDate ASC";
+			} elseif(!isset($place) && isset($date)) {
+				$sql = "SELECT *, x(PlaceLngLat) as Lng, y(PlaceLngLat) as Lat FROM Events WHERE (EventDate BETWEEN 
+						'".mysql_escape_string($day1)."' AND '".mysql_escape_string($day2)."') ORDER BY EventDate ASC";
+			} else
 				return false;
 			
 			$con->query("SET NAMES utf8");
