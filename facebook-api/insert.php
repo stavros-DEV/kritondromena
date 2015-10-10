@@ -21,7 +21,7 @@
 	<script>
 	$("#fb-api-form").on("submit", function (e) {
 
-		if ($('#fb-id').val()=='' || $('#fb-id').val()=='') {
+		if ($('#fb-id').val()=='' || $('#fb-id').val()=='' || !$('#fb-id').val().match(/^\d+$/)) {
 			$( ".action-result" ).html( "<div class='alert alert-danger fade in'>FACEBOOK ID AND KRITONDROMENA NAME ARE REQUIRED</div>" );
 			return false;
 		}
