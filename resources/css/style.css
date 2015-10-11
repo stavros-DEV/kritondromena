@@ -1,8 +1,8 @@
 body{
 	background-color: #E0E0EB;
-	/*background:url(../images/kritonbg.jpg) center center no-repeat;*/
 	font-family: "Open Sans",sans-serif;
 	color: black !important;
+	overflow-x: hidden;
 }
 
 h1{
@@ -10,11 +10,6 @@ h1{
 	text-transform: uppercase;
 	color: #000063;
 	font-size: 32px;
-}
-
-.no-side-padding{
-	padding-left: 0px;
-	padding-right: 0px;
 }
  
 .main-landing-message li{ 
@@ -26,6 +21,7 @@ h1{
 	border-bottom-style: solid;
 	border-bottom-color: black;
 }
+
 
 #message{
 	position: relative;
@@ -161,6 +157,11 @@ button {
 	.contact-form-right{
 		margin-top: 20px;
 		margin-bottom: 20px;
+	}
+}
+@media(max-width:767px){
+	#message {
+		top: 60px !important;
 	}
 }
 

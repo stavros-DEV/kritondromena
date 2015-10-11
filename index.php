@@ -39,7 +39,6 @@
 		</div>
 	  </div>
 	  
-	  <div class="col-xs-12 no-side-padding">
 	  <div class="row">
 		<div class="col-md-6 home-custom-column">
 			<div class="home-columns home-left-column">
@@ -77,7 +76,7 @@
 			</div>
 		</div>
 	  </div>
-	  </div>
+	
 	</div>
 </body>
 
