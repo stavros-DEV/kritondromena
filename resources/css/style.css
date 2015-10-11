@@ -12,7 +12,10 @@ h1{
 	font-size: 32px;
 }
 
-
+.no-side-padding{
+	padding-left: 0px;
+	padding-right: 0px;
+}
  
 .main-landing-message li{ 
   padding:3px
