@@ -7,3 +7,9 @@ facebook-api/Facebook
 test/
 .project
 .buildpath
+resources/summernote-0.6.9-dist
+resources/js/gmaps.js
+resources/js/jssor.js
+resources/js/jssor.slider.js
+resources/js/jssor.slider.mini.js
+resources/js/summernote.min.js
