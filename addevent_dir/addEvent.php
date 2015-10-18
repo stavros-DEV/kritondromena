@@ -23,8 +23,8 @@
 	require("../inc/uploadImage.php");
 	
 	/*Store image in the DB */
-	$addImage = new Image(basename($_FILES[$formName]["name"]), "", "/resources/images/".basename($_FILES[$formName]["name"]), $addEvent->id);
-	$addImage->save();
+	$addImage = new Image();
+	$addImage->create(basename($_FILES[$formName]["name"]), "", "/resources/images/".basename($_FILES[$formName]["name"]), $ret_id);
 	
 	if(empty($_FILES[$formName]["name"]))
 		$errorMsg = "";

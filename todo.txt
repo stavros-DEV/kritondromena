@@ -9,7 +9,9 @@
 (http://stackoverflow.com/questions/6237589/how-do-i-get-event-listeners-to-recognize-new-document-elements)
 8. after search links to events appear						- OK
 9. order by date the events after search					- OK
-10. fix responsiveness issues in mobile
+10. fix responsiveness issues in mobile						- OK
+11. last update in events and articles
+12. single event page construction
 
 750732836 (ντειλης)
 1674749916079914 (φραγκιαδακης)
@@ -27,3 +29,5 @@ syllogosmourne@gmail.com
 Αν σας ενδιαφέρει να συμμετάσχετε στηρίξτε το. Αν αδιαφορείτε ή διαφωνείτε με αυτό, παρακαλείσθε να επικοινωνήστε με τους διαχειριστές. Φιλικούς Χαιρετισμούς!
 
 Το πλήρες πρόγραμμα του Θεάτρου Ανατολικής Τάφρου (Αύγουστος/Σεπτέμβριος) στο http://kritondromena.gr/events/#event51
+ sudo /etc/init.d/apache2 stop
+ sudo /opt/lampp/lampp start

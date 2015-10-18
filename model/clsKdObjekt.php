@@ -7,7 +7,7 @@ class KdObject {
 	protected $tablename;
 	protected $table_pk;
 	public $id;
-	protected $data = array();
+	public $data = array();
 	protected $keymap = array();
 	
 	function fetchAll ()
@@ -39,9 +39,24 @@ class KdObject {
 		$con->query("SET NAMES utf8");
 		$result = $con->query($sql);
 		
-		$row = $result->fetch_assoc();
+		$this->data = $result->fetch_assoc();
 		$con->close();
-		return $row;
+		return $this->data;
+	}
+	
+	function fetchObjectByParam ( $column, $value ) {
+		require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
+		$spatial = "";
+		if ($this->tablename == 'Events')
+			$spatial = ", x(PlaceLngLat) AS Lng, y(PlaceLngLat) AS Lat ";
+		
+		$sql = sprintf( "SELECT *".$spatial." FROM %s WHERE %s = '%s'", $this->tablename, $column, $value);
+		$con->query("SET NAMES utf8");
+		$result = $con->query($sql);
+		
+		$this->data = $result->fetch_assoc();
+		$con->close();
+		return $this->data;
 	}
 	
 	function save () {
