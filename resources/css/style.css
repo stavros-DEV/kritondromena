@@ -5,11 +5,15 @@ body{
 	overflow-x: hidden;
 }
 
-h1{
+.basic-heading h1{
 	text-align: center;
 	text-transform: uppercase;
 	color: #000063;
 	font-size: 32px;
+}
+
+.event-heading h1 {
+	font-size: 25px !important;
 }
  
 .main-landing-message li{ 
@@ -72,8 +76,8 @@ button {
 
 .evTitle {
 	text-align: left;
-	font-weight: 800;
-	font-size: 25px;
+	font-weight: 800 !important;
+	font-size: 25px !important;
 	color: #2E5CE6;
 }
 

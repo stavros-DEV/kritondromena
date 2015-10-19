@@ -25,7 +25,7 @@
 	  <div class="row">
 		<div class="col-xs-12">
 		  <div class="main-landing-message">
-		    <h1>Αναζητηστε Κρητικες βραδιες και εκδηλωσεις</h1>
+		    <h1 class="basic-heading">Αναζητηστε Κρητικες βραδιες και εκδηλωσεις</h1>
 			<p>Αναζητήστε εύκολα τις μουσικές βραδιές, εκδηλώσεις δρώμενα που σας ενδιαφέρουν.</p>
 			<div class="result-description">
 			

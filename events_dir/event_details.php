@@ -26,60 +26,42 @@
 <body>
 	<?php require("../inc/header.php");	?>
 	<div class="hidden-xs">
-	  <?php require("../inc_view/topSearchEnginePost.php"); ?>
+		<?php require("../inc_view/topSearchEnginePost.php"); ?>
 	</div>
 	<div class="container" id="message" align="center">
-	  <div class="row">
-		<div class="col-xs-12">
-		  <div class="main-landing-message">
-		    <h1><?= $event->data['Title'] ?></h1>
-		  </div>
-		  
-		  <div id="defaultResults">
-		  
-		  <div class="row result <?= $event->data['ID'] ?>">
-		    <div class="row evTitle">
-			  <div class="col-xs-12">
-				<?= $event->data['Title'] ?>
-				<div class="evDate">
-					Στις <?= $event->data['EventDate'] ?>
-				</div>
-			  </div>
-			  
-			</div>
-			<hr/>
-			<div class="row details">
-			  <div class="col-xs-12 col-sm-5">
-				
-				<div class="row evPlace">
-					<?= $event->data['Place'] ?>
-				</div>
-				<!--  <div class="row evMap" >
-					<div class="showMap" id="showMap<?php echo $i; ?>" >
-						<input type="hidden" value="<?php echo $i; ?>" />
-						<input class="lng" type="hidden" value="<?= $event->data['Lng'] ?>" />
-						<input class="lat" type="hidden" value="<?= $event->data['Lat'] ?>" />
-						<?php if(!empty($row['Lng']) && !empty($row['Lat'])){ ?>
-						<button type="submit" class="btn btn-block-custom btn-primary" >Εμφάνιση στο χάρτη</button>
-						<?php } ?>
+	  	<div class="row">
+			<div class="col-xs-12">
+		  		<div class="row result <?= $event->data['ID'] ?>">
+				    <div class="row evTitle">
+					  <div class="col-xs-12">
+						<h1 class="event-heading"><?= $event->data['Title'] ?></h1>
+						<div class="evDate">
+							Στις <?= $event->data['EventDate'] ?>
+						</div>
+					  </div>
 					</div>
-					<div id="map-canvas<?php echo $i; ?>"></div>
-				</div>-->
-			  </div>	
-			  <div class="col-xs-12 col-sm-7 evDescription" >
-				<?= $event->data['Description'] ?>
-				<!--<a href="" class="btn btn-block btn-default" >Περισσότερα</a>-->
-			  </div>
-			</div>
+					<hr/>
 			
-		  </div>
-		  
-		  </div>
-		  
-		  <div id="ajaxLoading"></div>
-		  <div id="ajaxResults"></div>
+					<div class="row details">
+					  <div class="col-xs-12 col-sm-5">
+						<div class="row evPlace">
+							<?= $event->data['Place'] ?>
+						</div>
+						<div class="row evMap" >
+							<div class="showMap" id="showMap" >
+								<input class="lng" type="hidden" value="<?= $event->data['Lng'] ?>" />
+								<input class="lat" type="hidden" value="<?= $event->data['Lat'] ?>" />
+							</div>
+							<div id="map-canvas"></div>
+						</div>
+					  </div>
+					  <div class="col-xs-12 col-sm-7 evDescription" >
+						<?= $event->data['Description'] ?>
+					  </div>
+					</div>
+		  		</div>
+			</div>
 		</div>
-	  </div>
 	</div>
 </body>
 

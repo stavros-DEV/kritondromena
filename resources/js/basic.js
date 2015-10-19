@@ -170,6 +170,31 @@ $( document ).ready(function() {
 		});
 	});
 	
+
+	if (pathname.indexOf("/events_dir/") >= 0) {
+		var mapCanvasid = "#map-canvas";
+		var lat = $('#showMap .lat').val();
+		var lng = $('#showMap .lng').val();
+		
+		if (lat != '' && lng != '') {
+			
+			$(mapCanvasid).css("width", "370px");
+			$(mapCanvasid).css("height", "250px");
+			
+			map = new GMaps({
+				div: mapCanvasid,
+				lat: lat,
+				lng: lng,
+				zoom: 9
+			});
+			
+			map.addMarker({
+			  lat: lat,
+			  lng: lng,
+			});
+		}
+	}
+	
 	$(document).on('change', '.btn-file :file', function() {
 		var input = $(this),
 			numFiles = input.get(0).files ? input.get(0).files.length : 1,
@@ -247,6 +272,7 @@ $( document ).ready(function() {
           scrollTop: $("."+eventID).offset().top - minus
 		}, 2000);
 	});
+	
 	
 	if (pathname.indexOf("/articles/") >= 0) {
 	
