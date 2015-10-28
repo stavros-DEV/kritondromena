@@ -77,6 +77,43 @@ class KdObject {
 			return false;
 	}
 	
+	function prepared_save() {
+		$type = "prepared";
+		require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
+		$columns = '';
+		$question = '';
+		foreach ( $this->keymap as $k => $v ) {
+			if ($v == 'ID')
+				continue;
+			$columns .= "{$v},";
+			$question .= "?,";
+		}
+		$columns = rtrim($columns, ",");
+		$question = rtrim($question, ",");
+		$stmt = $con->prepare(sprintf("INSERT INTO %s (%s) VALUES (%s)", $this->tablename, $columns, $question));
+		
+		echo sprintf("INSERT INTO %s (%s) VALUES (%s)", $this->tablename, $columns, $question);
+		
+		r(array_values($this->data));
+		$params = array_values($this->data);
+		
+		$param_type = '';
+		foreach($this->data as $dt){
+			$param_type .= 's';
+		}
+		
+		$a_params[] = & $param_type;
+		
+		for($i = 0; $i < count($params); $i++) {
+			$a_params[] = & $params[$i];
+		}
+		r($a_params);
+		call_user_func_array(array(&$stmt, 'bind_param'), $a_params);
+		
+		$stmt->execute();
+		printf("%d Row inserted.\n", $stmt->affected_rows);
+	}
+	
 	function now(){
 		return date( "Y-m-d H:i:s" );
 	}

@@ -1,5 +1,5 @@
 <?php 
-	require ('clsKdObjekt.php');
+	//require ('clsKdObjekt.php');
 	class Message extends KdObject{
         
 		public $keymap = array(
@@ -31,7 +31,7 @@
 			$msg->data['MESSAGE']	 	= $message;
 			$msg->data['LASTUPDATEON'] 	= KdObject::now();
 			
-			$msg->save();
+			$msg->prepared_save();
 			return $msg->id;
         }
 		
