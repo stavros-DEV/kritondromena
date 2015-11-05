@@ -86,7 +86,10 @@ class KdObject {
 			if ($v == 'ID')
 				continue;
 			$columns .= "{$v},";
-			$question .= "?,";
+			if (strpos($v,'LngLat') !== false)
+				$question .= "GeomFromText(?),";
+			else
+				$question .= "?,";
 		}
 		$columns = rtrim($columns, ",");
 		$question = rtrim($question, ",");

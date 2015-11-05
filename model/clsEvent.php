@@ -54,18 +54,18 @@
         	$ev = new Event();
         	
         	$ev->data['TITLE']				= $dt['TITLE'];
-        	$ev->data['DESCRIPTION']		= $dt['DESCRIPTION'];
-        	$ev->data['EVENTDATE']			= $dt['EVENTDATE'];
-        	$ev->data['EMAIL']				= $dt['EMAIL'];
         	$ev->data['PLACE']				= $dt['PLACE'];
-        	$ev->data['PLACELNGLAT']		= $dt['PLACELNGLAT'];
+        	$ev->data['EVENTDATE']			= $dt['EVENTDATE'];
+        	$ev->data['DESCRIPTION']		= $dt['DESCRIPTION'];
+        	$ev->data['EMAIL']				= $dt['EMAIL'];
+        	$ev->data['PLACELNGLAT']		= 'POINT('.$dt['PLACELNGLAT'].')';
         	$ev->data['URL']				= translateToGreeklish($dt['TITLE']);
         	$ev->data['FACEBOOKID']			= $dt['FACEBOOKID'];
         	$ev->data['FACEBOOKEVENTID']	= $dt['FACEBOOKEVENTID'];
         	$ev->data['ACTIVE']				= '1';
         	$ev->data['LASTUPDATEON']		= KdObject::now();
         	
-        	$ev_result = $ev->save();
+        	$ev_result = $ev->prepared_save();
         	
         	if(!$ev_result)
         		return false;
