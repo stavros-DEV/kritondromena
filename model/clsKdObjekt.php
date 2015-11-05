@@ -108,6 +108,7 @@ class KdObject {
 		for($i = 0; $i < count($params); $i++) {
 			$a_params[] = & $params[$i];
 		}
+		
 		call_user_func_array(array(&$stmt, 'bind_param'), $a_params);
 		
 		$stmt_names->execute();
