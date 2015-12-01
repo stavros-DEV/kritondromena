@@ -22,3 +22,5 @@ RewriteRule ^events/glenti-ston-kavro[/]*$ events_dir/eventsId.php?id=78
 RewriteRule ^articles/odoiporiko-sthn-nida[/]*$ article_dir/index.php?artId=8
 RewriteRule ^articles/agiofaraggo-kaloi-limenes[/]*$ article_dir/index.php?artId=9
 RewriteRule ^articles/faraggi-agias-eirinis[/]*$ article_dir/index.php?artId=10
+RewriteRule ^articles/kritikos-syllogos-monaxou[/]*$ article_dir/index.php?artId=11
+RewriteRule ^articles/kritikos-syllogos-monaxou-2[/]*$ article_dir/index.php?artId=12

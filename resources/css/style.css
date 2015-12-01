@@ -395,6 +395,22 @@ hr {
 	margin-bottom: 10px;
 }
 
+.interview-name{
+	text-decoration: underline;
+	font-style: italic;
+}
+
+.art-heading{
+	border-left-color: #2e5ce6;
+    border-left-style: solid;
+    font-size: 17px;
+    margin: 20px 30px;
+    padding-left: 10px;
+    border-right-color: #2e5ce6;
+    border-right-style: solid;
+    padding-right: 10px;
+}
+
 /*JSSOR SLIDER BEGIN*/
              .captionOrange, .captionBlack
         {

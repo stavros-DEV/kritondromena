@@ -386,7 +386,7 @@ $( document ).ready(function() {
              $CaptionSliderOptions: {                            //[Optional] Options which specifies how to animate caption
                  $Class: $JssorCaptionSlider$,                   //[Required] Class to create instance to animate caption
                  $CaptionTransitions: _CaptionTransitions,       //[Required] An array of caption transitions to play caption, see caption transition section at jssor slideshow transition builder
-                 $PlayInMode: 1,                                 //[Optional] 0 None (no play), 1 Chain (goes after main slide), 3 Chain Flatten (goes after main slide and flatten all caption animations), default value is 1
+                 $PlayInMode: 0,                                 //[Optional] 0 None (no play), 1 Chain (goes after main slide), 3 Chain Flatten (goes after main slide and flatten all caption animations), default value is 1
                  $PlayOutMode: 3                                 //[Optional] 0 None (no play), 1 Chain (goes before main slide), 3 Chain Flatten (goes before main slide and flatten all caption animations), default value is 1
              },
 
