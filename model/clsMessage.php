@@ -1,5 +1,5 @@
 <?php 
-	//require ('clsKdObjekt.php');
+	
 	class Message extends KdObject{
         
 		public $keymap = array(

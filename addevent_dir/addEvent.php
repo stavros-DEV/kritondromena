@@ -16,6 +16,7 @@
 	/*$url = PHP_EOL.'RewriteRule ^events/'.$vanity."[/]*$ events_dir/eventsId.php?id=".$addEvent->id;
 	file_put_contents("../.htaccess", $url, FILE_APPEND);*/
 	
+	/**@todo makes no sence to run this codein case the user sends no image!*/
 	/*Upload the images. */
 	$errorMsg = "";
 	$target_dir = "../resources/images/";
@@ -23,8 +24,8 @@
 	require("../inc/uploadImage.php");
 	
 	/*Store image in the DB */
-	$addImage = new Image(basename($_FILES[$formName]["name"]), "", "/resources/images/".basename($_FILES[$formName]["name"]), $addEvent->id);
-	$addImage->save();
+	$addImage = new Image();
+	$addImage->create(basename($_FILES[$formName]["name"]), "", "/resources/images/".basename($_FILES[$formName]["name"]), $ret_id);
 	
 	if(empty($_FILES[$formName]["name"]))
 		$errorMsg = "";

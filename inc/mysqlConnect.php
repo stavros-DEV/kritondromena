@@ -15,7 +15,7 @@
 	
 	$database = "kritondr_data";
 
-	
+	/**@todo Find a smarter way to return con**/
 	if(isset($type) && $type == 'prepared')
 		$con = new mysqli($hostname, $username, $password, $database);
 	else 

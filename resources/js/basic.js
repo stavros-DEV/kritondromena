@@ -139,7 +139,7 @@ $( document ).ready(function() {
 	
 	// We need to use event delegation, because elements added to the DOM after this code was ran
 	$(document).on("click", ".showMap", function() {
-		console.log(".showMap clicked");
+		
 		var mapid = this.id;
 
 		var lat = $('#' + mapid + ' .lat').val();
@@ -169,6 +169,29 @@ $( document ).ready(function() {
 		  lng: lng,
 		});
 	});
+	
+	if (pathname.indexOf("/events_dir/") >= 0) {
+		var mapCanvasid = "#map-canvas";
+		var lat = $('#showMap .lat').val();
+		var lng = $('#showMap .lng').val();
+		
+		if (lat != '' && lng != '') {
+			$(mapCanvasid).css("width", "370px");
+			$(mapCanvasid).css("height", "250px");
+			
+			map = new GMaps({
+				div: mapCanvasid,
+				lat: lat,
+				lng: lng,
+				zoom: 9
+			});
+			
+			map.addMarker({
+			  lat: lat,
+			  lng: lng,
+			});
+		}
+	}
 	
 	$(document).on('change', '.btn-file :file', function() {
 		var input = $(this),

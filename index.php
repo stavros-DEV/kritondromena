@@ -1,4 +1,4 @@
-<?php 
+<?php
 	header('Content-Type: text/html; charset=utf-8');
 	require("inc/common.php");
 	
@@ -30,7 +30,7 @@
 	  <div class="row">
 	    <div class="col-md-12 main-landing-message">
 		
-		<h1>Κρητικες Εκδηλωσεις &amp; Δρωμενα</h1>
+		<h1 class="basic-heading">Κρητικες Εκδηλωσεις &amp; Δρωμενα</h1>
 		<ul>
 			<li>Καταχωρήστε εντελώς δωρεάν την εκδήλωση που οργανώνετε.</li>
 			<li>Αναζητήστε εύκολα τις μουσικές και πολιτιστικές εκδηλώσεις που σας ενδιαφέρουν.</li>

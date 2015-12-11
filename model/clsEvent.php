@@ -17,8 +17,7 @@
 				'LASTUPDATEON'		=> 'LastUpdateOn'
 		);
 			
-        public function __construct($title = null, $description = null, $place = null, $evdate = null, $email = null,
-        		$lng = null, $lat = null, $url = null, $facebookId = null) 
+        public function __construct() 
         {
 			$this->tablename = 'Events';
 			$this->table_pk  = 'ID';
@@ -120,6 +119,11 @@
 		function createVanityUrl( $vanity, $id ) {
 			$url = PHP_EOL.'RewriteRule ^events/'.$vanity."[/]*$ events_dir/eventsId.php?id=".$id;
 			file_put_contents("../.htaccess", $url, FILE_APPEND);
+		}
+	
+		function getRef_Image () {
+			$img = new Image();
+			$this->data['IMAGE'] = $img->fetchObjectByParam( 'EventID', $this->id );
 		}
 	}
 ?>

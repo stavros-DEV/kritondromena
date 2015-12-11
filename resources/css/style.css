@@ -1,3 +1,4 @@
+/*GLOBAL RULES START*/
 body{
 	background-color: #E0E0EB;
 	font-family: "Open Sans",sans-serif;
@@ -5,23 +6,28 @@ body{
 	overflow-x: hidden;
 }
 
-h1{
+textarea {
+    resize: none;
+}
+
+hr {
+	border-color: black;
+}
+
+.basic-heading {
 	text-align: center;
 	text-transform: uppercase;
 	color: #000063;
 	font-size: 32px;
 }
+
+.event-heading h1 {
+	font-size: 25px !important;
+}
  
 .main-landing-message li{ 
   padding:3px
 }
-
-#topNavigation {
-	text-transform: uppercase;
-	border-bottom-style: solid;
-	border-bottom-color: black;
-}
-
 
 #message{
 	position: relative;
@@ -50,43 +56,30 @@ h1{
 	background-color: #fff;
 }
 
-.eventDetails{
-	margin-bottom: 30px;
-}
-
-textarea {
-    resize: none;
-}
-
-#wordsInfo {
+.evTitle {/*Home, Events & Articles*/
 	text-align: left;
-	padding-left: 30px;
-	color: green;
-}
-
-/*Maybe not necessary!!*/
-button {
-  position: relative;
-  z-index: 300;
-}
-
-.evTitle {
-	text-align: left;
-	font-weight: 800;
-	font-size: 25px;
+	font-weight: 800 !important;
+	font-size: 25px !important;
 	color: #2E5CE6;
 }
 
-.evDescription{
+.evDescription{/*Events & Articles*/
 	font-size: 15px;
 	text-align: justify;
 }
 
-.showMap u {
-	color: blue;
-	font-size: 20px;
+.result, .home-columns  {
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
+#maps {
+	width: 300px;
+	height: 150px;
+}
+/*GLOBAL RULES END*/
+
+/*EVENTS PAGE RULES START*/
 .evPlace{
 	font-size: 16px;
 	font-weight: bold;
@@ -100,83 +93,37 @@ button {
 	color: #000099;
 }
 
+.showMap u {
+	color: blue;
+	font-size: 20px;
+}
+
+.result-description{
+	font-weight: 700;
+}
+
+.custom-alert{
+	margin-bottom: 0px !important;
+}
+
+.btn-block-custom {
+	width: 80%;
+}
+/*EVENTS PAGE RULES END*/
+
+/*ADD EVENT RULES START*/
+.eventDetails{
+	margin-bottom: 30px;
+}
+
+#wordsInfo {
+	text-align: left;
+	padding-left: 30px;
+	color: green;
+}
+
 #placeGlyph span {
 	right: 10px;
-}
-
-.result, .home-columns  {
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-
-/*http://stackoverflow.com/questions/18424798/twitter-bootstrap-3-how-to-use-media-queries*/
-@media(min-width:992px){
-  .result {
-	width: 960px;
-	padding-right: 15px;
-	margin-left: 0px;
-  }
-  
-  #message{
-    width: 960px;
-  }
-  
-  .main-landing-message{
-	width: 960px;
-  }
-  
-  .eventDetails{
-	width: 960px;
-  }
-  
-  body{
-  background:url(../images/site/sougia1.jpg) center center no-repeat;
-	background-attachment:fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	}
-	
-	.home-right-column {
-		margin-left:10px;
-	}
-
-	.home-left-column {
-		margin-right:10px;
-	}
-	
-	.main-landing-message ul{
-	  margin: 0 auto;
-	  text-align: left;
-	  width: 70%;
-	  border-left-style: solid;
-	  border-color: #000063;
-	}
-	
-	.contact-form-right{
-		margin-top: 20px;
-		margin-bottom: 20px;
-	}
-}
-@media(max-width:767px){
-	#message {
-		top: 60px !important;
-	}
-}
-
-.home-custom-column{
-	padding-right:0px;
-	padding-left:0px;
-}
-
-#maps {
-	width: 300px;
-	height: 150px;
-}
-
-hr {
-	border-color: black;
 }
 
 /*File Upload (Photo)*/
@@ -200,8 +147,74 @@ hr {
     display: block;
 }
 
+#eventDate{
+	padding-left: 5px;
+}
+/*ADD EVENT RULES END*/
 
-/*Bootstrap Calendar*/
+/*Maybe not necessary!!*/
+button {
+  position: relative;
+  z-index: 300;
+}
+
+/*http://stackoverflow.com/questions/18424798/twitter-bootstrap-3-how-to-use-media-queries*/
+@media(min-width:992px){
+  	.result {
+		width: 960px;
+		padding-right: 15px;
+		margin-left: 0px;
+  	}
+	
+	#message{
+		width: 960px;
+	}
+	
+	.main-landing-message{
+		width: 960px;
+	}
+	
+	.eventDetails{
+		width: 960px;
+	}
+	
+  	body{
+  		background:url(../images/site/sougia1.jpg) center center no-repeat;
+		background-attachment:fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+	
+	.home-right-column {
+		margin-left:10px;
+	}
+
+	.home-left-column {
+		margin-right:10px;
+	}
+	
+	.main-landing-message ul{
+		margin: 0 auto;
+		text-align: left;
+		width: 70%;
+		border-left-style: solid;
+	  	border-color: #000063;
+	}
+	
+	.contact-form-right{
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+}
+@media(max-width:767px){
+	#message {
+		top: 60px !important;
+	}
+}
+
+/*BOOTSTRAP CALENDAR RULES START*/
 #datetimepicker1 input:hover, #datetimepicker1 span:hover, #datetimepicker2 input:hover, #datetimepicker2 span:hover {
 	cursor: pointer;
 }
@@ -226,8 +239,15 @@ hr {
 	background-color: #fff;
 	cursor: auto;
 }
+/*BOOTSTRAP CALENDAR RULES END*/
 
-/*Navigation Bar*/
+/*NAVIGATION BAR RULES START*/
+#topNavigation {
+	text-transform: uppercase;
+	border-bottom-style: solid;
+	border-bottom-color: black;
+}
+
 .topNavLi:hover {
 	background-color: #337ab7;
 	color: white;
@@ -237,14 +257,12 @@ hr {
 	color: #fff !important;
 }
 
-.btn-block-custom {
-	width: 80%;
-}
-
 .active>a:hover {
 	color: #555 !important;
 }
+/*NAVIGATION BAR RULES END*/
 
+/*SEARCH ENGINE RULES START*/
 .topSearchEngine {
 	top: 50px;
 	position: fixed;
@@ -282,33 +300,27 @@ hr {
 
 #calendar-custom {
 	background-color: #000;
-  border: #000;
-  width: inherit;
-  display: initial;
+  	border: #000;
+  	width: inherit;
+  	display: initial;
     right: 5px;
-  position: relative;
+  	position: relative;
 }
 
 #tseSubmit{
 	font-weight:700;
 	right: 40px;
 	color: #000;
-  background-color: #A9BFD3;
-  border-color: #fff;
+  	background-color: #A9BFD3;
+  	border-color: #fff;
 }
 
 .datepicker-dropdown {
-  z-index: 500 !important;
+  	z-index: 500 !important;
 }
+/*SEARCH ENGINE RULES END*/
 
-/*new event fields*/
-#eventDate{
-	padding-left: 5px;
-}
-
-/*HOMEPAGE*/
-
-
+/*HOMEPAGE RULES START*/
 .home-events-title{
 	text-align: left;
 	padding-left: 20px;
@@ -336,20 +348,13 @@ hr {
   color: #000063;
 }
 
-.main-message-description{
-
+.home-custom-column{
+	padding-right:0px;
+	padding-left:0px;
 }
-
-.custom-alert{
-	margin-bottom: 0px !important;
-}
-
-.result-description{
-	font-weight: 700;
-}
+/*HOMEPAGE RULES END*/
 
 /*ABOUT US RULES START*/
-
 .contact-form{
 	margin-bottom: 10px;
 	background-color: lightsteelblue;
@@ -380,7 +385,7 @@ hr {
 }
 /*ABOUT US RULES END*/
 
-/*ARTICLE RULES BEGIN*/
+/*ARTICLE RULES START*/
 .responsive-img img{
 	width: 100%;
 	margin-top: 10px;
@@ -410,79 +415,84 @@ hr {
     border-right-style: solid;
     padding-right: 10px;
 }
+/*ARTICLE RULES END*/
 
-/*JSSOR SLIDER BEGIN*/
-             .captionOrange, .captionBlack
-        {
-            color: #fff;
-            font-size: 20px;
-            line-height: 30px;
-            text-align: center;
-            border-radius: 4px;
-        }
-        .captionOrange
-        {
-            background: #EB5100;
-            background-color: rgba(235, 81, 0, 0.6);
-        }
-        .captionBlack
-        {
-        	font-size:16px;
-            background: #000;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-        a.captionOrange, A.captionOrange:active, A.captionOrange:visited
-        {
-        	color: #ffffff;
-        	text-decoration: none;
-        }
-        a.captionOrange:hover
-        {
-            color: #eb5100;
-            text-decoration: underline;
-            background-color: #eeeeee;
-            background-color: rgba(238, 238, 238, 0.7);
-        }
-        .bricon
-        {
-            background: url(../img/browser-icons.png);
-        }
-    .jssorb01 {
-        position: absolute;
-    }
-    .jssorb01 div, .jssorb01 div:hover, .jssorb01 .av {
-        position: absolute;
-        /* size of bullet elment */
-        width: 12px;
-        height: 12px;
-        filter: alpha(opacity=70);
-        opacity: .7;
-        overflow: hidden;
-        cursor: pointer;
-        border: #000 1px solid;
-    }
-    .jssorb01 div { background-color: gray; }
-    .jssorb01 div:hover, .jssorb01 .av:hover { background-color: #d3d3d3; }
-    .jssorb01 .av { background-color: #fff; }
-    .jssorb01 .dn, .jssorb01 .dn:hover { background-color: #555555; }
-    .jssora05l, .jssora05r {
-        display: block;
-        position: absolute;
-        /* size of arrow element */
-        width: 40px;
-        height: 40px;
-        cursor: pointer;
-        background: url(http://www.kritondromena.gr/resources/images/site/a17.png) no-repeat;
-        overflow: hidden;
-    }
-    .jssora05l { background-position: -10px -40px; }
-    .jssora05r { background-position: -70px -40px; }
-    .jssora05l:hover { background-position: -130px -40px; }
-    .jssora05r:hover { background-position: -190px -40px; }
-    .jssora05l.jssora05ldn { background-position: -250px -40px; }
-    .jssora05r.jssora05rdn { background-position: -310px -40px; }
+/*JSSOR SLIDER START*/
+.captionOrange, .captionBlack {
+	color: #fff;
+	font-size: 20px;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 4px;
+}
+
+.captionOrange {
+	background: #EB5100;
+	background-color: rgba(235, 81, 0, 0.6);
+}
+
+.captionBlack {
+	font-size:16px;
+	background: #000;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+a.captionOrange, A.captionOrange:active, A.captionOrange:visited {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+a.captionOrange:hover {
+	color: #eb5100;
+	text-decoration: underline;
+	background-color: #eeeeee;
+	background-color: rgba(238, 238, 238, 0.7);
+}
+
+.bricon {
+	background: url(../img/browser-icons.png);
+}
+
+.jssorb01 {
+	position: absolute;
+}
+
+.jssorb01 div, .jssorb01 div:hover, .jssorb01 .av {
+	position: absolute;
+	/* size of bullet elment */
+	width: 12px;
+	height: 12px;
+	filter: alpha(opacity=70);
+	opacity: .7;
+	overflow: hidden;
+	cursor: pointer;
+	border: #000 1px solid;
+}
+
+.jssorb01 div { background-color: gray; }
+.jssorb01 div:hover, .jssorb01 .av:hover { background-color: #d3d3d3; }
+.jssorb01 .av { background-color: #fff; }
+.jssorb01 .dn, .jssorb01 .dn:hover { background-color: #555555; }
+
+.jssora05l, .jssora05r {
+	display: block;
+	position: absolute;
+	/* size of arrow element */
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	background: url(http://www.kritondromena.gr/resources/images/site/a17.png) no-repeat;
+	overflow: hidden;
+}
+
+.jssora05l { background-position: -10px -40px; }
+.jssora05r { background-position: -70px -40px; }
+.jssora05l:hover { background-position: -130px -40px; }
+.jssora05r:hover { background-position: -190px -40px; }
+.jssora05l.jssora05ldn { background-position: -250px -40px; }
+.jssora05r.jssora05rdn { background-position: -310px -40px; }
     
-    .art-img {
-    	max-width: 600px;
-    }
+.art-img {
+	max-width: 600px;
+}
 /*JSSOR SLIDER END*/

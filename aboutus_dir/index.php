@@ -16,7 +16,7 @@
 	<div class="container" id="message" align="center">
 	  <div class="row result">
 		<div class="col-md-6">
-			<h1>Σχετικα με εμας</h1><hr/>
+			<h1 class="basic-heading">Σχετικα με εμας</h1><hr/>
 			<div class="contact-text">
 			<p>Το kritondromena.gr, είναι μια κατανεμημένη προσπάθεια ώστε να διαδώσουμε τον πολιτισμό και την παράδοσή μας, μέσα από:</p>
 				<ul><li>Παρουσίαση Εκδηλώσεων</li>

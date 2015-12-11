@@ -27,7 +27,7 @@
 	<div class="container" id="message">
 	<div class="row"><div class="col-xs-12">
 	  <div class="main-landing-message">
-		<h1>Καταχωριση νεας Εκδηλωσης</h1>
+		<h1 class="basic-heading">Καταχωριση νεας Εκδηλωσης</h1>
 		<div class="main-message-description">
 			<ul>
 				<li>Καταχωρήστε μια νέα εκδήλωση και διαφημήστε την δωρεάν, συμπληρώνοντας την παρακάτω φόρμα.</li>

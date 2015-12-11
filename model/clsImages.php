@@ -1,49 +1,31 @@
 <?php 
-	class Image {
-		public $eventID;
-        public $description;
-        public $title;
-        public $location;
+	class Image extends KdObject{
+		public $keymap = array(
+			'ID'			=> 'ID',
+        	'TITLE'			=> 'TITLE',
+        	'EVENTID'		=> 'EventID',
+        	'LOCATION'		=> 'Location',
+        	'DESCRIPTION'	=> 'Description'
+    	);
 			
-        public function __construct($title = null, $description = null, $location = null, $eventID = null) {
-			$this->title = $title;
-            $this->description = addslashes($description);
-            $this->location = $location;
-			$this->eventID = $eventID;
-        }
+		public function __construct() {
+			$this->tablename = 'Images';
+			$this->table_pk  = 'ID';
+    	}
 		
-		public function save() {
+    	public function create( $title, $description, $location, $eventID ) {
 			require("../inc/mysqlConnect.php");
+			$img = new Image();
+			$img->data['TITLE'] 		= $title;
+			$img->data['DESCRIPTION'] 	= $description;
+			$img->data['LOCATION'] 		= $location;
+			$img->data['EVENTID']		= $eventID;
 			
-            $sql = "INSERT INTO Images (EventID, Title, Description, Location) VALUES ('".
-			$this->eventID."', '".$this->title."', '".$this->description."', '".$this->location."')" ;
-
-			$con->query("SET NAMES utf8");
-			$result = $con->query($sql);
-			
-			if ($result) {
-				
-			} else {
-				echo "Error: " . $sql . "<br>" . $con->error;
-			}
-			$con->close();
-			return $result;
-        }
-		
-		public function getImages() {
-			require("../inc/mysqlConnect.php");
-			
-            $sql = "SELECT *, x(PlaceLngLat) as Lng, y(PlaceLngLat) as Lat FROM Events";
-			$con->query("SET NAMES utf8");
-			$result = $con->query($sql);
-			
-			if ($result) {
-				
-			} else {
-				
-			}
-			$con->close();
-			return $result;
-		}
+			$img_result = $img->save();
+			if(!$img_result)
+				return false;
+			else
+				return $img->id;
+        }		
 	}
 ?>
