@@ -13,10 +13,7 @@
 	<meta name="description" content="Διαφημήστε δωρεάν τις εκδηλώσεις σας, εύκολα και γρήγορα. Καταχωρήστε το μουσικό σας γλέντι, πανηγύρι, την πολιτιστική σας εκδήλωση που αφορά την Κρητική παράδοσή μας.">
 	<meta name="keywords" content="Διαφήμηση Εκδηλώσεων, καταχώρηση γλέντι, Διαφήμηση μουσικής βραδιάς">
 	<meta name="page-topic" content="Φόρμα καταχώρησης δρώμενου">
-	<?php require("../inc/resources.php"); ?>
-	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-	<link href="/resources/css/summernote.css" rel="stylesheet">
-	<script src="/resources/js/summernote.min.js"></script>
+	<?php require($_SERVER['DOCUMENT_ROOT']."inc/common_metas.php"); ?>
 </head>
 
 <body>
@@ -113,5 +110,8 @@
 	  </div></div>
 	</div>
 </body>
-
+<?php require($_SERVER['DOCUMENT_ROOT']."inc/common_resources.php"); ?>
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+<link href="/resources/css/summernote.css" rel="stylesheet">
+<script src="/resources/js/summernote.min.js"></script>
 </html>

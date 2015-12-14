@@ -17,10 +17,7 @@
 	<meta name="description" content="<?= $event->data['Title'] ?>">
 	<meta name="keywords" content="Αναζήτηση Κρητικών εκδηλώσεων και κρητικών χορών.">
 	<meta name="page-topic" content="Κρητικές εκδηλώσεις δρώμενα και χοροί.">
-	<?php require("../inc/resources.php"); ?>
-	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-	<script src="../resources/js/gmaps.js"></script>
-	
+	<?php require($_SERVER['DOCUMENT_ROOT']."inc/common_metas.php"); ?>
 </head>
 
 <body>
@@ -64,5 +61,7 @@
 		</div>
 	</div>
 </body>
-
+<?php require($_SERVER['DOCUMENT_ROOT']."inc/common_resources.php"); ?>
+<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script src="../resources/js/gmaps.js"></script>
 </html>

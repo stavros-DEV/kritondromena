@@ -266,9 +266,11 @@ $( document ).ready(function() {
 		else
 		  var minus = 85;
 		
-		$('html, body').animate({
-          scrollTop: $("."+eventID).offset().top - minus
-		}, 2000);
+		if(hash){
+			$('html, body').animate({
+	          scrollTop: $("."+eventID).offset().top - minus
+			}, 2000);
+		}
 	});
 	
 	if (pathname.indexOf("/articles/") >= 0) {
