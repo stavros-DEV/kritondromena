@@ -14,7 +14,8 @@
     	}
 		
     	public function create( $title, $description, $location, $eventID ) {
-			require("../inc/mysqlConnect.php");
+    		/**@todo this is unsafe**/
+			$con = get_mysql_connection();
 			$img = new Image();
 			$img->data['TITLE'] 		= $title;
 			$img->data['DESCRIPTION'] 	= $description;

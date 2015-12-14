@@ -31,7 +31,7 @@ class FacebookCustomApi extends KdObject {
 		$fb->data['NAME'] 			= $name;
 		$fb->data['FACEBOOKNAME'] 	= $fb_name;
 		$fb->data['LASTUPDATEON'] 	= KdObject::now();
-		
+		/**@todo this is unsafe**/
 		$fb->save();
 		return $fb->id;
 	}

@@ -13,7 +13,7 @@
 		if (is_numeric($res)) {
 			echo '<div class="alert alert-success fade in">
 				  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				  Λάβαμε το μύνημά σας! Θα επικοινωνήσουμε σύντομα μαζί σας.
+				  Λάβαμε το μήνυμά σας! Θα επικοινωνήσουμε σύντομα μαζί σας.
 				  <?php echo $errorMsg; ?>
 				</div>';
 		} else {

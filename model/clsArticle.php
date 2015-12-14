@@ -34,7 +34,7 @@
 			$art->data['VANITY'] 			= translateToGreeklish( $title );
 			$art->data['METADESCRIPTION'] 	= $meta_descr;
 			$art->data['LASTUPDATEON'] 		= KdObject::now();
-			
+			/**@todo this is unsafe**/
 			$art->save();
 			return $art->id;
         }

@@ -12,7 +12,7 @@ class KdObject {
 	
 	function fetchAll ()
 	{
-		require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
+		$con = get_mysql_connection();
 		$spatial = "";
 		if ($this->tablename == 'Events')
 			$spatial = ", x(PlaceLngLat) AS Lng, y(PlaceLngLat) AS Lat ";
@@ -30,7 +30,7 @@ class KdObject {
 	}
 	
 	function fetchObjectByID ( $id ) {
-		require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
+		$con = get_mysql_connection();
 		$spatial = "";
 		if ($this->tablename == 'Events')
 			$spatial = ", x(PlaceLngLat) AS Lng, y(PlaceLngLat) AS Lat ";
@@ -45,7 +45,7 @@ class KdObject {
 	}
 	
 	function fetchObjectByParam ( $column, $value ) {
-		require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
+		$con = get_mysql_connection();
 		$spatial = "";
 		if ($this->tablename == 'Events')
 			$spatial = ", x(PlaceLngLat) AS Lng, y(PlaceLngLat) AS Lat ";
@@ -60,7 +60,7 @@ class KdObject {
 	}
 	
 	function save () {
-		require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
+		$con = get_mysql_connection();
 		foreach ( $this->keymap as $k => $v ) {
 			if( array_key_exists( $k, $this->data ) ) {
 				if ( is_null( $this->data[$k] ) ) {
@@ -93,8 +93,7 @@ class KdObject {
 	}
 	
 	function prepared_save() {
-		$type = "prepared";
-		require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
+		$con = get_mysql_connection('prepared');
 		$columns = '';
 		$question = '';
 		foreach ( $this->keymap as $k => $v ) {

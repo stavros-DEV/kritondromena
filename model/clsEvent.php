@@ -34,7 +34,7 @@
         }
         
         public function getEventsByDate( $date ) {
-        	require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
+        	$con = get_mysql_connection();
         		
         	$sql = "SELECT *, x(PlaceLngLat) AS Lng, y(PlaceLngLat) AS Lat FROM Events WHERE EventDate > '".$date."' ORDER BY EventDate ASC";
         	$con->query("SET NAMES utf8");
@@ -73,7 +73,8 @@
         }
 		
 		public function getEventsByParams($place = null, $date = null) {
-			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
+			/**@todo this is unsafe**/
+			$con = get_mysql_connection();
 			if(isset($date)) {
 				$day1 = date('Y-m-d', strtotime($date. ' - 7 days'));
 				$day2 = date('Y-m-d', strtotime($date. ' + 7 days'));
@@ -103,7 +104,7 @@
 		}
 		
 		public static function fbEventExists($evId){
-			require($_SERVER["DOCUMENT_ROOT"]."/inc/mysqlConnect.php");
+			$con = get_mysql_connection();
 			
 			$sql = "SELECT * FROM Events WHERE FacebookId = '".mysql_escape_string($evId)."' OR FacebookEventId = '".mysql_escape_string($evId)."'";
 			$con->query("SET NAMES utf8");

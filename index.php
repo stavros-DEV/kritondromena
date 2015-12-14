@@ -18,7 +18,7 @@
 	<meta name="description" content="Πολιτιστικές εκδηλώσεις, μουσικές βραδιές, κρητική παράδοση και όλα τα Γλέντια Κρητικών Πολιτιστικών Συλλόγων. Οι ομορφιές και η κουλτούρα της Κρήτης μας στο kritondromena.gr.">
 	<meta name="keywords" content="Κρητικές εκδηλώσεις, δρώμενα και γλέντια">
 	<meta name="page-topic" content="Κρητικές εκδηλώσεις, κείμενα Κρητικής κουλτούρας.">
-	<?php require("inc/resourcesRest.php"); ?>
+	<?php require("inc/common_metas.php"); ?>
 </head>
 
 <body>
@@ -81,4 +81,4 @@
 </body>
 
 </html>
-<?php require("inc/resourcesJs.php"); ?>
+<?php require("inc/common_resources.php"); ?>

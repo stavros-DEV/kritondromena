@@ -1,5 +1,6 @@
 <?php
 	header('Content-Type: text/html; charset=utf-8');
+	/**@todo set include path here**/
 	require($_SERVER["DOCUMENT_ROOT"].'/model/clsKdObjekt.php');
 	require($_SERVER["DOCUMENT_ROOT"].'/model/clsEvent.php');
 	require($_SERVER["DOCUMENT_ROOT"].'/model/clsArticle.php');
@@ -148,5 +149,34 @@
 		}else
 			return false;
 	
+	}
+
+	function get_mysql_connection ($type = null) {
+		$host= gethostname();
+		$ip = gethostbyname($host);
+	
+		/*Check if working in local or live server. */
+		if (strpos($ip, '192.168.') !== false || strpos($ip, "169.254.155.73") !== false || strpos($ip, "127.0.1.1") !== false) {
+			$username = "root";
+			$password = "";
+			$hostname = "localhost";
+		} else {
+			$username = "kritondr_tooth";
+			$password = "pS3Tz(X}S7?)";
+			$hostname = "kritondromena.gr";
+		}
+	
+		$database = "kritondr_data";
+	
+		if(isset($type) && $type == 'prepared')
+			$con = new mysqli($hostname, $username, $password, $database);
+		else
+			$con = mysqli_connect($hostname, $username, $password, $database);
+	
+		if (mysqli_connect_errno()) {
+			return false;
+		}
+	
+		return $con;
 	}
 ?>
