@@ -6,6 +6,7 @@
 	require($_SERVER["DOCUMENT_ROOT"].'/model/clsArticle.php');
 	require($_SERVER["DOCUMENT_ROOT"].'/model/clsImages.php');
 	require($_SERVER["DOCUMENT_ROOT"].'/model/clsFacebookApi.php');
+	require($_SERVER["DOCUMENT_ROOT"].'/inc/constants.php');
 	
 	function translateToGreeklish ($str) {
 		$str = trim($str);
@@ -161,12 +162,12 @@
 			$password = "";
 			$hostname = "localhost";
 		} else {
-			$username = "kritondr_tooth";
-			$password = "pS3Tz(X}S7?)";
-			$hostname = "kritondromena.gr";
+			$username = DB_USERNAME;
+			$password = DB_PASSWORD;
+			$hostname = DB_HOSTNAME;
 		}
 	
-		$database = "kritondr_data";
+		$database = DB_NAME;
 	
 		if(isset($type) && $type == 'prepared')
 			$con = new mysqli($hostname, $username, $password, $database);
