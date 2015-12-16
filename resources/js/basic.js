@@ -247,7 +247,7 @@ $( document ).ready(function() {
 		var msg   = $('#msg-text').val();
 		
 		$.ajax({
-			'url': '../aboutus_dir/sendMessage.php',
+			'url': '../ajax/sendMessage.php',
 			'type': 'POST',
 			'data': $('#contactus-form').serialize(),
 			'success': function(result){

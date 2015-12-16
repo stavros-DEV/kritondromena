@@ -9,7 +9,6 @@
 		$message = new Message();
 		$res = $message->create( $_POST['name'], $_POST['email'], $_POST['msg'] );
 		
-		
 		if (is_numeric($res)) {
 			echo '<div class="alert alert-success fade in">
 				  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

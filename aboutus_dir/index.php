@@ -5,7 +5,7 @@
 	<meta name="description" content="kritondromena.gr, μια προσπάθεια στήριξης της πολιτιστικής παράδοσής. Αν σας ενδιαφέρει η Κρητική κουλτούρα, στηρίξτε το Κρητών Δρώμενα επικοινωνώντας με εμας.">
 	<meta content="Επικοινωνία με Κρητών Δρώμενα, συμμετοχή στο kritondromena.gr" name="keywords">
 	<meta name="page-topic" content="Στηρίξτε την μουσική μας παράδοση">
-	<?php require($_SERVER['DOCUMENT_ROOT']."inc/common_metas.php"); ?>
+	<?php require($_SERVER['DOCUMENT_ROOT']."/inc/common_metas.php"); ?>
 </head>
 
 <body>
@@ -49,5 +49,5 @@
 	  </div>
 	</div>
 </body>
-<?php require($_SERVER['DOCUMENT_ROOT']."inc/common_resources.php"); ?>
+<?php require($_SERVER['DOCUMENT_ROOT']."/inc/common_resources.php"); ?>
 </html>
