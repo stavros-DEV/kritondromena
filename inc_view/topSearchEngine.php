@@ -12,7 +12,7 @@
 			<input type="text" class="dateText tseInputFields" name="dateSelector" id="tseDate"/>
 			<span id="calendar-custom" class="input-group-addon"><span class="glyphicon glyphicon-calendar" id="glyphicon-calendar-custom"></span></span>
 		</div>
-		<input type="submit" class="tseInputFields" id="tseSubmit" id="tseSearchButton" value="Αναζήτηση"/>
+		<input type="submit" class="tseInputFields" id="tseSubmit" value="Αναζήτηση"/>
 	  </form>
 	</div>';
 

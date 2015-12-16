@@ -48,6 +48,6 @@
 		</div>
 	  </div>
 	</div>
-</body>
 <?php require($_SERVER['DOCUMENT_ROOT']."/inc/common_resources.php"); ?>
+</body>
 </html>

@@ -36,10 +36,10 @@
 				<?php echo $row['Text']; ?>
 			</div>
 	  	</div>
-	</div>
-	
-</body>
+	</div>	
+
 <script type="text/javascript" src="/resources/js/jssor.js"></script>
 <script type="text/javascript" src="/resources/js/jssor.slider.js"></script>
 <?php require('common_resources.php'); ?>
+</body>
 </html>

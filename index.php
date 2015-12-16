@@ -7,7 +7,6 @@
 	
 	$article = new Article();
 	$resart = $article->getArticles();
-	
 ?>
 
 <!DOCTYPE html>
@@ -18,13 +17,13 @@
 	<meta name="description" content="Πολιτιστικές εκδηλώσεις, μουσικές βραδιές, κρητική παράδοση και όλα τα Γλέντια Κρητικών Πολιτιστικών Συλλόγων. Οι ομορφιές και η κουλτούρα της Κρήτης μας στο kritondromena.gr.">
 	<meta name="keywords" content="Κρητικές εκδηλώσεις, δρώμενα και γλέντια">
 	<meta name="page-topic" content="Κρητικές εκδηλώσεις, κείμενα Κρητικής κουλτούρας.">
-	<?php require("inc/common_metas.php"); ?>
+	<?php require('common_metas.php'); ?>
 </head>
 
 <body>
-	<?php require("inc/header.php"); ?>
+	<?php require('header.php'); ?>
 	<div class="hidden-xs">
-	  <?php require("inc_view/topSearchEnginePost.php"); ?>
+	  <?php require('topSearchEnginePost.php'); ?>
 	</div>
 	<div class="container" id="message">
 	  <div class="row">
@@ -66,7 +65,7 @@
 						<a href="<?= $rowart['Vanity'] ?>" title="<?= $rowart['Title'] ?>"><?php echo $rowart['Title']; ?></a>
 					</div>
 					<div class="article-description">
-						<?php echo mb_substr($rowart['MetaDescription'], 0, 300)."...";?>
+						<?php echo mb_substr($rowart['MetaDescription'], 0, 200, 'UTF-8')."...";?>
 					</div>
 					<a href="<?= $rowart['Vanity'] ?>" title="<?= $rowart['Title'] ?>" class="btn btn-block btn-default" >Περισσότερα</a>
 					<br/>
@@ -78,7 +77,6 @@
 	  </div>
 	
 	</div>
+<?php require('common_resources.php'); ?>
 </body>
-
 </html>
-<?php require("inc/common_resources.php"); ?>

@@ -109,9 +109,9 @@
 		</div>
 	  </div></div>
 	</div>
-</body>
 <?php require($_SERVER['DOCUMENT_ROOT']."/inc/common_resources.php"); ?>
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-<link href="/resources/css/summernote.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" property="stylesheet">
+<link href="/resources/css/summernote.css" rel="stylesheet" property="stylesheet">
 <script src="/resources/js/summernote.min.js"></script>
+</body>
 </html>

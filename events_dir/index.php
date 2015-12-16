@@ -99,8 +99,8 @@
 		</div>
 	  </div>
 	</div>
-</body>
 <?php require('common_resources.php'); ?>
 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script src="../resources/js/gmaps.js"></script>
+</body>
 </html>
