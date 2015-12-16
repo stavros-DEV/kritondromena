@@ -1,6 +1,6 @@
 <?php
 	require("../inc/common.php");
-	require("../model/clsMessage.php");
+	require('clsMessage.php');
 	
 	if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 		$body = 'NAME: '.$_POST['name'].'<br>EMAIL: '.$_POST['email'].'<br>MESSAGE: '.$_POST['msg'];

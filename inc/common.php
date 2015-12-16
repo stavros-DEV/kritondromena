@@ -1,12 +1,15 @@
 <?php
 	header('Content-Type: text/html; charset=utf-8');
-	/**@todo set include path here**/
-	require($_SERVER["DOCUMENT_ROOT"].'/model/clsKdObjekt.php');
-	require($_SERVER["DOCUMENT_ROOT"].'/model/clsEvent.php');
-	require($_SERVER["DOCUMENT_ROOT"].'/model/clsArticle.php');
-	require($_SERVER["DOCUMENT_ROOT"].'/model/clsImages.php');
-	require($_SERVER["DOCUMENT_ROOT"].'/model/clsFacebookApi.php');
-	require($_SERVER["DOCUMENT_ROOT"].'/inc/constants.php');
+	
+	set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER["DOCUMENT_ROOT"] .'/model/' . 
+					 					  PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT'] . '/inc/'  .
+										  PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT'] . '/inc_view/');
+	require('clsKdObjekt.php');
+	require('clsEvent.php');
+	require('clsArticle.php');
+	require('clsImages.php');
+	require('clsFacebookApi.php');
+	require('constants.php');
 	
 	function translateToGreeklish ($str) {
 		$str = trim($str);

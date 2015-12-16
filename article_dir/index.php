@@ -14,13 +14,13 @@
 	<meta name="description" content="<?php echo $row['MetaDescription'] ?>">
 	<meta name="keywords" content="Κρητικές εκδηλώσεις, δρώμενα και γλέντια">
 	<meta name="page-topic" content="Κρητικές εκδηλώσεις, κείμενα Κρητικής κουλτούρας.">
-	<?php require($_SERVER['DOCUMENT_ROOT']."/inc/common_metas.php"); ?>
+	<?php require('common_metas.php'); ?>
 </head>
 
 <body>
-	<?php require($_SERVER['DOCUMENT_ROOT']."/inc/header.php"); ?>
+	<?php require('header.php'); ?>
 	<div class="hidden-xs">
-	  <?php require($_SERVER['DOCUMENT_ROOT']."/inc_view/topSearchEnginePost.php"); ?>
+	  <?php require('topSearchEnginePost.php'); ?>
 	</div>
 	<div class="container" id="message" align="center">
 		<div class="row result">
@@ -41,5 +41,5 @@
 </body>
 <script type="text/javascript" src="/resources/js/jssor.js"></script>
 <script type="text/javascript" src="/resources/js/jssor.slider.js"></script>
-<?php require($_SERVER['DOCUMENT_ROOT']."/inc/common_resources.php"); ?>
+<?php require('common_resources.php'); ?>
 </html>

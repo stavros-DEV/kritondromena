@@ -10,13 +10,13 @@
 	<meta name="description" content="Αναζητήστε όλες τις πολιτιστικές εκδηλώσεις, γλέντια και πανηγύρια που συμβαίνουν στην Κρήτη. Οι κρητικοί χοροί και η κουλτούρα, μέσα από το Κρητών Δρώμενα.">
 	<meta name="keywords" content="Αναζήτηση Κρητικών εκδηλώσεων και κρητικών χορών.">
 	<meta name="page-topic" content="Κρητικές εκδηλώσεις δρώμενα και χοροί.">
-	<?php require($_SERVER['DOCUMENT_ROOT']."/inc/common_metas.php"); ?>
+	<?php require('common_metas.php'); ?>
 </head>
 
 <body>
-	<?php require("../inc/header.php");	?>
+	<?php require('header.php');	?>
 	<div class="hidden-xs">
-	  <?php require("../inc_view/topSearchEngine.php"); ?>
+	  <?php require('topSearchEngine.php'); ?>
 	</div>
 	<div class="container" id="message" align="center">
 	  <div class="row">
@@ -100,7 +100,7 @@
 	  </div>
 	</div>
 </body>
-<?php require($_SERVER['DOCUMENT_ROOT']."/inc/common_resources.php"); ?>
+<?php require('common_resources.php'); ?>
 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script src="../resources/js/gmaps.js"></script>
 </html>
