@@ -22,13 +22,12 @@
 
 <body>
 	<?php require("../inc/header.php");	?>
-	<div class="hidden-xs">
-		<?php require("../inc_view/topSearchEnginePost.php"); ?>
-	</div>
-	<div class="container" id="message" align="center">
+	
+	<div class="container custom-container" align="center">
 	  	<div class="row">
-			<div class="col-xs-12">
-		  		<div class="row result <?= $event->data['ID'] ?>">
+	  		<div class="col-sm-9">
+	  		  <div class="global-column global-main-column">
+		  		<div class="row <?= $event->data['ID'] ?>">
 				    <div class="row evTitle">
 					  <div class="col-xs-12">
 						<h1 class="event-heading"><?= $event->data['Title'] ?></h1>
@@ -57,7 +56,32 @@
 					  </div>
 					</div>
 		  		</div>
+		  	  </div>
 			</div>
+			<div class="col-sm-3">
+	  			<div class="global-column global-right-column">
+	  				<div class="row"><span class="tse-header tse-header-main">ΑΝΑΖΗΤΗΣΗ</span></div>
+	  				<div class="row"><span class="tse-header tse-header-second">ΚΡΗΤΙΚΗΣ ΕΚΔΗΛΩΣΗΣ</span></div>
+	  				<div class="row">
+	  					<div class="">
+							<form class="form-inline" action="/events/" accept-charset="UTF-8" enctype="multipart/form-data" method="post" id="tseFormPost">
+								<select class="se-inputs custom-select" id="tseLocation" name="loc">
+									<option value="any">Οπουδήποτε</option>
+								    <option value="Χανιά">Χανιά</option>
+								    <option value="Ρέθυμνο">Ρέθυμνο</option>
+								    <option value="Ηράκλειο">Ηράκλειο</option>
+								    <option value="Λασίθι">Λασίθι</option>
+								</select>
+								<div class="date datepicker no-padding datepickerWeather" id="datetimepicker2">
+									<input type="text" class="dateText se-inputs" name="dateSelector" id="tseDate"/>
+									<span class="input-group-addon calendar-custom"><span class="glyphicon glyphicon-calendar"></span></span>
+								</div>
+								<input type="submit" class="se-inputs custom-btn" value="ΑΝΑΖΗΤΗΣΗ"/>
+						  	</form>
+						</div>
+	  				</div>
+	  			</div>
+	  		</div>
 		</div>
 	</div>
 </body>
