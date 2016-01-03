@@ -13,19 +13,29 @@ $( document ).ready(function() {
 	$('#datetimepicker1').datepicker({
 		startDate: new Date(),
 		format: "yyyy-mm-dd",
-		orientation: "top left",
+		orientation: "bottom left",
 		todayHighlight: true,
 		autoclose: true
 	});
-	
-	$('#datetimepicker2').datepicker({
-		startDate: new Date(),
-		format: "yyyy-mm-dd",
-		orientation: "top left",
-		todayHighlight: true,
-		autoclose: true,
-		disableTouchKeyboard: true
-	});
+	if ($(window).width() < 767){
+		$('#datetimepicker2').datepicker({
+			startDate: new Date(),
+			format: "yyyy-mm-dd",
+			orientation: "bottom left",
+			todayHighlight: true,
+			autoclose: true,
+			disableTouchKeyboard: true
+		});
+	} else {
+		$('#datetimepicker2').datepicker({
+			startDate: new Date(),
+			format: "yyyy-mm-dd",
+			orientation: "top left",
+			todayHighlight: true,
+			autoclose: true,
+			disableTouchKeyboard: true
+		});
+	}
 	
 	$('.datepicker').datepicker('update', new Date());
 	

@@ -510,15 +510,35 @@ a.captionOrange:hover {
 .global-column {
 	border-style: solid;
 	border-width: thin;
-	padding: 5px;
+	padding: 0px 5px 5px;
 	background-color: #fff;
 }
+@media(min-width:768px){
+	.global-right-column{
+		top:100px;
+		position:fixed;
+		width: 25%;
+	}
+	.calendar-custom {
+		right: 15px;
+	}
+}
+@media(max-width:768px){
+	.global-right-column{
+		top:10px;
+		position:relative;
+	}
+	.calendar-custom {
+		right: 45px;
+	}
+}
+
 .calendar-custom {
 	background-color: #fff;
   	border: #000;
   	width: inherit;
   	display: initial;
-    right: 25px;
+    
     margin-top: 12px;
   	position: absolute;
   	padding:0px;
@@ -549,6 +569,12 @@ a.captionOrange:hover {
   background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
+}
+
+.tse-header-container{
+	background-color: #99c2ff;
+    margin-left: -5px;
+    margin-right: -5px;
 }
 
 .tse-header{

@@ -5,7 +5,7 @@
 	$event = new Event();
 	$evrow = $event->getEventsById('82');
 	$event->getRef_Image();
-	//r($event->data);
+	r($event->data);
 	
 ?>
 
@@ -26,15 +26,15 @@
 	<div class="container custom-container" align="center">
 	  	<div class="row">
 	  		<div class="col-sm-9">
-	  		  <div class="global-column global-main-column">
-		  		<div class="row <?= $event->data['ID'] ?>">
-				    <div class="row evTitle">
-					  <div class="col-xs-12">
-						<h1 class="event-heading"><?= $event->data['Title'] ?></h1>
-						<div class="evDate">
-							Στις <?= $event->data['EventDate'] ?>
+	  		  	<div class="global-column global-main-column">
+			  		
+			  		<div class="row">
+						<div class="col-xs-12 evTitle">
+							<h1 class="event-heading"><?= $event->data['Title'] ?></h1>
+							<div class="evDate">
+								Στις <?= $event->data['EventDate'] ?>
+							</div>
 						</div>
-					  </div>
 					</div>
 					<hr/>
 			
@@ -55,13 +55,16 @@
 						<?= $event->data['Description'] ?>
 					  </div>
 					</div>
-		  		</div>
-		  	  </div>
+		  		
+		  	  	</div>
 			</div>
 			<div class="col-sm-3">
 	  			<div class="global-column global-right-column">
-	  				<div class="row"><span class="tse-header tse-header-main">ΑΝΑΖΗΤΗΣΗ</span></div>
-	  				<div class="row"><span class="tse-header tse-header-second">ΚΡΗΤΙΚΗΣ ΕΚΔΗΛΩΣΗΣ</span></div>
+	  				<div class="tse-header-container">
+	  					<div class="row"><span class="tse-header tse-header-main">ΑΝΑΖΗΤΗΣΗ</span></div>
+	  					<div class="row"><span class="tse-header tse-header-second">ΚΡΗΤΙΚΗΣ ΕΚΔΗΛΩΣΗΣ</span></div>
+	  				</div>
+	  				<div class="tse-search-container">
 	  				<div class="row">
 	  					<div class="">
 							<form class="form-inline" action="/events/" accept-charset="UTF-8" enctype="multipart/form-data" method="post" id="tseFormPost">
@@ -79,6 +82,7 @@
 								<input type="submit" class="se-inputs custom-btn" value="ΑΝΑΖΗΤΗΣΗ"/>
 						  	</form>
 						</div>
+	  				</div>
 	  				</div>
 	  			</div>
 	  		</div>
