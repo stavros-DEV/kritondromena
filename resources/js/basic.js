@@ -43,7 +43,13 @@ $( document ).ready(function() {
 	 $('#eventsForm').submit( function() {
         return checkInput();
     });
-	
+	if ($(window).width() > 992 && pathname.indexOf("/events/") >= 0){
+		lightbox.option({
+			'resizeDuration': 200,
+			'wrapAround': true,
+			'fitImagesInViewport': false
+		});
+	}
 	var numofWords = 0;
 
 	function checkInput() {
@@ -180,7 +186,7 @@ $( document ).ready(function() {
 		});
 	});
 	
-	if (pathname.indexOf("/events_dir/") >= 0) {
+	if (pathname.indexOf("/events/") >= 0) {
 		var mapCanvasid = "#map-canvas";
 		var lat = $('#showMap .lat').val();
 		var lng = $('#showMap .lng').val();

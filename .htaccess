@@ -24,3 +24,4 @@ RewriteRule ^articles/agiofaraggo-kaloi-limenes[/]*$ article_dir/index.php?artId
 RewriteRule ^articles/faraggi-agias-eirinis[/]*$ article_dir/index.php?artId=10
 RewriteRule ^articles/kritikos-syllogos-monaxou[/]*$ article_dir/index.php?artId=11
 RewriteRule ^articles/kritikos-syllogos-monaxou-2[/]*$ article_dir/index.php?artId=12
+RewriteRule ^events/test-ekdhlosh-me-eikona[/]*$ events_dir/event_details.php?id=107

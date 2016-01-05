@@ -513,6 +513,12 @@ a.captionOrange:hover {
 	padding: 0px 5px 5px;
 	background-color: #fff;
 }
+@media(min-width:992px){
+	.event-location{
+		float: right;
+	    margin-left: 20px;
+	}
+}
 @media(min-width:768px){
 	.global-right-column{
 		top:100px;
@@ -586,4 +592,22 @@ a.captionOrange:hover {
 }
 .tse-header-second{
 	font-size: 16px;
+}
+
+.kd-image{
+	max-height: 350px;
+	border-radius: 4px;
+}
+.example-image-link {
+    display: inline-block;
+    padding: 2px;
+    margin: 0 0.5rem 1rem 0.5rem;
+    background-color: #fff;
+    line-height: 0;
+    border-radius: 4px;
+    transition: background-color 0.5s ease-out;
+}
+.example-image-link:hover {
+    background-color: #4ae;
+    transition: none;
 }

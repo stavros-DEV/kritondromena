@@ -45,7 +45,11 @@
 				<?php foreach($res as $row ) { ?>
 				  <div class="row">
 					<div class="home-events-title">
-						<a href="/events/#event<?= $row['ID'] ?>"><?php echo $row['Title'] ?></a>
+						<? if($row['Url']): ?>
+							<a href="/events/<?= $row['Url'] ?>"><?php echo $row['Title'] ?></a>
+						<? else: ?>
+							<a href="/events/#event<?= $row['ID'] ?>"><?php echo $row['Title'] ?></a>
+						<? endif; ?>
 					</div>
 					<div class="home-events-date">
 						<?php echo $row['EventDate'] ?>

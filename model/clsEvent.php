@@ -58,7 +58,7 @@
         	$ev->data['DESCRIPTION']		= $dt['DESCRIPTION'];
         	$ev->data['EMAIL']				= $dt['EMAIL'];
         	$ev->data['PLACELNGLAT']		= 'POINT('.$dt['PLACELNGLAT'].')';
-        	$ev->data['URL']				= translateToGreeklish($dt['TITLE']);
+        	$ev->data['URL']				= $dt['URL'];
         	$ev->data['FACEBOOKID']			= $dt['FACEBOOKID'];
         	$ev->data['FACEBOOKEVENTID']	= $dt['FACEBOOKEVENTID'];
         	$ev->data['ACTIVE']				= '1';
@@ -124,7 +124,7 @@
 	
 		function getRef_Image () {
 			$img = new Image();
-			$this->data['IMAGE'] = $img->fetchObjectByParam( 'EventID', $this->id );
+			$this->data['IMAGE'] = $img->fetchObjectByParam( 'EventID', $this->data['ID'] );
 		}
 	}
 ?>
