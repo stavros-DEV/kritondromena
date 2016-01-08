@@ -25,13 +25,13 @@
 		file_put_contents("../.htaccess", $url, FILE_APPEND);
 		
 		$errorMsg = "";
-		$target_dir = "../resources/images/";
+		$target_dir = "../resources/images/uploaded/";
 		$formName = "eventImageN";
 		require("../inc/uploadImage.php");
 	
 		/*Store image in the DB */
 		$addImage = new Image();
-		$addImage->create(basename($_FILES[$formName]["name"]), "", "/resources/images/".basename($_FILES[$formName]["name"]), $ret_id);
+		$addImage->create(basename($_FILES[$formName]["name"]), "", "/resources/images/uploaded/".basename($_FILES[$formName]["name"]), $ret_id);
 	} else 
 		$errorMsg = "";
 ?>

@@ -34,7 +34,8 @@
 							'EVENTDATE'			=> $date,
 							'PLACELNGLAT'		=> $lnglat,
 							'FACEBOOKID'		=> $id,
-							'EMAIL'				=> "",
+							'EMAIL'				=> '',
+							'URL'				=> '',
 							'FACEBOOKEVENTID'	=> $arr['id'],
 							'FACEBOOKID'		=> $name
 			);

@@ -2,7 +2,7 @@
 	header('Content-Type: text/html; charset=utf-8');
 	require("../inc/common.php");
 	$event = new Event();
-	$evrow = $event->getEventsById('82');
+	$evrow = $event->getEventsById($_GET['id']);
 	$event->getRef_Image();
 	
 ?>
@@ -79,7 +79,7 @@
 	  		
 		</div>
 	</div>
-<script src="../resources/js/lightbox-plus-jquery.min.js"></script>	
+<script src="../resources/js/lightbox-plus-jquery.min.js"></script>
 <?php require($_SERVER['DOCUMENT_ROOT']."inc/common_resources.php"); ?>
 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script src="../resources/js/gmaps.js"></script>

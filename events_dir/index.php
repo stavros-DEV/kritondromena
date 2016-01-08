@@ -58,7 +58,11 @@
 		  <div class="row result <?= $row['ID'] ?>">
 		    <div class="row evTitle">
 			  <div class="col-xs-12">
-				<?php echo $row['Title'] ?>
+			  	<? if($row['Url']): ?>
+			  		<?php echo '<a href="/events/'.$row['Url'].'" title='.$row['Title'].'>'.$row['Title'].'</a>' ?>
+			  	<? else: ?>
+					<?php echo $row['Title'] ?>
+				<? endif; ?>
 				<div class="evDate">
 					Στις <?php echo $row['EventDate'] ?>
 				</div>
@@ -85,8 +89,12 @@
 				</div>
 			  </div>	
 			  <div class="col-xs-12 col-sm-7 evDescription" >
-				<?php echo $row['Description'] ?>
-				<!--<a href="" class="btn btn-block btn-default" >Περισσότερα</a>-->
+			  	<? if($row['Url']): ?>
+			  		<?php echo $row['Description'] ?>
+			  		<a href="/events/<?= $row['Url'] ?>" title="<?= $row['Title'] ?>" class="btn btn-block btn-default" >Περισσότερα</a>
+			  	<? else: ?>
+					<?php echo $row['Description'] ?>
+				<? endif; ?>
 			  </div>
 			</div>
 			
