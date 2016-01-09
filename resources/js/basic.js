@@ -43,7 +43,7 @@ $( document ).ready(function() {
 	 $('#eventsForm').submit( function() {
         return checkInput();
     });
-	if ($(window).width() > 992 && pathname.indexOf("/events/") >= 0){
+	if ($(window).width() > 992 && pathname.indexOf("/events/") >= 0 && pathname.length > 8 ){
 		lightbox.option({
 			'resizeDuration': 200,
 			'wrapAround': true,
@@ -186,7 +186,7 @@ $( document ).ready(function() {
 		});
 	});
 	
-	if (pathname.indexOf("/events/") >= 0) {
+	if (pathname.indexOf("/events/") >= 0 && pathname.length > 8) {//event details page
 		var mapCanvasid = "#map-canvas";
 		var lat = $('#showMap .lat').val();
 		var lng = $('#showMap .lng').val();

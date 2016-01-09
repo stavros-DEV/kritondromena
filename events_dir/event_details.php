@@ -16,7 +16,7 @@
 	<meta name="keywords" content="Αναζήτηση Κρητικών εκδηλώσεων και κρητικών χορών.">
 	<meta name="page-topic" content="Κρητικές εκδηλώσεις δρώμενα και χοροί.">
 	<?php require($_SERVER['DOCUMENT_ROOT']."inc/common_metas.php"); ?>
-	<link rel="stylesheet" href="../resources/css/lightbox.min.css">
+	<link rel="stylesheet" href="../../resources/css/lightbox.min.css">
 </head>
 
 <body>
@@ -79,10 +79,10 @@
 	  		
 		</div>
 	</div>
-<script src="../resources/js/lightbox-plus-jquery.min.js"></script>
+<script src="../../resources/js/lightbox-plus-jquery.min.js"></script>
 <?php require($_SERVER['DOCUMENT_ROOT']."inc/common_resources.php"); ?>
 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-<script src="../resources/js/gmaps.js"></script>
+<script src="../../resources/js/gmaps.js"></script>
 
 </body>
 </html>
