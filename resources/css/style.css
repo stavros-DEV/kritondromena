@@ -540,7 +540,6 @@ a.captionOrange:hover {
 }
 
 .calendar-custom {
-	background-color: #fff;
   	border: #000;
   	width: inherit;
   	display: initial;
@@ -597,6 +596,7 @@ a.captionOrange:hover {
 .kd-image{
 	max-height: 350px;
 	border-radius: 4px;
+	max-width: 100%;
 }
 .example-image-link {
     display: inline-block;

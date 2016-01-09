@@ -14,7 +14,7 @@
 								    <option value="Λασίθι">Λασίθι</option>
 								</select>
 								<div class="date datepicker no-padding datepickerWeather" id="datetimepicker2">
-									<input type="text" class="dateText se-inputs" name="dateSelector" id="tseDate"/>
+									<input readonly="true" type="text" class="dateText se-inputs" name="dateSelector" id="tseDate"/>
 									<span class="input-group-addon calendar-custom"><span class="glyphicon glyphicon-calendar"></span></span>
 								</div>
 								<input type="submit" class="se-inputs custom-btn" value="ΑΝΑΖΗΤΗΣΗ"/>
