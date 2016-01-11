@@ -39,6 +39,19 @@ $( document ).ready(function() {
 	
 	$('.datepicker').datepicker('update', new Date());
 	
+    $('.form_datetime').datetimepicker({
+    	format: 'yyyy.mm.dd hh:ii',
+	    weekStart: 1,
+	    startDate: new Date(),
+	    todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0,
+	    showMeridian: 1,
+	    minuteStep: 10
+	});
+	
 	/*New event is added; Check the values. */
 	 $('#eventsForm').submit( function() {
         return checkInput();

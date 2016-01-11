@@ -36,7 +36,7 @@
         public function getEventsByDate( $date ) {
         	$con = get_mysql_connection();
         		
-        	$sql = "SELECT *, x(PlaceLngLat) AS Lng, y(PlaceLngLat) AS Lat FROM Events WHERE EventDate > '".$date."' ORDER BY EventDate ASC";
+        	$sql = "SELECT *, x(PlaceLngLat) AS Lng, y(PlaceLngLat) AS Lat, DATE(EventDate) AS Date FROM Events WHERE EventDate > '".$date."' ORDER BY EventDate ASC";
         	$con->query("SET NAMES utf8");
         	$result = $con->query($sql);
         	while($row = $result->fetch_assoc()){

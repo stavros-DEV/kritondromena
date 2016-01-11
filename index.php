@@ -52,7 +52,7 @@
 						<? endif; ?>
 					</div>
 					<div class="home-events-date">
-						<?php echo $row['EventDate'] ?>
+						<?php echo $row['Date'] ?>
 					</div>
 				  </div>
 				<?php } ?>
