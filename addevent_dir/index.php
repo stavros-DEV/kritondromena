@@ -1,7 +1,9 @@
 <?php 
 	require("../inc/common.php");
 	header('Content-Type: text/html; charset=utf-8');
+	
 	if(isset($_POST["eventTitleN"]) && isset($_POST["eventPlaceN"]) && isset($_POST["dateSelector"]) && isset($_POST["summernote"]) && isset($_POST["eventEmailN"])) {
+		r($_POST);exit();
 		require("addEvent.php");
 	}
 ?>
@@ -71,12 +73,12 @@
 			  
 			  <label class="control-label col-sm-2" for="eventDate">Ημερομηνία</label>
 			  <div class="col-sm-4">
-			  		<div class="input-group date form_datetime" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+			  		<div class="input-group date form_datetime" data-date-format="dd MM yyyy - HH:ii" data-link-field="dtp_input1">
                     <input class="form-control" type="text" value="" readonly>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                 </div>
-				<input type="hidden" id="eventDate" value="" />
+				<input type="hidden" id="dtp_input1" name="dateSelector" value="" />
 			  </div>
 			</div>
 			
@@ -116,7 +118,7 @@
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" property="stylesheet">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
 <link href="/resources/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
-<script type="text/javascript" src="/resources/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="/resources/js/bootstrap-datetimepicker.js"></script>
 <link href="/resources/css/summernote.css" rel="stylesheet" property="stylesheet">
 <script src="/resources/js/summernote.min.js"></script>
           
