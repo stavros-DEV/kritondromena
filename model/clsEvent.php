@@ -36,10 +36,13 @@
         public function getEventsByDate( $date ) {
         	$con = get_mysql_connection();
         		
-        	$sql = "SELECT *, x(PlaceLngLat) AS Lng, y(PlaceLngLat) AS Lat, DATE(EventDate) AS Date FROM Events WHERE EventDate > '".$date."' ORDER BY EventDate ASC";
+        	$sql = "SELECT *, x(PlaceLngLat) AS Lng, y(PlaceLngLat) AS Lat, DATE(EventDate) AS Date, DATE_FORMAT(EventDate, '%Y-%m-%d %H:%i') AS Datetime FROM Events WHERE EventDate > '".$date."' ORDER BY EventDate ASC";
         	$con->query("SET NAMES utf8");
         	$result = $con->query($sql);
-        	while($row = $result->fetch_assoc()){
+        	while($row = $result->fetch_assoc())
+        	{
+        		if(date("H:i:s",strtotime($row['Datetime'])) == '00:00:00')
+        			$row['Datetime'] = $row['Date'];
         		$res[] = $row;
         	}
         	$con->close();

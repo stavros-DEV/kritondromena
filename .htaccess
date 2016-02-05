@@ -25,3 +25,5 @@ RewriteRule ^articles/faraggi-agias-eirinis[/]*$ article_dir/index.php?artId=10
 RewriteRule ^articles/kritikos-syllogos-monaxou[/]*$ article_dir/index.php?artId=11
 RewriteRule ^articles/kritikos-syllogos-monaxou-2[/]*$ article_dir/index.php?artId=12
 RewriteRule ^events/test-ekdhlosh-me-eikona[/]*$ events_dir/event_details.php?id=107
+RewriteRule ^events/deytero-test-gile[/]*$ events_dir/event_details.php?id=108
+RewriteRule ^events/ki-allo-dromeno[/]*$ events_dir/event_details.php?id=109

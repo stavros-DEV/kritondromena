@@ -13,7 +13,7 @@
 		{
 			echo $arr['name'].', ';
 			var_dump($arr);
-			$date  = date('Y-m-d', strtotime($arr['start_time']));
+			$date  = date('Y-m-d H:i:s', strtotime($arr['start_time']));
 			if ( !isset($arr['place']['location']['longitude']) || !isset($arr['place']['location']['latitude']) ){
 				$loc = getLngLat($arr['place']['name']);
 			} else {

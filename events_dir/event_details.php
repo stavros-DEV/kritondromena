@@ -12,7 +12,7 @@
 
 <head>
 	<title><?= $event->data['Title'] ?> - Κρητών Δρώμενα</title>
-	<meta name="description" content="<?= $event->data['Title'] ?>">
+	<meta name="description" content="<?php echo mb_substr(strip_tags($event->data['Description']), 0, 170, 'UTF-8');?>">
 	<meta name="keywords" content="Αναζήτηση Κρητικών εκδηλώσεων και κρητικών χορών.">
 	<meta name="page-topic" content="Κρητικές εκδηλώσεις δρώμενα και χοροί.">
 	<?php require($_SERVER['DOCUMENT_ROOT']."/inc/common_metas.php"); ?>
@@ -31,7 +31,7 @@
 						<div class="col-xs-12 evTitle">
 							<h1 class="event-heading"><?= $event->data['Title'] ?></h1>
 							<div class="evDate">
-								Στις <?= $event->data['EventDate'] ?>
+								Στις <?= formatDate($event->data['EventDate']) ?>
 							</div>
 						</div>
 					</div>

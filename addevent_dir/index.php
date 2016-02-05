@@ -3,7 +3,6 @@
 	header('Content-Type: text/html; charset=utf-8');
 	
 	if(isset($_POST["eventTitleN"]) && isset($_POST["eventPlaceN"]) && isset($_POST["dateSelector"]) && isset($_POST["summernote"]) && isset($_POST["eventEmailN"])) {
-		r($_POST);exit();
 		require("addEvent.php");
 	}
 ?>
@@ -37,7 +36,7 @@
 	  </div>
 		<br/>
 		<div class="eventDetails">
-		  <form class="form-horizontal" method="POST" id="eventsForm" role="form" accept-charset="UTF-8" enctype="multipart/form-data" novalidate >
+		  <form class="form-horizontal" method="POST" id="eventsForm" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >
 		    <?php if (!isset($ret_id)) : ?>
 			<?php elseif (is_numeric($ret_id)) : ?>
 				<div class="alert alert-success fade in">
@@ -74,7 +73,7 @@
 			  <label class="control-label col-sm-2" for="eventDate">Ημερομηνία</label>
 			  <div class="col-sm-4">
 			  		<div class="input-group date form_datetime" data-date-format="dd MM yyyy - HH:ii" data-link-field="dtp_input1">
-                    <input class="form-control" type="text" value="" readonly>
+                    <input class="form-control" type="text" value="" readonly required>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                 </div>
@@ -95,14 +94,14 @@
 				<label class="control-label col-sm-2" for="eventDescription">Περιγραφή<br/>(τουλ. 40 λέξεις)</label>
 				<div class="col-sm-10">
 				  <!-- <textarea class="form-control" rows="10" id="eventDescription" name="eventDescriptionN" placeholder="Αναλυτικά οι πληροφορίες για το δρώμενο." lang="el" spellcheck="true" required></textarea>-->
-				  <textarea class="form-control" rows="10"  name="summernote" id="summernote" placeholder="Αναλυτικά οι πληροφορίες για το δρώμενο." lang="el" spellcheck="true" required></textarea>
+				  <textarea class="form-control" rows="10"  name="summernote" id="summernote" placeholder="Αναλυτικά οι πληροφορίες για το δρώμενο." lang="el" spellcheck="true" ></textarea>
 				</div>
 				<div class="row"><div class="col-sm-offset-2 col-sm-10" id="wordsInfo"></div></div>
 			</div>
 			<div class="form-group">
 			  <label class="control-label col-sm-2" for="eventEmail">E-mail</label>
 			  <div class="col-sm-10">
-				<input type="text" class="form-control" id="eventEmail" name="eventEmailN" placeholder="π.χ nikos@hotmail.com" required>
+				<input type="text" class="form-control" id="eventEmail" name="eventEmailN" placeholder="π.χ nikos@hotmail.com" required />
 			  </div>
 			</div>
 			<div class="form-group">        

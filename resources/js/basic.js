@@ -39,6 +39,7 @@ $( document ).ready(function() {
 	
 	$('.datepicker').datepicker('update', new Date());
 	
+	if (pathname == "/new-event/") {
     $('.form_datetime').datetimepicker({
     	format: 'yyyy.mm.dd hh:ii',
 	    weekStart: 1,
@@ -51,7 +52,8 @@ $( document ).ready(function() {
 	    showMeridian: 1,
 	    minuteStep: 10
 	});
-	
+	}
+    
 	/*New event is added; Check the values. */
 	 $('#eventsForm').submit( function() {
         return checkInput();
@@ -59,25 +61,31 @@ $( document ).ready(function() {
 	if ($(window).width() > 992 && pathname.indexOf("/events/") >= 0 && pathname.length > 8 ){
 		lightbox.option({
 			'resizeDuration': 200,
-			'wrapAround': true,
-			'fitImagesInViewport': false
+			'wrapAround': true
 		});
 	}
 	var numofWords = 0;
 
 	function checkInput() {
-		/*if (numofWords < 20){
-			$('#eventDescription').css("border-color", "red");
-			return false;
-		} else */if ($('#eventTitle').val().length == 0) {
+		var allowed = true;
+		if ($('#eventTitle').val().length == 0) {
 			$('#eventTitle').css("border-color", "red");
-			return false;
-		} else if ($('#eventPlace').val().length == 0) {
-			$('#eventPlace').css("border-color", "red");
-			return false;
-		} else {
-			return true;
+			allowed = false;
 		}
+		if ($('#eventPlace').val().length == 0) {
+			$('#eventPlace').css("border-color", "red");
+			allowed = false;
+		}
+		if ($('#eventEmail').val().length == 0) {
+			$('#eventEmail').css("border-color", "red");
+			allowed = false;
+		}
+		if ($('#summernote').val().length == 0) {
+			$('.note-editor').css("border-color", "red");
+			allowed = false;
+		}
+		
+		return allowed;
 	}
 
 	/*Get geo location using google api. */

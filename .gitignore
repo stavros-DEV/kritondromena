@@ -13,4 +13,10 @@ resources/js/jssor.js
 resources/js/jssor.slider.js
 resources/js/jssor.slider.mini.js
 resources/js/summernote.min.js
+resources/js/bootstrap-datetimepicker.min.js
+resources/css/bootstrap-datetimepicker.min.css
+resources/js/bootstrap-datetimepicker.js
+resources/js/lightbox-plus-jquery.min.js
+resources/css/lightbox.min.css
+resources/js/.bootstrap-datetimepicker.min.js.swp
 inc/constants.php

@@ -64,7 +64,7 @@
 					<?php echo $row['Title'] ?>
 				<? endif; ?>
 				<div class="evDate">
-					Στις <?php echo $row['EventDate'] ?>
+					Στις <?php echo $row['Datetime'] ?>
 				</div>
 			  </div>
 			  

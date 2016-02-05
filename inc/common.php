@@ -183,4 +183,12 @@
 	
 		return $con;
 	}
+	
+	function formatDate ($datetime)
+	{
+		if(date("H:i:s",strtotime( $datetime )) == '00:00:00')
+			return date('Y-m-d', strtotime( $datetime ));
+		else
+			return $datetime;
+	}
 ?>
