@@ -25,14 +25,12 @@
 	<div class="container custom-container" align="center">
 	  	<div class="row">
 	  		<div class="col-sm-9">
-	  		  	<div class="global-column global-main-column">
+	  		  	<div class="row global-column global-main-column">
 			  		
-			  		<div class="row">
-						<div class="col-xs-12 evTitle">
-							<h1 class="event-heading"><?= $event->data['Title'] ?></h1>
-							<div class="evDate">
-								Στις <?= formatDate($event->data['EventDate']) ?>
-							</div>
+					<div class="col-xs-12 evTitle">
+						<h1 class="event-heading"><?= $event->data['Title'] ?></h1>
+						<div class="evDate">
+							Στις <?= formatDate($event->data['EventDate']) ?>
 						</div>
 					</div>
 					<hr/>

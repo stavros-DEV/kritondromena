@@ -29,6 +29,10 @@ hr {
   padding:3px
 }
 
+.main-landing-message1 li{ 
+  padding:3px
+}
+
 #message{
 	position: relative;
 	top: 100px;
@@ -46,6 +50,12 @@ hr {
   text-align: center;
   border-width: 4px;
   padding-bottom: 15px;
+}
+
+.main-landing-message1{
+  background-color: #ededec;
+  margin-left: -5px;
+    margin-right: -5px;
 }
 
 .eventDetails, .result, .home-columns  {
@@ -196,6 +206,14 @@ button {
 	}
 	
 	.main-landing-message ul{
+		margin: 0 auto;
+		text-align: left;
+		width: 70%;
+		border-left-style: solid;
+	  	border-color: #000063;
+	}
+	
+	.main-landing-message1 ul{
 		margin: 0 auto;
 		text-align: left;
 		width: 70%;
@@ -512,6 +530,7 @@ a.captionOrange:hover {
 	border-width: thin;
 	padding: 0px 5px 5px;
 	background-color: #fff;
+	margin-bottom: 20px;
 }
 @media(min-width:992px){
 	.event-location{
@@ -610,4 +629,8 @@ a.captionOrange:hover {
 .example-image-link:hover {
     background-color: #4ae;
     transition: none;
+}
+
+.note-editable{
+	text-align: left;
 }

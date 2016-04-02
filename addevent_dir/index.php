@@ -19,99 +19,104 @@
 
 <body>
 	<?php require("../inc/header.php"); ?>
-	<div class="hidden-xs">
-	  <?php require("../inc_view/topSearchEnginePost.php"); ?>
-	</div>
-	<div class="container" id="message">
-	<div class="row"><div class="col-xs-12">
-	  <div class="main-landing-message">
-		<h1 class="basic-heading">Καταχωριση νεας Εκδηλωσης</h1>
-		<div class="main-message-description">
-			<ul>
-				<li>Καταχωρήστε μια νέα εκδήλωση και διαφημήστε την δωρεάν, συμπληρώνοντας την παρακάτω φόρμα.</li>
-				<li>Ακολουθήστε τα μηνύματα που θα σας επιστρέψει το σύστημα. Θα ενημερωθείται για το αποτέλεσμα της καταχώρησης.</li>
-				<li>Η ακριβής τοποθεσία της εκδήλωσης, θα συμπληρωθεί αυτόματα, με την εισαγωγή του χωριού/πόλης.</li>
-			</ul>
+	
+	<div class="container custom-container" align="center">
+		<div class="row">
+			<div class="col-sm-9">
+	  		<div class="row global-column global-main-column">
+			  <div class="main-landing-message1">
+				<h1 class="basic-heading" style="margin-top: 0px;padding-top: 10px;">Καταχωριση νεας Εκδηλωσης</h1>
+				<div class="main-message-description" style="padding-bottom: 10px;">
+					<ul>
+						<li>Καταχωρήστε μια νέα εκδήλωση και διαφημήστε την δωρεάν, συμπληρώνοντας την παρακάτω φόρμα.</li>
+						<li>Ακολουθήστε τα μηνύματα που θα σας επιστρέψει το σύστημα. Θα ενημερωθείται για το αποτέλεσμα της καταχώρησης.</li>
+						<li>Η ακριβής τοποθεσία της εκδήλωσης, θα συμπληρωθεί αυτόματα, με την εισαγωγή του χωριού/πόλης.</li>
+					</ul>
+				</div>
+			  </div>
+			  <br/>
+				  <form class="form-horizontal" method="POST" id="eventsForm" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >
+				    <?php if (!isset($ret_id)) : ?>
+					<?php elseif (is_numeric($ret_id)) : ?>
+						<div class="alert alert-success fade in">
+						  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+						  Το δρώμενο σας καταχωρήθηκε στο σύστημα με επιτυχία!
+						  <?php echo $errorMsg; ?>
+						</div>
+					<?php else : ?>
+						<div class="alert alert-danger fade in">
+						  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+						  Υπήρξε κάποιο πρόβλημα, κατά την καταχώρηση του δρώμενου. Παρακαλείσθε όπως επικοινωνήσετε μαζί μας.
+						</div>
+					<?php endif; ?>
+					<div class="form-group">
+					  <label class="control-label col-sm-2" for="eventTitle">Τίτλος Δρώμενου</label>
+					  <div class="col-sm-10">
+						<input type="text" class="form-control" id="eventTitle" name="eventTitleN" placeholder="π.χ. Γλέντι Χορευτικού Σύλλογου Χανίων" required/>
+					  </div>
+					</div>
+					
+					<div class="form-group">
+					  <label class="control-label col-sm-2" for="eventTitle">Εικόνα/ες</label>
+					  <div class="col-sm-4">
+					    <div class="input-group">
+		                  <span class="input-group-btn">
+		                    <span class="btn btn-info btn-file">
+		                        Επιλογή&hellip; <input type="file" name="eventImageN" accept="image/*" multiple>
+		                    </span>
+		                  </span>
+		                  <input type="text" class="form-control" readonly/>
+						</div>
+					  </div>
+					  
+					  <label class="control-label col-sm-2" for="eventDate">Ημερομηνία</label>
+					  <div class="col-sm-4">
+					  		<div class="input-group date form_datetime" data-date-format="dd MM yyyy - HH:ii" data-link-field="dtp_input1">
+		                    <input class="form-control" type="text" value="" readonly required>
+		                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+		                </div>
+						<input type="hidden" id="dtp_input1" name="dateSelector" value="" />
+					  </div>
+					</div>
+					
+					<div class="form-group">
+					  <label class="control-label col-sm-2" for="eventPlace">Τοποθεσία</label>
+					  <div class="col-sm-10" id="placeGlyph">
+						<input type="text" class="form-control inline" id="eventPlace" name="eventPlaceN" placeholder="π.χ Κουρνάς Χανίων" required/>
+						<span class="glyphicon form-control-feedback"></span>
+						<input type="hidden" id="eventLng" name="eventLngN" /><input type="hidden" id="eventLat" name="eventLatN" />
+					  </div>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="eventDescription">Περιγραφή<br/>(τουλ. 40 λέξεις)</label>
+						<div class="col-sm-10">
+						  <!-- <textarea class="form-control" rows="10" id="eventDescription" name="eventDescriptionN" placeholder="Αναλυτικά οι πληροφορίες για το δρώμενο." lang="el" spellcheck="true" required></textarea>-->
+						  <textarea style="text-align:left" class="form-control" rows="10"  name="summernote" id="summernote" placeholder="Αναλυτικά οι πληροφορίες για το δρώμενο." lang="el" spellcheck="true" ></textarea>
+						</div>
+						<div class="row"><div class="col-sm-offset-2 col-sm-10" id="wordsInfo"></div></div>
+					</div>
+					<div class="form-group">
+					  <label class="control-label col-sm-2" for="eventEmail">E-mail</label>
+					  <div class="col-sm-10">
+						<input type="text" class="form-control" id="eventEmail" name="eventEmailN" placeholder="π.χ nikos@hotmail.com" required />
+					  </div>
+					</div>
+					<div class="form-group">        
+					  <div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-block btn-primary" id="enterEvent">Καταχώρηση Δρώμενου</button>
+					  </div>
+					</div>
+				  </form>
+			</div>
+			</div>
+			<div class="col-sm-3">
+	  			<div class="global-column global-right-column">
+	  				<?php require($_SERVER['DOCUMENT_ROOT']."/inc_view/topSearchEngineRight.php"); ?>
+	  			</div>
+			</div>
 		</div>
-	  </div>
-		<br/>
-		<div class="eventDetails">
-		  <form class="form-horizontal" method="POST" id="eventsForm" role="form" accept-charset="UTF-8" enctype="multipart/form-data" >
-		    <?php if (!isset($ret_id)) : ?>
-			<?php elseif (is_numeric($ret_id)) : ?>
-				<div class="alert alert-success fade in">
-				  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				  Το δρώμενο σας καταχωρήθηκε στο σύστημα με επιτυχία!
-				  <?php echo $errorMsg; ?>
-				</div>
-			<?php else : ?>
-				<div class="alert alert-danger fade in">
-				  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				  Υπήρξε κάποιο πρόβλημα, κατά την καταχώρηση του δρώμενου. Παρακαλείσθε όπως επικοινωνήσετε μαζί μας.
-				</div>
-			<?php endif; ?>
-			<div class="form-group">
-			  <label class="control-label col-sm-2" for="eventTitle">Τίτλος Δρώμενου</label>
-			  <div class="col-sm-10">
-				<input type="text" class="form-control" id="eventTitle" name="eventTitleN" placeholder="π.χ. Γλέντι Χορευτικού Σύλλογου Χανίων" required/>
-			  </div>
-			</div>
-			
-			<div class="form-group">
-			  <label class="control-label col-sm-2" for="eventTitle">Εικόνα/ες</label>
-			  <div class="col-sm-4">
-			    <div class="input-group">
-                  <span class="input-group-btn">
-                    <span class="btn btn-info btn-file">
-                        Επιλογή&hellip; <input type="file" name="eventImageN" accept="image/*" multiple>
-                    </span>
-                  </span>
-                  <input type="text" class="form-control" readonly/>
-				</div>
-			  </div>
-			  
-			  <label class="control-label col-sm-2" for="eventDate">Ημερομηνία</label>
-			  <div class="col-sm-4">
-			  		<div class="input-group date form_datetime" data-date-format="dd MM yyyy - HH:ii" data-link-field="dtp_input1">
-                    <input class="form-control" type="text" value="" readonly required>
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                </div>
-				<input type="hidden" id="dtp_input1" name="dateSelector" value="" />
-			  </div>
-			</div>
-			
-			<div class="form-group">
-			  <label class="control-label col-sm-2" for="eventPlace">Τοποθεσία</label>
-			  <div class="col-sm-10" id="placeGlyph">
-				<input type="text" class="form-control inline" id="eventPlace" name="eventPlaceN" placeholder="π.χ Κουρνάς Χανίων" required/>
-				<span class="glyphicon form-control-feedback"></span>
-				<input type="hidden" id="eventLng" name="eventLngN" /><input type="hidden" id="eventLat" name="eventLatN" />
-			  </div>
-			</div>
-			
-			<div class="form-group">
-				<label class="control-label col-sm-2" for="eventDescription">Περιγραφή<br/>(τουλ. 40 λέξεις)</label>
-				<div class="col-sm-10">
-				  <!-- <textarea class="form-control" rows="10" id="eventDescription" name="eventDescriptionN" placeholder="Αναλυτικά οι πληροφορίες για το δρώμενο." lang="el" spellcheck="true" required></textarea>-->
-				  <textarea class="form-control" rows="10"  name="summernote" id="summernote" placeholder="Αναλυτικά οι πληροφορίες για το δρώμενο." lang="el" spellcheck="true" ></textarea>
-				</div>
-				<div class="row"><div class="col-sm-offset-2 col-sm-10" id="wordsInfo"></div></div>
-			</div>
-			<div class="form-group">
-			  <label class="control-label col-sm-2" for="eventEmail">E-mail</label>
-			  <div class="col-sm-10">
-				<input type="text" class="form-control" id="eventEmail" name="eventEmailN" placeholder="π.χ nikos@hotmail.com" required />
-			  </div>
-			</div>
-			<div class="form-group">        
-			  <div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-block btn-primary" id="enterEvent">Καταχώρηση Δρώμενου</button>
-			  </div>
-			</div>
-		  </form>
-		</div>
-	  </div></div>
 	</div>
 <?php require($_SERVER['DOCUMENT_ROOT']."/inc/common_resources.php"); ?>
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" property="stylesheet">
