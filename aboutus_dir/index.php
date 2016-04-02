@@ -10,11 +10,11 @@
 
 <body>
 	<?php require("../inc/header.php"); ?>
-	<div class="hidden-xs">
-	  <?php require("../inc_view/topSearchEnginePost.php"); ?>
-	</div>
-	<div class="container" id="message" align="center">
-	  <div class="row result">
+	
+	<div class="container custom-container" align="center">
+	  <div class="row">
+	  <div class="col-sm-9">
+	  <div class="row global-column global-main-column">
 		<div class="col-md-6">
 			<h1 class="basic-heading">Σχετικα με εμας</h1><hr/>
 			<div class="contact-text">
@@ -46,6 +46,13 @@
 
 		  </form>
 		</div>
+		</div>
+	  </div>
+	  <div class="col-sm-3">
+	  			<div class="global-column global-right-column">
+	  				<?php require($_SERVER['DOCUMENT_ROOT']."/inc_view/topSearchEngineRight.php"); ?>
+	  			</div>
+	  		</div>
 	  </div>
 	</div>
 <?php require($_SERVER['DOCUMENT_ROOT']."/inc/common_resources.php"); ?>
