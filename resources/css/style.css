@@ -61,7 +61,7 @@ hr {
 .eventDetails, .result, .home-columns  {
 	border-style: solid;
 	border-width: thin;
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 	padding: 5px;
 	background-color: #fff;
 }
@@ -536,6 +536,9 @@ a.captionOrange:hover {
 	.event-location{
 		float: right;
 	    margin-left: 20px;
+	}
+	.home-right-se{
+		padding-right:0px;
 	}
 }
 @media(min-width:768px){

@@ -22,19 +22,21 @@
 
 <body>
 	<?php require('header.php'); ?>
-	<div class="hidden-xs">
-	  <?php require('topSearchEnginePost.php'); ?>
-	</div>
-	<div class="container" id="message">
+	
+	<div class="container custom-container" align="center">
 	  <div class="row">
-	    <div class="col-md-12 main-landing-message">
-		
+	    <div class="col-md-9 main-landing-message1" style="padding-bottom:36px; margin-left:0px;margin-right:0px;">
 		<h1 class="basic-heading">Κρητικες Εκδηλωσεις &amp; Δρωμενα</h1>
-		<ul>
-			<li>Καταχωρήστε εντελώς δωρεάν την εκδήλωση που οργανώνετε.</li>
-			<li>Αναζητήστε εύκολα τις μουσικές και πολιτιστικές εκδηλώσεις που σας ενδιαφέρουν.</li>
-			<li>Στηρίξτε την προσπάθειά μας να διαδώσουμε την Κρητική μας παράδοση.</li>
-		</ul>
+			<ul>
+				<li>Καταχωρήστε εντελώς δωρεάν την εκδήλωση που οργανώνετε.</li>
+				<li>Αναζητήστε εύκολα τις μουσικές και πολιτιστικές εκδηλώσεις που σας ενδιαφέρουν.</li>
+				<li>Στηρίξτε την προσπάθειά μας να διαδώσουμε την Κρητική μας παράδοση.</li>
+			</ul>
+		</div>
+		<div class="col-md-3 home-right-se">
+  			<div class="global-column home-right-column">
+  				<?php require($_SERVER['DOCUMENT_ROOT']."/inc_view/topSearchEngineRight.php"); ?>
+  			</div>
 		</div>
 	  </div>
 	  
@@ -45,11 +47,11 @@
 				<?php foreach($res as $row ) { ?>
 				  <div class="row">
 					<div class="home-events-title">
-						<? if($row['Url']): ?>
+						<?php if(isset($row['Url'])): ?>
 							<a href="/events/<?= $row['Url'] ?>"><?php echo $row['Title'] ?></a>
-						<? else: ?>
+						<?php else: ?>
 							<a href="/events/#event<?= $row['ID'] ?>"><?php echo $row['Title'] ?></a>
-						<? endif; ?>
+						<?php endif; ?>
 					</div>
 					<div class="home-events-date">
 						<?php echo $row['Date'] ?>
