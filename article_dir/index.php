@@ -19,21 +19,28 @@
 
 <body>
 	<?php require('header.php'); ?>
-	<div class="hidden-xs">
-	  <?php require('topSearchEnginePost.php'); ?>
-	</div>
-	<div class="container" id="message" align="center">
-		<div class="row result">
-			<div class="row evTitle">
-				<div class="col-xs-12">
-					<?php echo $row['Title'] ?>
-				</div>
-			</div><hr/>
-			<div class="col-xs-12">
-				<?php echo $row['JssorSlider']; ?>
-			</div>
-			<div class="col-xs-12 evDescription">
-				<?php echo $row['Text']; ?>
+	
+	<div class="container custom-container" align="center">
+		<div class="row">
+			<div class="col-md-9">
+				<div class="row global-column global-main-column">
+					<div class="row evTitle">
+						<div class="col-xs-12">
+							<?php echo $row['Title'] ?>
+						</div>
+					</div><hr/>
+					<div class="col-xs-12">
+						<?php echo $row['JssorSlider']; ?>
+					</div>
+					<div class="col-xs-12 evDescription">
+						<?php echo $row['Text']; ?>
+					</div>
+			  	</div>
+		  	</div>
+	  		<div class="col-md-3">
+	  			<div class="global-column global-md-right-column">
+	  				<?php require($_SERVER['DOCUMENT_ROOT']."/inc_view/topSearchEngineRight.php"); ?>
+	  			</div>
 			</div>
 	  	</div>
 	</div>	

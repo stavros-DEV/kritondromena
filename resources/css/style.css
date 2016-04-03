@@ -533,12 +533,23 @@ a.captionOrange:hover {
 	margin-bottom: 20px;
 }
 @media(min-width:992px){
+	.global-md-right-column{
+		top:100px;
+		position:fixed;
+		width: 25%;
+	}
 	.event-location{
 		float: right;
 	    margin-left: 20px;
 	}
 	.home-right-se{
 		padding-right:0px;
+	}
+}
+@media(max-width:992px){
+	.global-md-right-column{
+		top:10px;
+		position:relative;
 	}
 }
 @media(min-width:768px){
