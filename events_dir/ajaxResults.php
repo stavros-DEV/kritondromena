@@ -24,12 +24,16 @@
 <div id="defaultResults">
 	
 	<?php $i = 0; while($row = $res->fetch_assoc()) : ?>
-	  <div class="row result">
+	  <div class="row global-column global-main-column">
 		<div class="row evTitle">
 		  <div class="col-xs-12">
-			<?php echo $row['Title'] ?>
+			<?php if($row['Url']): ?>
+		  		<?php echo '<a href="/events/'.$row['Url'].'" title='.$row['Title'].'>'.$row['Title'].'</a>' ?>
+		  	<?php else: ?>
+				<?php echo $row['Title'] ?>
+			<?php endif; ?>
 			<div class="evDate">
-				Στις <?php echo $row['EventDate'] ?>
+				Στις <?php echo $row['Datetime'] ?>
 			</div>
 		  </div>	  
 		</div>
@@ -56,7 +60,12 @@
 		  </div>
 		
 		  <div class="col-xs-12 col-sm-7 evDescription" >
-			<?php echo $row['Description'] ?>
+			<?php if($row['Url']): ?>
+		  		<?php echo $row['Description'] ?>
+		  		<a href="/events/<?= $row['Url'] ?>" title="<?= $row['Title'] ?>" class="btn btn-block btn-default" >Περισσότερα</a>
+		  	<?php else: ?>
+				<?php echo $row['Description'] ?>
+			<?php endif; ?>
 		  </div>
 		</div>
 			

@@ -15,13 +15,11 @@
 
 <body>
 	<?php require('header.php');	?>
-	<div class="hidden-xs">
-	  <?php require('topSearchEngine.php'); ?>
-	</div>
-	<div class="container" id="message" align="center">
+	
+	<div class="container custom-container" align="center">
 	  <div class="row">
-		<div class="col-xs-12">
-		  <div class="main-landing-message">
+		<div class="col-md-9">
+			<div class="main-landing-message1" style="padding-bottom:10px; margin-left:0px;margin-right:0px;">
 			<h1 class="basic-heading">Αναζητηστε Κρητικες βραδιες και εκδηλωσεις</h1>
 			<p>Αναζητήστε εύκολα τις μουσικές βραδιές, εκδηλώσεις δρώμενα που σας ενδιαφέρουν.</p>
 			<div class="result-description">
@@ -34,7 +32,6 @@
 			?>
 				Ημερομηνία: <?php echo $_POST['dateSelector']; ?>, Τοποθεσία: <?php echo $location; ?>
 			<?php endif; ?> 
-			
 			</div>
 		  </div>
 		  <?php 
@@ -52,17 +49,17 @@
 		  $events = new Event();
 		  $res = $events->getEventsByDate( date( "Y-m-d", time() - 60 * 60 * 24 ) );
 		  ?>
-		  <div id="defaultResults">
+		  
 		  <?php $i = 0; foreach( $res as $row ) { ?>
 		  
-		  <div class="row result <?= $row['ID'] ?>">
+		  <div class="row global-column global-main-column <?= $row['ID'] ?>">
 		    <div class="row evTitle">
 			  <div class="col-xs-12">
-			  	<? if($row['Url']): ?>
+			  	<?php if($row['Url']): ?>
 			  		<?php echo '<a href="/events/'.$row['Url'].'" title='.$row['Title'].'>'.$row['Title'].'</a>' ?>
-			  	<? else: ?>
+			  	<?php else: ?>
 					<?php echo $row['Title'] ?>
-				<? endif; ?>
+				<?php endif; ?>
 				<div class="evDate">
 					Στις <?php echo $row['Datetime'] ?>
 				</div>
@@ -89,21 +86,27 @@
 				</div>
 			  </div>	
 			  <div class="col-xs-12 col-sm-7 evDescription" >
-			  	<? if($row['Url']): ?>
+			  	<?php if($row['Url']): ?>
 			  		<?php echo $row['Description'] ?>
 			  		<a href="/events/<?= $row['Url'] ?>" title="<?= $row['Title'] ?>" class="btn btn-block btn-default" >Περισσότερα</a>
-			  	<? else: ?>
+			  	<?php else: ?>
 					<?php echo $row['Description'] ?>
-				<? endif; ?>
+				<?php endif; ?>
 			  </div>
 			</div>
 			
 		  </div>
 		  <?php $i++; } ?>
-		  </div>
+		  
 		  <?php endif; ?>
 		  <div id="ajaxLoading"></div>
 		  <div id="ajaxResults"></div>
+		  
+		</div>
+		<div class="col-md-3">
+  			<div class="global-column global-md-right-column">
+  				<?php require($_SERVER['DOCUMENT_ROOT']."/inc_view/topSearchEngineRight.php"); ?>
+  			</div>
 		</div>
 	  </div>
 	</div>
