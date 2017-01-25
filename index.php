@@ -1,10 +1,10 @@
 <?php
 	header('Content-Type: text/html; charset=utf-8');
 	require("inc/common.php");
-	
+
 	$events = new Event();
 	$res = $events->getEventsByDate( date( "Y-m-d", time() - 60 * 60 * 24 ) );
-	
+
 	$article = new Article();
 	$resart = $article->getArticles();
 ?>
@@ -22,8 +22,21 @@
 
 <body>
 	<?php require('header.php'); ?>
-	
+
 	<div class="container custom-container" align="center">
+
+		<div class="row responsive-banner">
+		  <div class="col-xs-12">
+		    <script type="text/javascript" src="http://go.linkwi.se/delivery/js/crl.js"></script>
+		    <script type="text/javascript">
+		      LinkwiseCreative.show("11688-94", "CD21194", "_blank");
+		    </script>
+		    <noscript>
+		<iframe id="lkws_5888dc54e03f3" name="lkws_5888dc54e03f3" src="http://go.linkwi.se/delivery/ih.php?cn=11688-94&amp;an=CD21194&amp;target=_blank&amp;" style="max-width: 100%; height: auto;" scrolling="no" frameborder="0"></iframe>
+		</noscript>
+		  </div>
+		</div>
+
 	  <div class="row">
 	    <div class="col-md-9 main-landing-message1" style="padding-bottom:36px; margin-left:0px;margin-right:0px;">
 		<h1 class="basic-heading">Κρητικες Εκδηλωσεις &amp; Δρωμενα</h1>
@@ -39,7 +52,7 @@
   			</div>
 		</div>
 	  </div>
-	  
+
 	  <div class="row">
 		<div class="col-md-6 home-custom-column">
 			<div class="home-columns home-left-column">
@@ -47,7 +60,7 @@
 				<?php foreach($res as $row ) { ?>
 				  <div class="row">
 					<div class="home-events-title">
-						<?php if(isset($row['Url'])): ?>
+						<?php if(isset($row['Url']) && !empty($row['Url'])): ?>
 							<a href="/events/<?= $row['Url'] ?>"><?php echo $row['Title'] ?></a>
 						<?php else: ?>
 							<a href="/events/#event<?= $row['ID'] ?>"><?php echo $row['Title'] ?></a>
@@ -60,7 +73,7 @@
 				<?php } ?>
 			</div>
 		</div>
-		
+
 		<div class="col-md-6 home-custom-column">
 			<div class="home-columns home-right-column">
 				<div class="evTitle"><h3>Κείμενα (<?php echo count($resart); ?>)</h3></div><hr/>
@@ -81,7 +94,7 @@
 			</div>
 		</div>
 	  </div>
-	
+
 	</div>
 <?php require('common_resources.php'); ?>
 </body>

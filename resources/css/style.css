@@ -24,12 +24,12 @@ hr {
 .event-heading h1 {
 	font-size: 25px !important;
 }
- 
-.main-landing-message li{ 
+
+.main-landing-message li{
   padding:3px
 }
 
-.main-landing-message1 li{ 
+.main-landing-message1 li{
   padding:3px
 }
 
@@ -38,7 +38,7 @@ hr {
 	top: 100px;
 	margin-left: auto;
 	margin-right: auto;
-	
+
 }
 
 .main-landing-message{
@@ -175,19 +175,19 @@ button {
 		padding-right: 15px;
 		margin-left: 0px;
   	}
-	
+
 	#message{
 		width: 960px;
 	}
-	
+
 	.main-landing-message{
 		width: 960px;
 	}
-	
+
 	.eventDetails{
 		width: 960px;
 	}
-	
+
   	body{
   		background:url(../images/site/sougia1.jpg) center center no-repeat;
 		background-attachment:fixed;
@@ -196,7 +196,7 @@ button {
 		-o-background-size: cover;
 		background-size: cover;
 	}
-	
+
 	.home-right-column {
 		margin-left:10px;
 	}
@@ -204,7 +204,7 @@ button {
 	.home-left-column {
 		margin-right:10px;
 	}
-	
+
 	.main-landing-message ul{
 		margin: 0 auto;
 		text-align: left;
@@ -212,7 +212,7 @@ button {
 		border-left-style: solid;
 	  	border-color: #000063;
 	}
-	
+
 	.main-landing-message1 ul{
 		margin: 0 auto;
 		text-align: left;
@@ -220,7 +220,7 @@ button {
 		border-left-style: solid;
 	  	border-color: #000063;
 	}
-	
+
 	.contact-form-right{
 		margin-top: 20px;
 		margin-bottom: 20px;
@@ -509,7 +509,7 @@ a.captionOrange:hover {
 .jssora05r:hover { background-position: -190px -40px; }
 .jssora05l.jssora05ldn { background-position: -250px -40px; }
 .jssora05r.jssora05rdn { background-position: -310px -40px; }
-    
+
 .art-img {
 	max-width: 600px;
 }
@@ -520,7 +520,7 @@ a.captionOrange:hover {
 /*NEW DESIGN RULES*/
 .custom-container {
 	position: relative;
-	top: 100px;
+	top: 60px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -576,7 +576,7 @@ a.captionOrange:hover {
   	border: #000;
   	width: inherit;
   	display: initial;
-    
+
     margin-top: 12px;
   	position: absolute;
   	padding:0px;
@@ -647,4 +647,13 @@ a.captionOrange:hover {
 
 .note-editable{
 	text-align: left;
+}
+
+.responsive-banner {
+	margin-bottom: 10px;
+}
+
+.responsive-banner * {
+	max-width: 100%;
+	height: auto;
 }
